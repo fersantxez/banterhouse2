@@ -1,12 +1,12 @@
 # Contratos iniciales de implementación
 
-Estos contratos reducen decisiones improvisadas. Los valores nuevos son puntos de partida del laboratorio; se pueden ajustar en una revisión de juego registrada. Mantener los parámetros en un único `src/core/tuning.h` y exportar sus valores al manifiesto del build. Un cambio de contrato actualiza sus casos de prueba y la decisión correspondiente.
+Estos son los requisitos de implementación. Los valores iniciales se pueden ajustar después de probarlos, registrando el motivo. Mantener los parámetros en un único `src/core/tuning.h` y exportar sus valores al manifiesto del build. Un cambio de contrato actualiza sus casos de prueba y la decisión correspondiente.
 
 ## C1 Separación de módulos
 
 La simulación en `src/core/` no incluye CPCTelera, reloj, AY, VRAM ni FDC. Se compila como el mismo C para host y Z80. Usar `stdint.h`, tamaños explícitos, arrays acotados y ninguna asignación dinámica, recursión o coma flotante durante gameplay.
 
-Interfaces propias de partida, no funciones existentes del SDK:
+Interfaces propuestas para el juego, que habrá que implementar:
 
 ```c
 void sim_reset(GameState *s, const LevelData *level, const Checkpoint *cp);

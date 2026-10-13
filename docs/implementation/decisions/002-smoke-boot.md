@@ -6,7 +6,7 @@ El perfil `tests/cpc/smoke/` construye `build/smoke/SMOKE.dsk` sin reutilizar el
 
 `cfg/memory.json` define código `&0100–&77FF`, globales `&7800–&7BFF`, pila reservada `&7CF0–&7FEF` (768 bytes), guardia inferior de 256 bytes, fondo limpio `&8000–&BFFF` y pantalla Mode 0 `&C000–&FFFF`. El verificador consume símbolos de SDCC del mapa real, valida las páginas de vídeo y el bootstrap, y rechaza mapas sintéticos inválidos. Para el smoke, el código ocupa `&0100–&02E2` y los datos residentes `&7800–&7801`; el mapa del juego ocupa código hasta `&4F36` y globales hasta `&786D`.
 
-## Evidencia ejecutada
+## Pruebas realizadas
 
 - `make smoke-boot`: binario de 483 bytes, DSK catálogo legible y carga a `&0100`; mapa smoke aceptado; los negativos de overflow de código, fuga de datos, bootstrap fuera del código y bootstrap que pisa datos son rechazados.
 - Caprice32 4.6.0, modelo CPC 6128 y 128 KiB: marca del smoke visible después del autocmd; eso verifica en esta ejecución el valor C→ASM y el umbral de 256 bytes de canario. No mide el máximo de todos los caminos futuros ni de una ISR.

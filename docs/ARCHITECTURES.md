@@ -1,10 +1,10 @@
 # Tres arquitecturas candidatas para 128 KiB
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-2026-10-10. **Todo este documento es [P] diseño propuesto**, salvo límites de hardware y aritmética indicados. No son mapas del binario enlazado ni mediciones de FPS. KiB = 1.024 bytes. Presupuestos comprobables en [memory-budgets.json](../research/memory-budgets.json).
+10 de octubre de 2026. Propuestas de distribución de memoria, con cálculos de espacio y tiempo. En esa fecha aún no se habían probado con un ejecutable. KiB = 1.024 bytes. Las reservas están en [memory-budgets.json](../research/memory-budgets.json).
 
-La [aclaración creativa](CREATIVE_DIRECTION.md) cambia su uso: estas tres candidatas son ejemplos técnicos, no una elección de género o cámara. Primero se exploran reglas y respuesta al control. Las cuotas de 25 Hz de B/C son escenarios de coste; no constituyen una aceptación de esa cadencia para un juego de acción rápida.
+Según la [dirección creativa](CREATIVE_DIRECTION.md), primero se prueban las reglas y los controles. Estas opciones técnicas se compararán después. Los cálculos a 25 Hz de B/C sirven para estimar el coste; esa frecuencia todavía tendría que probarse jugando.
 
 El [plan de campaña en disco del 11 de octubre](DISK_CONTENT_PLAN.md) toma A como punto de partida para probar paquetes y propone subdividir sus 8 KiB de lógica en 4 KiB fijos y 4 KiB de overlay. No cambia estas reservas históricas ni acredita un mapa de linker; B/C siguen como alternativas condicionadas a resultados.
 
@@ -86,7 +86,7 @@ Es la candidata de mayor riesgo. **No es doble búfer**: los 32 KiB forman almac
 | RAM7 | 4000 en C7 | Caché de zona/paquetes 12 + tiras de borde 2 + margen 2 | 16 |
 | **Suma física** | | **16 núcleo + 48 vídeo reservado + 64 paginados** | **128** |
 
-La reserva de HUD de 16 KiB evita fingir que 16 líneas se alojan siempre en 1.280 bytes contiguos con el addressing CPC habitual. Podrá reducirse cuando se pruebe un layout concreto. La RAM1 oculta a CPU sigue disponible para vídeo; se actualiza HUD sólo al volver a C0.
+Se reservan 16 KiB para el HUD porque, con el direccionamiento habitual del CPC, sus 16 líneas no tienen por qué ocupar 1.280 bytes contiguos. Podrá reducirse cuando se pruebe un layout concreto. La RAM1 oculta a CPU sigue disponible para vídeo; se actualiza HUD sólo al volver a C0.
 
 Primera prueba: scroll grueso con cámara de recorrido fijo, sólo luego suavidad de un píxel si compensa. El origen CRTC y el puntero CPU se calculan por separado. Restaurar actores por posición física previa antes de reutilizar tiras; regenerar tiles de fondo en el área sucia. Con scroll fino/rupturas, no asumir una simple suma lineal de 32 KiB ni R12/R13 idénticos entre CRTCs. La prueba de wrap, split y reversión de cámara precede a producir niveles.
 

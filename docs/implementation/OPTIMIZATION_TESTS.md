@@ -2,7 +2,7 @@
 
 Especificaciones para implementar, **no resultados ejecutados**. Cada OP termina en `pass/fail/blocked` con evidencia. Contratos C y pruebas B/P/K/R/Q/U/O/Z en [CONTRACTS.md](CONTRACTS.md) y [TESTS.md](TESTS.md). Las tareas creadoras se definen en [OPTIMIZATION_TASKS.md](OPTIMIZATION_TASKS.md).
 
-## Oráculos y entorno
+## Resultados de referencia y entorno
 
 Imagen: compositor host independiente por píxel y volcado real del Z80. Estado: serialización campo a campo por tick y casos pequeños calculados independientemente. Tiempo: ciclos CPC emulados verificados, nunca duración de Python. Memoria: mapa enlazado, guardas y máximo observado de pila. Dos renderers con el mismo error no quedan aprobados por coincidir entre sí.
 

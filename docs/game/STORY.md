@@ -1,34 +1,28 @@
-# Todo para ayer
+# Historia y personajes
 
-[Volver a la guía](../README.md) · [Cómo jugar](PLAYING.md)
+Alberto ha prometido una campaña en todos los formatos y en todas partes antes de las seis. El Presidente presenta una máquina para organizarla: **El Plan Perfecto**. Conecta reprografía, producción, reparto y la presentación al cliente.
 
-Alberto ha vendido una campaña que tiene que estar en todas partes antes de las seis. Todas las versiones. Todos los formatos. Todas las ubicaciones. El Presidente tiene la solución: **El Plan Perfecto**, una máquina que conecta reprografía, producción, reparto y la presentación final.
+El problema es que cada corrección genera más encargos. Cuando a Pitu le llega una hoja que dice «Revisar todas las revisiones», coge el sello **DEVUELTO** y empieza por la fotocopiadora.
 
-El primer botón pone en marcha la cadena. El segundo encargo corrige al primero. El tercero corrige al segundo. De una fotocopiadora empieza a salir una avalancha de papel.
+## Los cuatro capítulos
 
-A Pitu le llega una hoja: «Revisar todas las revisiones».
-
-Mira por encima de las gafas y coge el sello **DEVUELTO**.
-
-## Una agencia, cuatro problemas
-
-| Capítulo | Qué está pasando |
+| Capítulo | Argumento |
 |---|---|
-| **Copias infinitas** | Hay que detener la multiplicación de encargos antes de que Alberto venda otra versión. |
-| **Producción urgente** | Art y Carlitos descubren que la máquina sigue cambiando lo que ya estaba aprobado. |
-| **La campaña sale a la calle** | El trabajo invade la ciudad. Toca cortar la distribución. |
-| **Purple Paper** | El Presidente va a presentar el desastre como un éxito. Pitu debe devolverle el encargo original. |
+| Copias infinitas | Pitu intenta parar las fotocopiadoras mientras Alberto sigue vendiendo versiones. |
+| Producción urgente | Art y Carlitos descubren que las máquinas cambian incluso lo que ya estaba aprobado. |
+| La campaña sale a la calle | Los encargos han salido de la agencia. Hay que cortar la distribución. |
+| Purple Paper | El Presidente se dispone a presentar el resultado. Pitu debe devolverle el encargo original, con su firma. |
 
-Pitu y Alberto enlazan con [el primer Banterhouse](https://github.com/fersantxez/banterhouse). Esta secuela busca otra forma de jugar: movimiento, salto y devolución en arenas de pantalla fija. La continuidad está en los personajes y el humor de agencia.
+Pitu y Alberto vienen del [primer Banterhouse](https://github.com/fersantxez/banterhouse). Los sprites de ambos sirven de referencia para dibujar al resto del reparto de *Creatas y Ejecutas*.
 
-## Color, papel y pop
+## Referencias visuales
 
-Los sprites de Pitu y Alberto fijan las proporciones y la legibilidad. El mundo se llena de bloques de color, fotocopiadoras imposibles y guiños al pop de los ochenta: Prince, escenarios violetas, carteles, amplificadores y un exceso de entusiasmo comercial.
+Buscamos una estética de videojuego de los ochenta, con colores planos y personajes que se distingan bien del fondo. Prince es la referencia principal del último capítulo: violetas, amplificadores, focos y un escenario de concierto. También hay propuestas de carteles y decorados inspirados en Madonna, Bowie, Haring y Memphis.
 
-Las referencias culturales inspiran el ambiente. La música actual es una composición generada para el proyecto; no es una grabación ni una transcripción de Prince o Madonna.
+La música del prototipo está compuesta para el juego. No utiliza grabaciones ni transcripciones de Prince o Madonna.
 
-## Qué puedes ver ya
+## Qué está hecho
 
-El prototipo recorre cuatro ambientes y 24 arenas. Esta historia explica la dirección narrativa: no afirma que estén implementadas todas las viñetas, los personajes secundarios, las máquinas especiales o el cambio de cara de disco planteados durante el diseño. La versión técnica utiliza un solo DSK con cuatro recursos de capítulo.
+El disco permite recorrer cuatro ambientes y 24 pantallas. Todavía faltan las viñetas, los encuentros especiales y buena parte del reparto descritos en esta historia. Usa un solo DSK; la propuesta inicial de cambiar de cara a mitad de la campaña tampoco está implementada.
 
-El [documento de estructura narrativa](../STORY_STRUCTURE.md) conserva la propuesta detallada. El [estado actual](../STATUS.md) indica qué está construido y qué falta.
+El guion detallado está en [STORY_STRUCTURE.md](../STORY_STRUCTURE.md). Para consultar el desarrollo del juego, lee [Estado del proyecto](../STATUS.md).

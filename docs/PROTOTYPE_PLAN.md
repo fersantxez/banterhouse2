@@ -1,12 +1,12 @@
-# Prototipo comparativo y siguientes pasos
+# Plan de prototipos
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-Especificación propuesta, 2026-10-10. **No implementado aún**. La investigación y las pruebas host de [research](../research/README.md) están terminadas; no confundirlas con este futuro ejecutable CPC.
+Propuesta del 10 de octubre de 2026. En esa fecha estaban terminadas las pruebas del ordenador descritas en [research](../research/README.md), pero faltaba implementar estos prototipos en CPC.
 
 Secuencia operativa detallada: [plan de implementación y pruebas](IMPLEMENTATION_PLAN.md), con tareas, contratos, casos y seguimiento para el modelo ejecutor. Este documento conserva la especificación de los experimentos y las alternativas técnicas.
 
-## Primera pregunta: qué apetece jugar
+## Objetivo de las pruebas
 
 La [dirección creativa actualizada](CREATIVE_DIRECTION.md) prevalece: reglas nuevas, control inmediato, ritmo y diversión, con ambición gráfica y artística. Antes de comparar renderers, encontrar una interacción que resulte satisfactoria jugando. No se heredan la campaña, la oficina, el HUD, la cámara ni el tamaño de personajes del primer juego.
 
@@ -28,7 +28,7 @@ Registrar observaciones de partidas reales: comprensión de controles, fallos qu
 
 Medir entrada→cambio de estado, entrada→primer cambio visible y entrada→sonido. Registrar mediana, p95 y máximo, con configuración de teclado/joystick, emulador y buffers de audio/vídeo. No confundir lectura a 50 Hz con latencia de presentación, ni tiempo de simulación con latencia física extremo a extremo. Buscar presentación a 50 Hz como objetivo inicial, sin prometerla. Una alternativa a 25 Hz requiere evaluar jugando sus consecuencias; no se aprueba automáticamente por mostrar más detalle.
 
-Salida de esta fase: bucle jugable candidato, reglas/control descritos, evaluación real pendiente o realizada explícitamente y una carga visual representativa. **La arquitectura se elige para ese juego.**
+Salida de esta fase: bucle jugable candidato, reglas/control descritos, evaluación real pendiente o realizada explícitamente y una carga visual representativa. La elección de arquitectura se hará después de probarlo.
 
 ## Prueba de paquetes antes de producir campaña
 

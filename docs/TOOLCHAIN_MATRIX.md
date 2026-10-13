@@ -1,6 +1,6 @@
 # Matriz de herramientas y decisión provisional
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
 Fecha de consulta: 2026-10-10. **[V]** disponibilidad/capacidad declarada; **[M]** ejecución local; **[I]** valoración. Una fecha de commit demuestra actividad en ese repositorio, no soporte garantizado ni rendimiento. Registro de SHA completos: [upstream-metadata.json](../research/results/upstream-metadata.json).
 

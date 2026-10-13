@@ -1,6 +1,6 @@
 ---
 name: Error del juego
-about: Pasos reproducibles, build y entorno
+about: Describe el fallo y cómo repetirlo
 ---
 
 ## Qué ocurrió
@@ -18,6 +18,6 @@ about: Pasos reproducibles, build y entorno
 - Modelo, RAM y CRTC (si se conoce):
 - Arena y controles usados:
 
-## Evidencia
+## Capturas o registros
 
 Adjunta sólo material relacionado con la prueba. No incluyas ROM ni datos personales.

@@ -2,13 +2,13 @@
 
 Revisión 1 · 12 de octubre de 2026 (hora local del usuario; registros UTC pueden indicar día 13).
 
-Prioridad sobre E00–E04 y sobre continuar optimización/producción. Petición: los BIN entregados fallan, la primera pantalla suena sólo a beats y las pruebas dejan ventanas abiertas. Este documento prepara la implementación; escribirlo no ejecuta la reparación ni programa una sesión nocturna. Seguimiento: [AUTONOMOUS_STATUS.json](AUTONOMOUS_STATUS.json). Instrucción de ejecución continua: [AUTONOMOUS_EXECUTOR.md](AUTONOMOUS_EXECUTOR.md).
+Prioridad sobre E00–E04 y sobre continuar optimización/producción. Petición: los BIN entregados fallan, la primera pantalla suena sólo a beats y las pruebas dejan ventanas abiertas. El plan se redactó antes de ejecutar la reparación. Seguimiento: [AUTONOMOUS_STATUS.json](AUTONOMOUS_STATUS.json). Instrucción de ejecución continua: [AUTONOMOUS_EXECUTOR.md](AUTONOMOUS_EXECUTOR.md).
 
 ## Resultado exigido y límites
 
 Entregar un único DSK de juego identificable, un lanzador de doble clic que cargue ese mismo disco y una partida comprobada desde arranque frío hasta final y nueva partida. La primera fase tendrá música melódica pop ochentera y efectos distinguibles. Ningún paso técnico exige que Fernando pulse teclas, cierre ventanas, grabe vídeos o escuche para desbloquear la ejecución. El agente realiza las acciones y recoge evidencia; la valoración artística humana y el CPC físico conservan su estado pendiente.
 
-Reparar todas las fases incluidas en el producto actual; las 24 arenas no se convierten por ello en la campaña narrativa completa. No anunciar el juego de producción terminado mientras falten sus contenidos. No prometer una hora de finalización: trabajar secuencialmente hasta cumplir los criterios y, si existe un bloqueo externo real, dejar diagnóstico y continuación precisos. Una fecha límite nunca convierte un FAIL en PASS.
+Reparar las 24 arenas del prototipo. La campaña narrativa completa necesita trabajo adicional y debe seguir figurando como pendiente. No prometer una hora de finalización: trabajar secuencialmente hasta cumplir los criterios y, si existe un bloqueo externo real, dejar diagnóstico y continuación precisos. Conservar los fallos en el informe aunque se alcance la fecha prevista de entrega.
 
 ## Evidencia disponible y problemas del método anterior
 

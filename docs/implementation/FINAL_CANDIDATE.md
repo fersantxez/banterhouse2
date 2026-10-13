@@ -1,17 +1,17 @@
-# Disco jugable verificado en emulación
+# Registro del candidato del 12 de octubre
 
-> **Entrega pendiente de reparación (12 de octubre de 2026):** el usuario informa fallos de los BIN y música insuficiente. La aceptación anterior está retirada. Las verificaciones descritas debajo son históricas y no certifican la entrega actual. Seguir el [plan autónomo](AUTONOMOUS_REPAIR_PLAN.md); su implementación todavía está pendiente.
+> Registro histórico. Este candidato se rechazó el 12 de octubre por fallos de carga y problemas de música. La reparación se organizó en el [plan N00–N10](AUTONOMOUS_REPAIR_PLAN.md). El disco posterior está descrito en el [informe de entrega](../DELIVERY_REPORT.md).
 
 
-Registro del 12 de octubre de 2026 (13 de octubre UTC). Sustituye el candidato anterior. Alcance: prototipo de 24 arenas para CPC 6128 clásico de 128 KiB; no cierra la campaña narrativa ni los gates humanos del plan.
+Registro del 12 de octubre de 2026 (13 de octubre UTC). Sustituye el candidato anterior. Contiene el prototipo de 24 arenas para CPC 6128 clásico de 128 KiB. La campaña narrativa y las revisiones con jugadores seguían pendientes.
 
-## Abrir
+## Arranque usado en esa prueba
 
 Doble clic en `Jugar.command` desde Finder. Abre la aplicación local Caprice32 y monta **dist/Devuelto-CPC6128.dsk**. Esperar hasta 20 segundos; RUN e Intro son automáticos. `make run` abre ese mismo disco; `make run-candidate` abre build. En otro emulador CPC 6128: montar DSK y ejecutar `RUN"DEVUELTO.BIN"`.
 
 Espacio empieza. Flechas mueven, Arriba salta, Abajo atraviesa plataformas, X/Espacio devuelve, P pausa y R reinicia. D en el menú ejecuta la demo completa; R la cancela. La última sesión quedó en la primera arena pausada: P continúa.
 
-## Artefacto comprobado
+## Archivos comprobados
 
 - DSK: 204544 bytes; SHA-256 `667d79479f899607155e5de96c000f995b404ca8f7b56dd3c96b16763e41812a`.
 - BIN: 30646 bytes; carga `&0100`, entrada `_main` en `&265F`.

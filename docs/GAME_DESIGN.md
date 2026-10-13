@@ -1,32 +1,28 @@
 # Banterhouse 2 — ¡Devuelto!
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
 Diseño propuesto v0.2 · actualizado el 11 de octubre de 2026 · CPC 6128 clásico de 128 KiB.
 
-**Un plataformas arcade de saltos, esquivas y devoluciones: Pitu convierte los disparates de la agencia en proyectiles contra sus propias máquinas.** Cada pantalla debe dejarte pensando que podrías haberla resuelto de una forma más rápida, más elegante o más absurda.
+La propuesta es un plataformas en el que Pitu devuelve los papeles que disparan las máquinas para apagarlas. Cada pantalla ofrece varias rutas y permite elegir el orden de los objetivos.
 
-Este documento escoge una dirección concreta para desarrollar. Es una propuesta de diseño, no un juego implementado ni una declaración de diversión validada. El título es de trabajo. Los personajes existentes conservan identidad; los nuevos y sus papeles son propuestas. Los valores numéricos son puntos de partida para probar.
+Este documento recoge el diseño del 11 de octubre. El título, las reglas nuevas, los papeles del reparto y los valores numéricos se plantearon como propuestas para probar.
 
 Desarrollo de campaña: [historia y estructura de las 24 pantallas](STORY_STRUCTURE.md). Producción en disquete: [paquetes, memoria, cargas y cuotas por cara](DISK_CONTENT_PLAN.md).
 
-## 1. La experiencia que buscamos
+## 1. Jugabilidad
 
-Entras, lees el peligro, saltas una ráfaga, devuelves un expediente al vuelo, lo haces rebotar en un cartel y atascas una fotocopiadora. Su motor se para con un ruido ridículo. Aterrizas ya mirando al siguiente problema.
+La acción principal consiste en colocarse frente a un disparo y devolverlo. Los saltos, los enemigos y los paneles de rebote deben ofrecer distintas maneras de hacerlo. Estas son las reglas que queremos comprobar en los primeros prototipos:
 
-La diversión debe empezar en esa secuencia de pocos segundos. La campaña y la puntuación añaden motivos para dominarla. El juego no depende de diálogos para explicar por qué merece la pena moverse.
+1. **Control.** Caminar, cambiar de dirección y saltar no esperan a una animación vistosa. Se puede devolver un proyectil sin detenerse ni perder control aéreo.
+2. **Devolución.** Devolver sirve para defenderse, atacar máquinas, apartar enemigos y aprovechar rebotes. No hay inventario de herramientas ni combinaciones de botones diferentes para cada objeto.
+3. **Avisos.** Antes de disparar, una máquina avisa. Cada enemigo tiene una conducta reconocible. Los rebotes tienen trayectorias claras. El jugador puede explicar su error.
 
-Tres compromisos de diseño:
+Las animaciones y el sonido tienen que ayudar a leer la partida: aviso antes del disparo, cambio visible al devolver un papel y reacción de la máquina al recibirlo.
 
-1. **Pitu responde primero.** Caminar, cambiar de dirección y saltar no esperan a una animación vistosa. Se puede devolver un proyectil sin detenerse ni perder control aéreo.
-2. **Una acción produce muchas jugadas.** Devolver sirve para defenderse, atacar máquinas, apartar enemigos y aprovechar rebotes. No hay inventario de herramientas ni combinaciones de botones diferentes para cada objeto.
-3. **El caos se entiende.** Antes de disparar, una máquina avisa. Cada enemigo tiene una conducta reconocible. Los rebotes tienen trayectorias claras. El jugador puede explicar su error.
+## 2. Referencias CPC
 
-El despliegue artístico debe estar en la acción: personajes expresivos, máquinas que reaccionan, espacios con personalidad y sonido que hace palpable cada acierto. No se reduce la ambición a una portada elaborada.
-
-## 2. Referencias CPC y decisión propia
-
-La selección procede de instrucciones archivadas y testimonios de autores; no se han jugado ni cronometrado esas versiones durante esta sesión. Las enseñanzas de diseño son interpretaciones nuestras, no afirmaciones de sus autores sobre Banterhouse 2. Registro detallado: [referencias](GAME_REFERENCES.md).
+La selección procede de instrucciones archivadas y testimonios de autores; no se han jugado ni cronometrado esas versiones durante esta sesión. La aplicación a Banterhouse 2 es nuestra interpretación. Fuentes: [referencias](GAME_REFERENCES.md).
 
 | Referencia | Qué tomamos como inspiración | Aplicación aquí |
 |---|---|---|
@@ -69,7 +65,7 @@ Los enemigos apartados reaparecen por una entrada señalada mientras queden máq
 
 La primera devolución no exige acertar un frame perfecto: comenzamos con una ventana generosa. La destreza debe estar en colocarse y elegir el momento, no en descubrir un truco de precisión oculto. No hay premio adicional por «parry perfecto» en la versión inicial.
 
-### Evitar que el juego se convierta en esperar
+### Frecuencia de los disparos
 
 Cada máquina puede volver a emitir mientras su proyectil anterior exista, sujeto al límite global. Las oportunidades se alternan entre alturas y posiciones; los lugares seguros permiten aprender, pero no resuelven todas las máquinas desde un punto. Los proyectiles fallidos desaparecen al salir y las máquinas no agotarán su suministro. Siempre debe quedar una fuente capaz de alcanzar el último objetivo.
 
@@ -107,7 +103,7 @@ La tolerancia de salto no permite dobles saltos. Soltar salto limita velocidad a
 
 No añadir inercia resbaladiza, retroceso obligatorio ni pausas globales de impacto al baseline. Una colisión perdonable debe basarse en una caja estable, algo menor que la silueta; no medir impactos contra cada mechón de pelo. Las cajas, trayectorias y reglas se dibujarán en el modo de depuración.
 
-## 6. Una pantalla, de principio a fin
+## 6. Pantalla de prueba
 
 **«Tres copias, por favor»**, muestra propuesta, duración deseada de 30–60 segundos al aprender y menos al dominarla; no es un tiempo medido.
 
@@ -135,7 +131,7 @@ flowchart LR
 
 ## 7. Enemigos y personajes
 
-Los papeles siguientes son diseño nuevo; no se presentan como biografía canónica. Pitu, Alberto, Art, Carlitos y el Presidente conservan las referencias de identidad documentadas en el primer proyecto. No incorporar El Ente como personaje confirmado: allí figura como candidato pendiente.
+Estos son los papeles propuestos para la secuela. El aspecto y la identidad de Pitu, Alberto, Art, Carlitos y el Presidente se toman de las referencias del primer proyecto. El Ente sigue pendiente de confirmar.
 
 | Personaje | Conducta jugable | Lectura y respuesta |
 |---|---|---|
@@ -147,7 +143,7 @@ Los papeles siguientes son diseño nuevo; no se presentan como biografía canón
 | **Vera, Control de Calidad** — nueva, propuesta | Planta una barrera temporal y anuncia desde qué lado deja paso | Obliga a variar posición. Un papel devuelto la retira; no refleja proyectiles de forma sorpresiva |
 | **Rulo, Mensajería** — nuevo, propuesto | Cruza una línea con un carro y se retira | Timbre, puerta iluminada y ruta marcada. Obstáculo de ritmo, no perseguidor adicional complejo |
 
-**Ampliación visual desde el cómic:** primera hoja de Art, Carlitos y el Presidente (retirada del árbol fuente y conservada en el archivo creativo), con dos poses por personaje y Pitu/Alberto como anclas de estilo. Es un concepto pendiente de ajuste a sprites CPC. Priorizar este reparto documentado; Vera y Rulo permanecen como ideas originales opcionales, no personajes atribuidos a Creatas y Ejecutas.
+**Ampliación visual desde el cómic:** primera hoja de Art, Carlitos y el Presidente (retirada del árbol fuente y conservada en el archivo creativo), con dos poses por personaje y los sprites de Pitu y Alberto como referencia. Es un concepto pendiente de ajuste a sprites CPC. Priorizar este reparto documentado; Vera y Rulo permanecen como ideas originales opcionales, no personajes atribuidos a Creatas y Ejecutas.
 
 Primer prototipo: sólo Pitu, una máquina y después Alberto. Vera, Rulo y paneles móviles se añaden cuando el gesto básico ya funcione. Máximo inicial de tres agentes móviles además de Pitu y cuatro proyectiles; es un límite de escena propuesto, pendiente de medición CPC. Si hay saturación, una máquina aplaza su aviso/disparo; nunca aparece un proyectil sin aviso ni se borra uno visible para hacer hueco.
 
@@ -155,7 +151,7 @@ Primer prototipo: sólo Pitu, una máquina y después Alberto. Vera, Rulo y pane
 
 Alcance de contenido propuesto: **cuatro capítulos de seis pantallas**, 24 en total, cada sexta pantalla un encuentro especial. Primero se producen tres pantallas; las otras 21 dependen de que esa muestra resulte convincente. Las duraciones siguientes son objetivos de ritmo, no estimaciones de producción.
 
-| Capítulo | Fantasía visual | Variación principal |
+| Capítulo | Escenario | Variación principal |
 |---|---|---|
 | Copias infinitas | Sala de reprografía exagerada: papel, sellos y máquinas nerviosas | Devolución frontal, subir/bajar y elegir orden |
 | Producción urgente | Taller de decorados, pasarelas y carteles enormes | Rebotes en paneles fijos y rutas opcionales |
@@ -180,7 +176,7 @@ No se pierde la campaña por tardar. Al agotarse el bonus, se anuncia una única
 
 ## 10. Arte y puesta en escena
 
-**Dirección fijada por el usuario: el sprite de Pitu es la base visual. Videojuego de los 80, súper pop.** Todo el juego se construye alrededor de su lenguaje de píxel, proporciones, silueta y contrastes. La ambición gráfica consiste en dar vida y riqueza a ese mundo coherente.
+**Dirección fijada por el usuario: el sprite de Pitu es la base visual. Videojuego de los 80, súper pop.** Los personajes nuevos y los escenarios deben encajar con las proporciones, el píxel y los colores del sprite de Pitu.
 
 Referencia actual de fidelidad gráfica: [cuatro estudios CPC nativos](../assets/cpc-studies/README.md), dibujados en 160×200, codificados a VRAM Mode 0 y comprobados en el Mac, con los sprites canónicos. Comparten una arena provisional para comparar tratamientos artísticos; no son capturas de emulador ni prueban movimiento o rendimiento. Los conceptos generados anteriores (conservados fuera del repositorio) exageraban detalle y quedan sólo como inspiración.
 
@@ -226,7 +222,7 @@ Prince reaparece en el mundo: un póster pequeño en reprografía anticipa el pl
 
 **«Purple Paper», aplicación a una pantalla:** Pitu entra entre cajas de equipo y una moto violeta; las plataformas son tarimas y cajas de amplificador. Tres máquinas emiten papel con avisos claros. Un panel con forma de púa ofrece el rebote opcional. Tras la última devolución, cae una lluvia breve de papel violeta sobre el fondo oscuro, con Pitu y la salida legibles. La moto y la guitarra son utilería: la pantalla conserva las reglas ya aprendidas. Fondos y efectos se dibujan con el mismo lenguaje de bloques que el sprite canónico.
 
-### Espectáculo que responde a la jugada
+### Animaciones y efectos
 
 Una devolución provoca una estrella breve y un trazo limpio; el papel sellado cambia de marca y silueta legible. Una máquina se infla antes de disparar y se desarma cómicamente al recibir el encargo. Los carteles cambian de lema, los secundarios reaccionan y la última máquina puede soltar una cortina de expedientes. Los efectos grandes se reservan para cuando ya no quedan amenazas; durante la acción, el acierto se comunica sin tapar la siguiente decisión ni interrumpir el control.
 
@@ -240,7 +236,7 @@ La primera propuesta geométrica se retira. La dirección nueva es una **ilustra
 
 El derivado CPC recorta y reduce la ilustración a 160×200, la cuantiza a Mode 0 con la paleta CPC clásica y restaura a Pitu desde su recurso de juego. Ocupa 16.384 bytes de pantalla y 6.607 bytes comprimidos en el binario. El arranque la muestra durante 150 VSYNC tras cargar los datos y pasa automáticamente al menú. Disco y cinta tienen evidencia de arranque, bitmap y paleta exactos, transición al menú y comienzo de partida en Caprice32. Estado de las pruebas y límites: [pantalla de arranque](implementation/LOADING_SCREEN.md). Sigue pendiente la validación en CPC físico.
 
-## 11. Sonido como parte del control
+## 11. Sonido
 
 | Evento | Intención sonora | Regla |
 |---|---|---|
@@ -257,23 +253,23 @@ Dirección musical propuesta: funk y pop electrónico, bajo sincopado, golpes se
 
 AY con música que deja espacio a señales de juego. Prioridades propuestas: daño y peligro inminente, devolución, máquina, salto, bonus, pasos. Ensayar mezclas, no borrar sistemáticamente el sonido de salto por mantener acompañamiento. Ofrecer música apagada con efectos activos. Las notas/patrones se componen para este juego; no se copian músicas de las referencias.
 
-## 12. Arquitectura al servicio de esta propuesta
+## 12. Requisitos técnicos
 
 La acción depende de estado predecible: cálculo de colisión del sello antes del daño por proyectil en el mismo paso; trayectoria barrida o subpasos cuando una velocidad pueda atravesar un objetivo; prioridad explícita al colisionar con borde de panel/máquina. Paneles móviles bloquean orientación durante una devolución cercana. Los proyectiles devueltos no se convierten otra vez en hostiles en el alcance inicial.
 
 Objetivo técnico de exploración: simulación y presentación estables a 50 Hz nominales, con efectos sonoros atendidos independientemente del coste gráfico. Es un objetivo pendiente. Si no cabe, medir y optimizar áreas sucias, dibujo, cantidad de actores y efectos antes de aceptar pérdida de respuesta. 25 Hz se evalúa jugando y con latencia, no sólo como media de FPS.
 
-Recursos agrupados por capítulo: las cinco arenas normales comparten conjunto residente si cabe; el sexto escenario puede cargar un paquete específico de encuentro. Reintentos y fases del encuentro conservan sus recursos en RAM. Viñetas, capítulos y encuentros aprovechan transiciones para sustituir datos y código excluyentes; véase el [plan de disco](DISK_CONTENT_PLAN.md). Si el presupuesto demuestra que no cabe, reducir conjunto o reorganizar paquetes; no prometer reintento instantáneo sobre datos aún en disco. Los [mapas anteriores](ARCHITECTURES.md) deben reajustarse al contenido final; ninguna reserva de animación o núcleo queda certificada por este diseño.
+Recursos agrupados por capítulo: las cinco arenas normales comparten conjunto residente si cabe; el sexto escenario puede cargar un paquete específico de encuentro. Reintentos y fases del encuentro conservan sus recursos en RAM. Viñetas, capítulos y encuentros aprovechan transiciones para sustituir datos y código excluyentes; véase el [plan de disco](DISK_CONTENT_PLAN.md). Si el presupuesto demuestra que no cabe, reducir conjunto o reorganizar paquetes; no prometer reintento instantáneo sobre datos aún en disco. Hay que recalcular los [mapas de memoria](ARCHITECTURES.md) cuando estén disponibles los recursos finales.
 
 ## 13. Los tres primeros microprototipos
 
-Se estrecha la exploración anterior a pruebas de la propuesta elegida, conservando la posibilidad de descartarla antes de producir campaña.
+Los tres prototipos sirven para decidir si la devolución funciona antes de producir la campaña.
 
 | Prueba | Contenido | Pregunta para jugar |
 |---|---|---|
-| M0: moverse da gusto | Sprite canónico de Pitu como base, poses de prueba, apoyos, salto, caída y cinco marcas de recorrido; sonidos | ¿Apetece repetir el recorrido sin enemigos ni puntos? ¿Se aterriza donde se espera? |
+| M0: movimiento y salto | Sprite canónico de Pitu como base, poses de prueba, apoyos, salto, caída y cinco marcas de recorrido; sonidos | ¿Apetece repetir el recorrido sin enemigos ni puntos? ¿Se aterriza donde se espera? |
 | M1: la devolución | Una máquina, papel, sello, sonido y fallo/reintento | ¿Se entiende y resulta satisfactorio el gesto? ¿Se juega o se espera? |
-| M2: una buena jugada | Tres máquinas, un perseguidor, dos rutas y un panel | ¿Moverse y devolver forman una sola actividad? ¿Se descubren rutas mejores sin explicación externa? |
+| M2: pantalla completa | Tres máquinas, un perseguidor, dos rutas y un panel | ¿Moverse y devolver forman una sola actividad? ¿Se descubren rutas mejores sin explicación externa? |
 
 Para M1 comparar dos ventanas de acción y dos cadencias de disparo, cambiando una variable cada vez. Para M2 contrastar ruta frontal sin rebote y opción de rebote, no obligar al jugador a dominar ambas para opinar.
 
@@ -281,7 +277,7 @@ Después de pruebas reales, añadir a M2 arte exigente, música y reacciones. Vo
 
 **Criterios para detener o cambiar el concepto:** el gesto exige explicaciones repetidas; la espera domina; el jugador sólo pulsa acción sin moverse; enemigos tapan el proyectil; los rebotes parecen arbitrarios; el arte final vuelve ilegibles los saltos. Primero simplificar: quitar paneles móviles, presión temporal o efectos. Si la devolución sigue sin sostener una pantalla entretenida, cambiar la mecánica central antes de encargar el resto de niveles.
 
-## 14. Qué queda decidido y qué falta demostrar
+## 14. Decisiones y pruebas pendientes
 
 Propuesto para desarrollar: plataformas lateral, salto libre, una acción de devolución, objetivos de apagar máquinas, una protagonista, humor físico y reintento breve. Cámara completa como hipótesis inicial; campaña de cuatro capítulos como alcance condicionado.
 

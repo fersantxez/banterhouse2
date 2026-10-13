@@ -1,6 +1,6 @@
-# Instrucción lista para implementar y probar de forma continua
+# Instrucciones para la ejecución autónoma
 
-Este documento prepara la ejecución solicitada. No crea una automatización ni acredita que haya empezado. Copiar el bloque completo al ejecutor; no requiere preguntas técnicas al usuario para arrancar.
+Instrucciones preparadas para la reparación N00–N10. El estado de ejecución se guarda en `AUTONOMOUS_STATUS.json`. El bloque se puede copiar al agente encargado de continuar el trabajo.
 
 ```text
 Implementa y prueba de principio a fin la reparación autónoma de Banterhouse 2

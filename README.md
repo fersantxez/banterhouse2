@@ -1,35 +1,39 @@
 # Banterhouse 2 · ¡Devuelto!
 
-**Un sello, una agencia fuera de control y un Amstrad CPC.**
+Banterhouse 2 es un arcade para el **Amstrad CPC 6128 de 128 KiB**. Pitu y Alberto vuelven a la agencia de [Banterhouse](https://github.com/fersantxez/banterhouse), aunque esta vez se juega de otra manera: hay que saltar entre plataformas y devolver los papeles que disparan las máquinas hasta conseguir apagarlas.
 
-Pitu vuelve al trabajo. Alberto ha prometido todas las versiones de una campaña para antes de las seis y las fotocopiadoras no dejan de escupir encargos. Esta vez, Pitu ha encontrado una respuesta: **DEVUELTO**.
+La idea viene de las ganas de hacer un juego como los que recordamos del CPC: rápido, con controles sencillos y un sonido para cada salto y cada acierto. Chuckie Egg fue una de las primeras referencias. Los personajes vienen de *Creatas y Ejecutas*; el color y los guiños a Prince, del pop de los ochenta.
 
-Banterhouse 2 es un juego arcade en desarrollo para el **Amstrad CPC 6128 clásico de 128 KiB**. Corre, salta entre plataformas y devuelve el papel para apagar las máquinas. La idea es recuperar ese placer de los juegos de los ochenta: pocos controles, acciones rápidas y ganas de volver a intentarlo.
+![Pantalla de carga de Banterhouse 2](assets/loading/banterhouse2-loading-preview.png)
 
-[Descargar el disco](release/Devuelto-CPC6128.dsk) · [Cómo jugar](docs/game/PLAYING.md) · [La historia](docs/game/STORY.md) · [Cómo está hecho](docs/development/GETTING_STARTED.md) · [Toda la documentación](docs/README.md)
+*Pantalla de carga en Mode 0, ampliada a proporción 4:3.*
 
-![Portada de arranque convertida al formato gráfico del CPC](assets/loading/banterhouse2-loading-preview.png)
+## Jugar
 
-*La portada en formato CPC, ampliada a proporción 4:3. Es la imagen de arranque; no una captura de la partida.*
+El [disco incluido](release/Devuelto-CPC6128.dsk) contiene **24 pantallas repartidas en cuatro capítulos**, música, efectos y una demostración que recorre la campaña. Monta el DSK en un emulador configurado como CPC 6128 y escribe:
 
-## Nostalgia con trabajo pendiente
+```basic
+RUN"DEVUELTO.BIN"
+```
 
-La secuela conserva a Pitu, Alberto y el humor de agencia de [Banterhouse](https://github.com/fersantxez/banterhouse), y busca una jugabilidad nueva. El sprite de Pitu marca el estilo: color pop, siluetas claras y personajes de cómic. Prince y otros iconos de los ochenta aparecen como referencias para el mundo que estamos construyendo.
+Deja el disco montado: el juego carga el fondo de cada capítulo cuando lo necesita. En la [guía para jugar](docs/game/PLAYING.md) están los controles y las instrucciones completas.
 
-La aventura imaginada va de las copias infinitas a la producción, sale a la calle y termina en una presentación al cliente que nadie debería haber aprobado. [Aquí empieza la historia](docs/game/STORY.md).
+Es un prototipo. Se ha completado en emuladores, pero queda trabajo de diseño, gráficos e historia y todavía no se ha probado en un CPC físico. El [estado del proyecto](docs/STATUS.md) recoge lo que funciona y lo que falta.
 
-## Qué puedes probar
+## La historia
 
-Existe un **prototipo jugable de 24 arenas y cuatro capítulos**, con música AY, efectos, pausa, reintento y pantalla final. El disquete carga los recursos de cada capítulo según hacen falta; no tiene que caber toda la aventura en una sola carga.
+Alberto ha prometido una campaña en todos los formatos para antes de las seis. El Presidente pone en marcha una máquina para organizar el trabajo, y cada corrección acaba generando más encargos. Pitu decide devolver el original a quien lo firmó.
 
-Se ha recorrido la campaña técnica en emuladores. La historia completa y el acabado final siguen en desarrollo, y aún no hay validación en un CPC físico. [Estado y límites de la versión](docs/STATUS.md).
+La historia pasa por reprografía, producción y la calle antes de llegar a la presentación al cliente. [El argumento y los personajes](docs/game/STORY.md) están descritos aparte; aún no está todo incorporado al juego.
 
-La [guía del jugador](docs/game/PLAYING.md) explica el disco y los controles. El [disco listo para jugar](release/Devuelto-CPC6128.dsk) está incluido. También puedes construirlo desde las fuentes siguiendo [la primera compilación](docs/development/GETTING_STARTED.md).
+## Desarrollo
 
-## ¿Cómo se hace un juego así?
+Está escrito en C y ensamblador Z80, con CPCTelera. Incluimos el código, los recursos y las herramientas necesarias para reconstruir el disco.
 
-Con C, ensamblador Z80, CPCTelera y herramientas que convierten dibujos, niveles y música en datos que entiende el CPC. La documentación empieza por construir el disco y después sigue una partida por dentro: entrada, física, dibujo, sonido y cargas.
+- [Compilar el juego](docs/development/GETTING_STARTED.md)
+- [Código y funcionamiento](docs/development/ARCHITECTURE.md)
+- [Gráficos y música](docs/development/ASSETS_AND_AUDIO.md)
+- [Pruebas](docs/development/TESTING.md)
+- [Índice de documentación](docs/README.md)
 
-**[Entra por aquí para aprender cómo funciona](docs/README.md).** No hace falta leer los antiguos planes de ingeniería para empezar.
-
-[Colaborar](CONTRIBUTING.md) · [Créditos y procedencia](THIRD_PARTY.md) · [Nota de distribución](COPYING.md)
+[Colaborar](CONTRIBUTING.md) · [Créditos](THIRD_PARTY.md) · [Licencias](COPYING.md)

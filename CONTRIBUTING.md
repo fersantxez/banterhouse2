@@ -1,21 +1,23 @@
-# Colaborar en Banterhouse 2
+# Colaborar
 
-Empieza por [la primera compilación](docs/development/GETTING_STARTED.md) y [el mapa del código](docs/development/REPOSITORY.md). El objetivo es un CPC 6128 clásico de 128 KiB; no presupongas Plus ni expansiones.
+Para empezar, sigue las [instrucciones de compilación](docs/development/GETTING_STARTED.md). El [índice de archivos](docs/development/REPOSITORY.md) indica dónde está cada parte del juego. Trabajamos para un CPC 6128 clásico de 128 KiB, sin Plus ni expansiones.
 
-## Un cambio pequeño, una prueba que lo explique
+## Cambios de código
 
-1. Explica qué problema arreglas y qué verá el jugador.
-2. Cambia la entrada o el módulo responsable, sin editar a mano un generado si tiene generador.
-3. Ejecuta `make test-host` y las pruebas específicas del cambio.
-4. Si cambia el juego CPC, construye `make campaign-disk` y pruébalo en emulador.
-5. Ejecuta `make public-check` antes de preparar el commit.
+Explica qué problema resuelve el cambio y cómo lo has probado. Si un archivo tiene un generador, modifica la entrada y vuelve a generarlo.
 
-En una propuesta de cambio incluye el comportamiento anterior y nuevo, los comandos ejecutados y los límites de la prueba. No prometas rendimiento, compatibilidad física o calidad artística a partir de una compilación correcta.
+Antes de enviar una propuesta:
 
-## Evidencia y limpieza
+1. Ejecuta `make test-host` y los tests específicos del cambio.
+2. Si cambia el juego, compila con `make` y prueba ese disco en emulador.
+3. Ejecuta `make public-check` y revisa el diff.
 
-Guarda capturas y resultados bajo `research/runs/`, con el hash de la build. Cierra los procesos y ventanas creados por tu prueba incluso si falla. No borres evidencia antigua ni termines procesos de otras aplicaciones por nombre.
+Incluye los comandos usados y cualquier prueba que no hayas podido hacer. Guarda capturas y resultados en `research/runs/`, junto al hash del disco. Cierra los procesos y ventanas que hayas abierto, también cuando una prueba falle. Conserva los resultados anteriores.
 
-No incluyas ROM, MIDI privados, claves, sesiones personales ni paquetes de despliegue. Revisa [las atribuciones](THIRD_PARTY.md) antes de incorporar recursos externos.
+No subas ROM, MIDI privados, claves, sesiones personales ni archivos de despliegue. Consulta [los créditos](THIRD_PARTY.md) antes de añadir material de terceros.
 
-La documentación se escribe en español y debe separar hechos medidos, hipótesis y planes. Para un bug incluye DSK/hash, emulador/modelo, pasos, resultado esperado y observado; puedes usar la plantilla de incidencia.
+## Errores y documentación
+
+Para informar de un error, indica el disco y su hash, el emulador y modelo de CPC, los pasos para reproducirlo y qué ocurrió. Hay una plantilla de incidencia en GitHub.
+
+Escribimos la documentación en español. Usa títulos descriptivos, frases directas y ejemplos concretos cuando ayuden. Evita eslóganes, metáforas para explicar carpetas o comandos y frases de relleno. Si algo es una propuesta o sigue sin probarse, indícalo donde corresponda.

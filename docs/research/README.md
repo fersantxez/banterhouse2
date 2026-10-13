@@ -1,23 +1,21 @@
-# Investigación y decisiones
+# Investigación y diseño
 
-[Volver a la guía](../README.md)
+Estas notas recogen las propuestas y pruebas de las primeras etapas. Algunas ideas se descartaron y otras siguen pendientes. El funcionamiento actual está explicado en [Código y funcionamiento](../development/ARCHITECTURE.md); el trabajo pendiente, en [Estado del proyecto](../STATUS.md).
 
-Estos documentos conservan la evolución del proyecto. Las fechas y los verbos de propuesta importan: una técnica considerada no es una técnica implementada. Para saber qué existe hoy, empieza por [Estado](../STATUS.md) y [Arquitectura actual](../development/ARCHITECTURE.md).
+## Diseño
 
-## Diseño del juego
-
-- [Dirección creativa](../CREATIVE_DIRECTION.md): continuidad de personajes y nueva jugabilidad.
-- [Diseño propuesto](../GAME_DESIGN.md) y [referencias](../GAME_REFERENCES.md): reglas, inspiración y fuentes.
-- [Historia detallada](../STORY_STRUCTURE.md): cuatro capítulos y alcance narrativo propuesto.
-- [Plan de contenido en disco](../DISK_CONTENT_PLAN.md): cuotas candidatas; no son la ocupación de la build actual.
-- [Microprototipos](../PROTOTYPE_PLAN.md) y [playtest](../PLAYTEST.md): preguntas jugables y cómo observarlas.
+- [Dirección creativa](../CREATIVE_DIRECTION.md): personajes, controles y estilo visual.
+- [Diseño de ¡Devuelto!](../GAME_DESIGN.md) y [referencias](../GAME_REFERENCES.md).
+- [Historia y pantallas](../STORY_STRUCTURE.md).
+- [Plan de disco](../DISK_CONTENT_PLAN.md): estimaciones de memoria y espacio para la propuesta inicial.
+- [Prototipos](../PROTOTYPE_PLAN.md) y [pruebas con jugadores](../PLAYTEST.md).
 
 ## Tecnología
 
-- [Investigación técnica](../TECHNICAL_RESEARCH.md): fuentes primarias y límites.
-- [Matriz de herramientas](../TOOLCHAIN_MATRIX.md): alternativas que se estudiaron.
-- [Arquitecturas candidatas](../ARCHITECTURES.md): presupuestos propuestos.
-- [Hipótesis iniciales](../INITIAL_RESEARCH.md) y [encargo inicial](../KICKOFF_PROMPT.md): contexto histórico.
-- [Experimentos de investigación](../../research/README.md): cómo se obtuvieron cálculos y manifiestos.
+- [Investigación técnica](../TECHNICAL_RESEARCH.md).
+- [Herramientas estudiadas](../TOOLCHAIN_MATRIX.md).
+- [Arquitecturas propuestas](../ARCHITECTURES.md).
+- [Hipótesis iniciales](../INITIAL_RESEARCH.md) y [encargo inicial](../KICKOFF_PROMPT.md).
+- [Experimentos y resultados](../../research/README.md).
 
-Los nombres históricos se conservan para no romper contratos y referencias de herramientas. Este índice organiza su lectura; no reescribe una hipótesis como si fuera un resultado.
+Conservamos los nombres de archivo porque otras notas y herramientas los usan como referencia.

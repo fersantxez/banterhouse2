@@ -1,10 +1,10 @@
-# Comprobaciones reproducibles de la investigación
+# Pruebas de investigación
 
-> **Archivo de investigación inicial.** Las afirmaciones de pruebas pendientes pertenecen a la fecha de cada experimento. Para la entrega posterior, consulta [Estado](../docs/STATUS.md). Los registros completos de `runs/` se trasladaron al archivo externo local `banterhouse2-archive` y no forman parte del repositorio público.
+> Archivo de las primeras pruebas. Las fechas indican a qué versión corresponden. El [estado actual](../docs/STATUS.md) recoge las pruebas posteriores. Los registros completos de `runs/` se conservan en `banterhouse2-archive`, fuera del repositorio público.
 
 ## Plan de ejecución v2 · 11 de octubre de 2026
 
-El [plan de optimización para Luna](../docs/implementation/OPTIMIZATION_PLAN.md) amplía el seguimiento a 52 tareas. Su comprobación documental se reproduce con `python3 tools/check_implementation_plan.py`; [resultado v2](results/implementation-plan-v2-check.json). Comprueba IDs, fichas, dependencias sin ciclos, enlaces locales, gates humanos/hardware y negativos del validador. No compila ni ejecuta el juego, no mide FPS y no cierra ninguna tarea. `implementation-plan-check.json` se conserva como informe histórico de la versión 1.
+El [plan de optimización](../docs/implementation/OPTIMIZATION_PLAN.md) amplía el seguimiento a 52 tareas. Su comprobación documental se reproduce con `python3 tools/check_implementation_plan.py`; [resultado v2](results/implementation-plan-v2-check.json). Comprueba IDs, fichas, dependencias sin ciclos, enlaces locales, revisiones con jugadores y pruebas de hardware y negativos del validador. Comprueba los documentos; no ejecuta el juego. `implementation-plan-check.json` se conserva como informe histórico de la versión 1.
 
 Actualización gráfica del 11 de octubre: [cuatro estudios CPC nativos](../assets/cpc-studies/README.md) y su [manifiesto de pruebas](../assets/cpc-studies/manifest.json). Incluyen exportación VRAM, comprobación de paletas, reconstrucción desde tiles y compresión opcional. Son verificaciones host, sin ejecución del futuro juego en CPC o emulador.
 
@@ -30,7 +30,7 @@ python3 tools/check_research_budgets.py
 
 El primero crea `research/results/asset-probe.json`, sin sustituir el registro de compresión. Sólo lee Banterhouse; los temporales y salidas quedan aquí. Requiere los recursos generados que ya existían en el proyecto original. Si faltan, la prueba falla: no ejecuta automáticamente el build original. Los resultados sólo son comparables si coinciden los hashes de las entradas.
 
-## Repetir compresión exacta
+## Repetir las pruebas de compresión
 
 Requiere red, Git, Make y Clang. No instalar nada global. Los comandos de clonación son para una carpeta aún inexistente; si ya existe, comprobar el SHA antes de reutilizarla.
 
@@ -66,7 +66,7 @@ Cálculo de variantes: `8 poses × 2 direcciones × (8+9 bytes de ancho) × 32 l
 - No se dispone de CPC físico ni disquetera accesible en esta sesión. Compatibilidad CRTC y fiabilidad de disco físico quedan expresamente pendientes.
 - No se descargó ni compiló el conjunto Phactory/Phortem; se verificó la publicación por el autor y su ruta de fuente. Las atribuciones a demos se limitan a lo que explican sus autores.
 
-No confundir un round-trip host con una prueba del decoder CPC. El siguiente experimento debe usar sus binarios y las mismas entradas con una implementación Z80, guardas de memoria y cronometraje real del sistema destino.
+Falta repetir la descompresión con el código Z80, usando las mismas entradas, guardas de memoria y un contador de tiempo CPC.
 
 ## Planificación de campaña · 11 de octubre de 2026
 

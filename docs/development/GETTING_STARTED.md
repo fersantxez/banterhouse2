@@ -1,18 +1,18 @@
-# Del código a un disquete
+# Compilar el juego
 
-[Guía de lectura](../README.md) · [Cómo funciona](ARCHITECTURE.md)
+La compilación genera `build/campaign/DEVUELTO.dsk`. El repositorio incluye los gráficos que necesita; no hace falta descargar el primer Banterhouse. Si sólo quieres jugar, puedes usar directamente [el disco publicado](../../release/Devuelto-CPC6128.dsk).
 
-El resultado de la compilación es un **DSK**, una imagen de disquete que puedes montar en un emulador CPC. No necesitas tener instalado el primer Banterhouse: las entradas gráficas necesarias están congeladas en este repositorio.
+## Requisitos
 
-## 1. Prepara las herramientas del ordenador
+Necesitas Python 3.9 o posterior, Git, GNU Make, un compilador C/C++, **SDCC 4.6.0** con `sdasz80` y `sdar`, y FFmpeg. Los ejecutables deben estar en `PATH`.
 
-Necesitas Python 3.9 o posterior, Git, GNU Make, un compilador C/C++, **SDCC 4.6.0** con `sdasz80` y `sdar`, y FFmpeg. Deben estar en `PATH`. FFmpeg convierte la portada; no reproduce el juego.
+La compilación completa se ha probado en macOS, con las herramientas de línea de comandos de Xcode y Homebrew. Si usas Homebrew, puedes instalar SDCC y FFmpeg con `brew install sdcc ffmpeg`. Comprueba después `sdcc --version`: necesitamos 4.6.0 y la versión de Homebrew puede cambiar.
 
-En el Mac de desarrollo se usan las herramientas de línea de comandos de Xcode y Homebrew. Si ya tienes Homebrew, `brew install sdcc ffmpeg` instala esas dos dependencias; comprueba `sdcc --version`, porque el proyecto fija 4.6.0 y el paquete disponible puede cambiar. No se incluye un instalador global automático.
+Las revisiones de CPCTelera y ZX0 están fijadas en [toolchain.lock.json](../../cfg/toolchain.lock.json).
 
-La versión de referencia y los commits de las dependencias figuran en [toolchain.lock.json](../../cfg/toolchain.lock.json). El flujo se valida en macOS; no se afirma que todos los sistemas estén probados.
+## Compilar
 
-## 2. Desde la raíz del repositorio
+Ejecuta desde la raíz del repositorio:
 
 ```sh
 make bootstrap
@@ -21,42 +21,37 @@ make test
 make
 ```
 
-`bootstrap` descarga los commits fijados de CPCTelera y ZX0 dentro de `tmp/` y compila sus herramientas. No instala nada globalmente ni sustituye un checkout con cambios locales. Necesita red la primera vez. Las licencias permanecen en los clones.
+`make bootstrap` descarga CPCTelera y ZX0 en `tmp/` y compila sus herramientas. Necesita conexión a Internet la primera vez. Si encuentra cambios locales en una dependencia, se detiene para no sobrescribirlos.
 
-`doctor` comprueba herramientas y versiones. `test` audita los archivos y prueba la lógica C y los formatos usando el ordenador. `make` genera la campaña CPC y verifica el contenido del disco.
+`make doctor` comprueba las herramientas y sus versiones. `make test` revisa los archivos del repositorio y ejecuta los tests de lógica y formatos en el ordenador. Por último, `make` compila el juego y comprueba que el DSK contiene el programa y los cuatro archivos de capítulo.
 
-## 3. Abre el resultado
+## Cargar el resultado
 
-Monta `build/campaign/DEVUELTO.dsk` en un emulador CPC 6128 con 128 KiB. En BASIC ejecuta:
+Monta `build/campaign/DEVUELTO.dsk` en un emulador CPC 6128 con 128 KiB. En BASIC escribe:
 
 ```basic
 RUN"DEVUELTO.BIN"
 ```
 
-Mantén el DSK montado para las cargas de capítulo. [Controles y consejos](../game/PLAYING.md).
+Mantén el disco montado durante la partida. [Controles](../game/PLAYING.md).
 
-## Qué crea cada comando
+## Otros comandos
 
-| Comando | Resultado o alcance |
+| Comando | Uso |
 |---|---|
-| `make test` | Auditoría y tests host sin emulador, ROM ni evidencias privadas |
-| `make` | Compila la campaña completa; equivale a `make campaign-disk` |
-| `make campaign-disk` | `build/campaign/DEVUELTO.dsk`, campaña con cargas de disco |
-| `make build` | Variante M1 de una arena para diagnóstico; no es el DSK completo |
-| `make solve-game` | Recalcula el replay desde el simulador host; modifica un archivo generado |
-| `make test-lab` | Suite histórica amplia; necesita herramientas de laboratorio y capturas archivadas |
-| `make public-check` | Audita archivos publicables y enlaces locales |
+| `make campaign-disk` | Compila el disco de campaña; es lo mismo que `make` |
+| `make build` | Compila M1, una versión de una sola pantalla para pruebas |
+| `make solve-game` | Recalcula la secuencia de entradas de la demostración y actualiza su archivo generado |
+| `make test-lab` | Ejecuta pruebas antiguas que requieren emulador y capturas archivadas |
+| `make public-check` | Revisa los archivos que se subirán a Git y los enlaces de la documentación |
 
-No uses `make package` como atajo de compilación: exige el archivo de evidencias de entrega y lo verifica antes de copiar un disco a `dist/`.
+`make package` exige los archivos de las pruebas de entrega antes de copiar el disco a `dist/`. Para compilar desde un clon nuevo, usa `make`.
 
-## Errores habituales
+## Problemas habituales
 
-**Falta SDCC o FFmpeg:** instala la dependencia y comprueba que se encuentra en `PATH`.
+- **Falta SDCC o FFmpeg.** Instala la herramienta y comprueba que está en `PATH`.
+- **El bootstrap rechaza una dependencia.** Revisa sus cambios en `tmp/`. Para repetir la instalación sin modificarlos, usa otra copia del proyecto.
+- **Falta un archivo al cargar el juego.** Comprueba que has montado el DSK de campaña. El BIN suelto y el disco M1 no contienen los cuatro capítulos.
+- **No existe `.tools/cap32`.** El lanzador de pruebas necesita una instalación local de Caprice32. Puedes montar el DSK en otro emulador. La configuración de Caprice está en [Pruebas](TESTING.md).
 
-**El bootstrap rechaza un checkout:** revisa los cambios de esa dependencia en `tmp/`. El script se detiene para no descartarlos. Usa una copia nueva del proyecto para repetir desde cero.
-
-**El disco pide otro archivo:** confirma que es el DSK de campaña. Un BIN aislado o el disco M1 no reemplaza los cuatro recursos AMSDOS.
-
-**No existe `.tools/cap32`:** sólo afecta al lanzador supervisado del laboratorio. Para jugar puedes montar el DSK incluido en `release/` en tu propio emulador. Las pruebas CPC y su configuración se explican en [Pruebas](TESTING.md).
-
-El disco incluido permite jugar sin descargar compiladores. Su [manifiesto](../../release/manifest.json) identifica los bytes de la entrega. Una compilación nueva crea una candidata en `build/` y nunca sustituye automáticamente ese disco.
+El disco de `release/` se conserva como referencia. Compilar crea otro en `build/`; no sustituye el publicado.

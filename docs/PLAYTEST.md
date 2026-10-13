@@ -1,26 +1,28 @@
-# Probar ¡Devuelto! en el CPC virtual
+# Pruebas con jugadores
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+Usa el [disco publicado](../release/Devuelto-CPC6128.dsk) o una compilación identificada por su SHA-256. Las instrucciones de carga y los controles están en [Cómo jugar](game/PLAYING.md).
 
-## Ejecutar
+## Antes de empezar
 
-En macOS, abre `dist/Jugar.command` (o el `Jugar.command` de la raíz del proyecto). El supervisor abre Caprice32, configura CPC 6128 y monta el mismo DSK publicado. El arranque es automático; espera a que aparezca el menú. Cierra la ventana de Caprice para terminar la sesión.
+Anota la fecha, el disco, el emulador y su configuración. Si la prueba es en un CPC, anota el modelo y la disquetera. Indica si la persona ha jugado antes y si usa teclado o joystick.
 
-En CPC real u otro emulador, monta `dist/Devuelto-CPC6128.dsk` y ejecuta `RUN"DEVUELTO.BIN"`. Mantén el disco insertado: la campaña lee `CH01.BIN`–`CH04.BIN` al entrar en cada capítulo y reutiliza la memoria del paquete anterior. No se requiere que todo el contenido de la campaña quepa en una sola carga o permanezca a la vez en RAM.
+## Durante la partida
 
-## Teclas
+Deja que pruebe los controles y observa dónde necesita ayuda. Apunta ejemplos concretos:
 
-- En el menú, ↑/↓ cambia la opción y Espacio o X confirma. D inicia la demo de 24 arenas; R vuelve al menú.
-- ←/→ corre y orienta a Pitu; ↑ salta; ↓ baja atravesando una plataforma.
-- Espacio o X usa el sello «DEVUELTO» y confirma las pantallas de avance.
-- P pausa y reanuda; R reinicia la arena actual.
-- Tras completar el juego, Espacio comienza una nueva partida.
-- Joystick 0: direcciones; arriba salta; fuego devuelve.
+- Un salto que no consiguió hacer o una plataforma de la que cayó sin esperarlo.
+- Un papel que parecía devolverse pero alcanzó a Pitu.
+- Una máquina cuyo aviso no se entendía.
+- Una pausa larga esperando a que apareciera otro disparo.
+- Un sonido que no se oía o que resultaba molesto.
+- Un reintento, cambio de capítulo o error de disco que interrumpió la partida.
 
-## Qué se ha probado
+Registra la pantalla y los pasos para repetir cada problema. Si usas la demostración D, anótalo por separado: reproduce entradas preparadas y no recoge las decisiones de un jugador.
 
-La compilación distribuida completó las 24 arenas desde arranque frío en dos campañas independientes de Caprice32 y una en 1984 v0.4.20, configurado como CPC 6128 clásico de 128 KiB. La campaña recorrió los cuatro paquetes del disco. Tres arranques fríos adicionales verificaron el DSK empaquetado, el comienzo, controles, pausa, salida y limpieza. La suite también prueba reintento y nueva partida en la ruta de controles manuales.
+## Al terminar
 
-La música se validó con PCM capturado de la salida de Caprice: 66 s con alturas cambiantes en melodía y bajo, pulso cercano a 125 BPM y sin silencios no previstos mayores de 2 s. Con música desactivada, la captura detectó los efectos de salto y devolución; la pausa silencia y luego recupera la salida. La presencia tonal está medida; no se ha certificado la escucha subjetiva ni el sonido de altavoces físicos.
+Pregunta qué controles costaron más, qué fallos resultaron difíciles de entender y si apetece volver a jugar. Recoge las respuestas con sus palabras, sin deducirlas de la puntuación o el tiempo de partida.
 
-Los resultados con hashes están en `research/release-validation.json`; el informe resumido está en `docs/DELIVERY_REPORT.md`. El prototipo no contiene aún todas las escenas narrativas del plan de campaña y no se ha probado en un CPC físico. La evaluación de diversión, dificultad y calidad artística necesita una sesión humana.
+Guarda las notas y capturas en `research/runs/`, con el hash del disco, y cierra los procesos y ventanas que hayas abierto. No incluyas datos personales de los participantes en el repositorio público.
+
+Las pruebas técnicas anteriores están en el [informe de entrega](DELIVERY_REPORT.md). Las sesiones con jugadores y las pruebas en hardware siguen pendientes según el [estado del proyecto](STATUS.md).

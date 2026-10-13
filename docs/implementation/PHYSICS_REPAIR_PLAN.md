@@ -1,6 +1,6 @@
 # Plan de reparación de la física de Pitu
 
-12 de octubre de 2026. Alcance: corregir la suspensión al abandonar plataformas y consolidar movimiento, colisiones y geometría en las 24 arenas del prototipo de Banterhouse 2. Plataforma objetivo: CPC 6128 clásico de 128 KiB. Este documento define trabajo por ejecutar; no acredita que el juego esté reparado.
+12 de octubre de 2026. Alcance: corregir la suspensión al abandonar plataformas y consolidar movimiento, colisiones y geometría en las 24 arenas del prototipo de Banterhouse 2. Plataforma objetivo: CPC 6128 clásico de 128 KiB. El estado de cada tarea está en `PHYSICS_STATUS.json`.
 
 La prioridad es entregar primero una corrección pequeña y comprobable del borde. Después se unifican las reglas y se verifica cada arena. La reparación no espera a que se complete el renderer bancado, a una lectura de paleta o a una prueba humana de acordes del teclado.
 
@@ -8,7 +8,7 @@ La prioridad es entregar primero una corrección pequeña y comprobable del bord
 
 En `src/main.c`, `update_player()` mueve X pero no comprueba si Pitu sigue teniendo apoyo. La integración vertical está dentro de `if (!grounded)`. Al abandonar una plataforma, `grounded` conserva el valor 1, no se aplica gravedad y se renueva además el contador de coyote. Esto explica directamente la suspensión descrita por el usuario.
 
-Reproducción mínima deducida del código: plataforma `[42,70)` a Y=160; Pitu en X=69, Y=128, velocidad horizontal interna 3, vertical 0 y `grounded=1`. Con Derecha pasa a X=70,5. Ya no solapa la plataforma, pero Y sigue en 128 y `grounded` sigue en 1. Sin salto ni descenso, los ticks posteriores tampoco la hacen caer. Se convertirá en una prueba ejecutable; esta deducción no se presenta como una ejecución realizada.
+Reproducción mínima deducida del código: plataforma `[42,70)` a Y=160; Pitu en X=69, Y=128, velocidad horizontal interna 3, vertical 0 y `grounded=1`. Con Derecha pasa a X=70,5. Ya no solapa la plataforma, pero Y sigue en 128 y `grounded` sigue en 1. Sin salto ni descenso, los ticks posteriores tampoco la hacen caer. El caso se dedujo leyendo el código y queda pendiente de convertir en una prueba ejecutable.
 
 Otros problemas que la reparación debe cubrir:
 

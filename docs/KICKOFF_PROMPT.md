@@ -1,6 +1,10 @@
-Vamos a iniciar Banterhouse 2 como proyecto independiente en .. Trabaja directamente en esta carpeta.
+# Encargo inicial
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+El texto siguiente recoge el encargo de investigación. Las instrucciones posteriores están en [Dirección creativa](CREATIVE_DIRECTION.md).
+
+Vamos a iniciar Banterhouse 2 como proyecto independiente. Trabaja directamente en esta carpeta.
+
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
 Quiero una investigación técnica profunda y práctica de cómo extraer el máximo del Amstrad CPC 6128 clásico de 128 KiB para hacer una secuela de Banterhouse mucho más vistosa. Podemos aceptar una complejidad considerable, ensamblador Z80, herramientas poco didácticas y herramientas comerciales o cerradas si aportan ventajas reales. No des por hecho que CPCTelera es la limitación ni que otra biblioteca será automáticamente más rápida.
 

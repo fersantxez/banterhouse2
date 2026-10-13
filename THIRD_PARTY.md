@@ -1,10 +1,10 @@
-# Créditos y procedencia
+# Créditos
 
 ## El proyecto
 
-Banterhouse 2 — ¡Devuelto! continúa los personajes de [Banterhouse](https://github.com/fersantxez/banterhouse), con nueva dirección arcade. Pitu y Alberto son las anclas gráficas. El mundo toma referencias del cómic *Creatas y Ejecutas* y de la cultura pop de los ochenta. Los guiños a Prince y otros iconos no implican participación ni aprobación de sus titulares.
+Banterhouse 2 — ¡Devuelto! continúa los personajes de [Banterhouse](https://github.com/fersantxez/banterhouse), con nueva dirección arcade. Los sprites de Pitu y Alberto sirven de referencia para el resto del dibujo. El mundo toma referencias del cómic *Creatas y Ejecutas* y de la cultura pop de los ochenta. Los guiños a Prince y otros iconos no implican participación ni aprobación de sus titulares.
 
-El desarrollo y parte de las ilustraciones se han realizado con asistencia de herramientas de IA. Las notas de `assets/loading/` y `assets/cpc-studies/` distinguen la portada y el material nativo CPC. Las exploraciones descartadas se conservan fuera del árbol fuente. Las imágenes originales de referencia del cómic no se incluyen en el conjunto público.
+Se han usado herramientas de IA para programar, documentar y crear parte de las ilustraciones. Las notas de `assets/loading/` y `assets/cpc-studies/` distinguen la portada y el material nativo CPC. Las exploraciones descartadas se conservan fuera del árbol fuente. Las imágenes originales de referencia del cómic no se incluyen en el conjunto público.
 
 ## Componentes técnicos
 
@@ -21,6 +21,6 @@ El desarrollo y parte de las ilustraciones se han realizado con asistencia de he
 
 ## Música y arte
 
-La música que genera `tools/build_pop_ay.py` es un motivo definido para este proyecto. Los MIDI comerciales usados en exploraciones antiguas están excluidos y no son una dependencia de la compilación actual.
+`tools/build_pop_ay.py` genera la música compuesta para este proyecto. Los MIDI comerciales usados en exploraciones antiguas están excluidos y no son una dependencia de la compilación actual.
 
 Los sprites heredados y las referencias visuales se documentan en los manifiestos canónicos y en [GAME_REFERENCES](docs/GAME_REFERENCES.md). No se ha añadido una licencia global para el arte ni para el código propio; consulta [COPYING](COPYING.md).

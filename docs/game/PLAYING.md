@@ -1,12 +1,12 @@
 # Cómo jugar a ¡Devuelto!
 
-[Volver a la guía](../README.md) · [La historia](STORY.md)
+[Documentación](../README.md) · [La historia](STORY.md)
 
-## La misión
+## Objetivo
 
 Eres Pitu. Las máquinas de la agencia escupen encargos y tú llevas un sello: **DEVUELTO**. Muévete entre plataformas, salta para colocarte y devuelve el papel en el momento adecuado. Los encargos devueltos sirven para apagar máquinas. Al resolver la arena puedes pasar a la siguiente.
 
-La campaña técnica tiene 24 arenas, agrupadas en cuatro capítulos. Todavía es un prototipo: la historia completa, los encuentros narrativos y buena parte del reparto ampliado son planes de producción.
+El prototipo tiene 24 pantallas en cuatro capítulos. Faltan los encuentros, las viñetas y parte de los personajes previstos en el guion.
 
 ## Cargar el disco
 
@@ -18,7 +18,7 @@ Necesitas un emulador configurado como **Amstrad CPC 6128 clásico, 128 KiB**, o
 
 **Deja el disco montado.** El juego lee `CH01.BIN`–`CH04.BIN` al cambiar de capítulo. Una copia suelta del BIN no contiene toda la campaña.
 
-El disco validado está incluido en `release/`, junto a su manifiesto. No se incluyen ejecutables de emulador ni ROM. [La guía de compilación](../development/GETTING_STARTED.md) explica cómo reconstruirlo desde las fuentes.
+El emulador y sus ROM se instalan aparte. Si quieres compilar el juego, sigue [estas instrucciones](../development/GETTING_STARTED.md).
 
 ## Controles
 
@@ -33,9 +33,9 @@ El disco validado está incluido en `release/`, junto a su manifiesto. No se inc
 | M, en el menú | Activar o desactivar la música |
 | D, en el menú de campaña | Ejecutar el recorrido automático de demostración |
 
-También se leen las direcciones y el botón de disparo del joystick 0. La demostración es una prueba determinista; no sustituye una partida con tus propias decisiones. R sale de ella y vuelve al inicio.
+También puedes usar el joystick 0: direcciones y botón de disparo. D reproduce una partida grabada como secuencia de controles; R sale de la demostración y vuelve al inicio.
 
-## Primer minuto
+## Al empezar
 
 Observa de dónde sale el papel. Acércate para aprender la distancia del sello, devuélvelo mirando hacia la máquina y prueba otra posición si el disparo pasa por encima. El sello tiene una breve recuperación: pulsarlo sin parar no equivale a mantener un escudo.
 
@@ -43,4 +43,4 @@ Si pierdes, suelta y vuelve a pulsar la acción para reintentar. Si aparece un e
 
 ## Edición web
 
-La [página de desarrollo](https://banterhouse-2-devuelto.freshkid64.chatgpt.site/) ejecuta el disco en un emulador de navegador. Actualmente requiere acceso con la cuenta autorizada. Publicar este código en GitHub no cambia ese acceso. La medición completa de rendimiento de esa publicación sigue pendiente; consulta [el estado](../STATUS.md).
+La [web del juego](https://banterhouse-2-devuelto.freshkid64.chatgpt.site/) ejecuta el disco en el navegador. El acceso requiere la cuenta autorizada, aunque el repositorio de GitHub sea público. La prueba completa de rendimiento web sigue pendiente; está anotada en [Estado](../STATUS.md).

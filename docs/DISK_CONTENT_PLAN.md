@@ -1,10 +1,10 @@
 # Disquete, memoria y contenido de ¡Devuelto!
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-Plan propuesto · 11 de octubre de 2026. Se coordina con la [historia de 24 pantallas](STORY_STRUCTURE.md). **Las reservas son límites de diseño; no ocupación de un ejecutable ni tiempos medidos.** La comprobación host sólo valida aritmética. No se ha creado el loader ni el DSK de la secuela.
+Plan propuesto · 11 de octubre de 2026. Se coordina con la [historia de 24 pantallas](STORY_STRUCTURE.md). Las cifras son estimaciones de memoria y disco. En esa fecha sólo se habían comprobado las sumas; el cargador y el DSK aún no existían.
 
-## Decisión de estructura
+## Formato propuesto
 
 Objetivo de edición: **un disquete de 3 pulgadas, dos caras usadas por separado**, con capítulos 1–2 en A y 3–4 en B. Una vuelta manual a mitad de una partida completa. Ambas caras contienen un arranque y el conjunto común para continuar desde un código sin volver a A. Si el arte definitivo rebasa las cuotas, ampliar a dos disquetes antes de perjudicar control o identidad visual; el objetivo de un disco aún no está demostrado.
 
@@ -12,7 +12,7 @@ La memoria conserva lo necesario para la acción actual. El disco guarda lo que 
 
 Cinco arenas normales por capítulo comparten un paquete activo; el sexto escenario puede cargar un paquete de encuentro. Una pantalla normal nueva se reconstruye desde mapas y piezas residentes. Reintentar nunca provoca una lectura. El disco se usa con la simulación detenida, en entrada de capítulo, antes del encuentro especial y durante viñetas/final.
 
-## Qué ve el jugador
+## Orden de las cargas
 
 ```mermaid
 flowchart LR
@@ -29,9 +29,9 @@ flowchart LR
     C4 --> F[Carga del desenlace]
 ```
 
-Una viñeta ya visible puede permanecer mientras se sustituyen otros bancos. Eso no implica que esté animándose ni que su música pueda continuar durante toda transferencia. Saltarse la viñeta elimina la espera editorial, no los bytes que falten por leer; mostrar un indicador sobrio y permitir empezar en cuanto los datos estén listos.
+Una viñeta ya visible puede permanecer mientras se sustituyen otros bancos. Eso no implica que esté animándose ni que su música pueda continuar durante toda transferencia. Si el jugador se salta la viñeta, hay que esperar a que termine la lectura y mostrar que el disco sigue cargando.
 
-| Momento | Operación | Garantía que queremos validar |
+| Momento | Operación | Comprobación necesaria |
 |---|---|---|
 | Salto, devolución, impacto | Datos expandidos residentes | Cero llamadas a disco ni descompresión larga en la ruta crítica |
 | Muerte/reintento | Restablecer estado inicial y recomponer | Cero lecturas; latencia de reinicio por medir |
@@ -86,7 +86,7 @@ Secuencia de transición:
 
 La pantalla de error, el texto de cambio de cara y su fuente mínima viven en el núcleo, no en el paquete que puede fallar. Volver al menú de lujo puede requerir cargarlo; el menú mínimo de recuperación siempre debe funcionar.
 
-## Ahorros que incorporaría al diseño
+## Ahorro de memoria y disco
 
 | Técnica | Qué permite ahorrar | Condición o coste |
 |---|---|---|
@@ -114,7 +114,7 @@ Los colores pop no implican almacenar una paleta distinta por objeto: unificar t
 
 **Ejemplo de sprites:** ocho poses de 16×32, dos direcciones y ambas alineaciones con máscara requieren 17.408 B y desbordan un banco. Seis poses bajo el mismo cálculo requieren 13.056 B y caben en una reserva de 14 KiB, antes de otros metadatos o código. Esto sirve para detectar el problema, no para imponer seis poses a Pitu. Probar deduplicación, recorte, poses compartidas y variantes selectivas antes de quitar animación o empeorar el movimiento.
 
-## Técnicas que ensayaría, sin sumar ventajas incompatibles
+## Técnicas por probar
 
 - **Cabeza/cuerpo por piezas:** atractiva para este reparto, pero añade llamadas de dibujo, uniones y orden. Mantener frames completos si quedan mejor o son más rápidos. No desfigurar a Pitu para facilitar el ensamblaje.
 - **Deltas entre poses o viñetas:** pueden reducir disco; reconstruir fuera del cuadro crítico y contar el frame base. Deltas largas encadenadas empeoran acceso y recuperación.

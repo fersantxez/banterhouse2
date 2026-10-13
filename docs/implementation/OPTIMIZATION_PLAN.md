@@ -1,4 +1,4 @@
-# Optimización CPC: guía de ejecución para 6.1 Luna
+# Plan de optimización CPC
 
 Versión 2 · 11 de octubre de 2026. Plan de trabajo, **no resultados de rendimiento**.
 
@@ -8,7 +8,7 @@ Este documento amplía [el plan principal](../IMPLEMENTATION_PLAN.md). Las ficha
 
 ## 1. Punto de partida observado
 
-Inspección de archivos, sin ejecutar el juego ni certificar el DSK existente:
+Resultado de la revisión del código; el DSK no se ejecutó en esta inspección:
 
 | Existe | Observación y consecuencia |
 |---|---|
@@ -21,7 +21,7 @@ Inspección de archivos, sin ejecutar el juego ni certificar el DSK existente:
 | Makefile | Define `build`, `assets`, `assets-check`, `doctor`, `run`, `clean`. `doctor` y `assets-check` invocan scripts que faltaban en esta inspección. `run` apunta a una ruta distinta del ejecutable `.tools/cap32` observado. Auditar antes de usar. |
 | `STATUS.json` v1 | Las 35 tareas seguían pendientes. Conservar ese estado hasta demostrar sus criterios; no marcar tareas por encontrar archivos parecidos. |
 
-La configuración actual no es la candidata A: no activar paginación con la pila en la ventana `4000–7fff`. T02/T05 deben establecer y verificar el nuevo mapa. La aritmética de la física actual, la pausa, la devolución y el dibujo de papeles deben contrastarse con los contratos; no usarlos automáticamente como oráculo.
+La configuración actual no es la candidata A: no activar paginación con la pila en la ventana `4000–7fff`. T02/T05 deben establecer y verificar el nuevo mapa. La aritmética de la física actual, la pausa, la devolución y el dibujo de papeles deben contrastarse con los contratos; comprobar sus resultados antes de usarlos como referencia.
 
 El original ya usa sprites de CPCTelera y restauración bajo actores. Su clave de invalidación puede recomponer escena y HUD cuando cambian puntos/mensajes. Ambas observaciones salen de `../banterhouse/src/game_render.c`; no prueban por sí solas cuánto tiempo se ahorrará.
 
@@ -35,7 +35,7 @@ El original ya usa sprites de CPCTelera y restauración bajo actores. Su clave d
 6. Guardar resultados, incluidos los negativos. Actualizar estado y siguiente comando exacto que otro ejecutor pueda retomar.
 7. Un experimento puede terminar `done` con `outcome: rejected` si se ejecutó y documentó por qué no compensa. Eso no activa su código en la variante elegida.
 
-La petición actual autoriza preparar este plan. La ejecución se inicia cuando se encargue implementar. No poner tareas `done` por redactar sus fichas. No delegar ni crear chats automáticamente.
+En la fecha de redacción se había pedido preparar el plan. Las tareas sólo pasan a `done` al cumplir sus pruebas. No delegar ni crear chats sin autorización.
 
 ## 3. Orden y enlace con las 35 tareas existentes
 

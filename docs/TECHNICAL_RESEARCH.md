@@ -1,18 +1,18 @@
 # Banterhouse 2: investigación técnica del CPC 6128
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-Consulta y comprobaciones: **10 de octubre de 2026**. Plataforma obligatoria: CPC 6128 clásico, 128 KiB y disquetera original. Primera etapa; no se ha construido ni medido el juego nuevo.
+Consulta y comprobaciones: **10 de octubre de 2026**. Plataforma obligatoria: CPC 6128 clásico, 128 KiB y disquetera original. En esa fecha aún no se había construido ni medido el juego nuevo.
 
-## Conclusión para decidir el siguiente trabajo
+## Punto de partida
 
-La aclaración del usuario cambia el orden de decisión: **primero diseñar y probar un juego nuevo, rápido, muy divertido y con respuesta inmediata; después elegir la arquitectura que lo sostenga con una presentación ambiciosa**. Se conservan personajes y se incorporan nuevos. La dinámica del primer juego no limita la secuela. Ver [dirección creativa](CREATIVE_DIRECTION.md).
+El usuario pidió diseñar primero una forma nueva de jugar y probar los controles antes de elegir el motor. Se conservan los personajes y se añaden otros; las reglas del primer juego pueden cambiar. La petición está recogida en [Dirección creativa](CREATIVE_DIRECTION.md).
 
 El motor híbrido con SDCC/SDAS, Z80 y partes útiles de CPCTelera sigue siendo un candidato de ingeniería. Pantalla única, doble búfer y scroll se evaluarán según las reglas y la cámara elegidas. La recomendación anterior de empezar por habitaciones ilustradas deja de ser la dirección preferida del juego; la escena heredada sirve como fixture técnico.
 
 Los mapas y tiempos del [documento de arquitecturas](ARCHITECTURES.md) son **[P] propuestas**, no decisiones ni mediciones del juego nuevo. El [plan](PROTOTYPE_PLAN.md) incorpora una fase jugable anterior a la comparación de renderers. La [matriz](TOOLCHAIN_MATRIX.md) cubre herramientas e integración. El [registro de comprobaciones](../research/README.md) conserva los resultados host realmente medidos: siguen siendo válidos para esos recursos, pero no fijan los requisitos de la secuela.
 
-## Qué significa cada evidencia
+## Notación usada
 
 - **[V] Verificado documentalmente o en código:** capacidad descrita por su autor o implementación local inspeccionada. No equivale a funcionar en nuestro CPC físico.
 - **[M] Medido aquí:** recuentos, tamaños y comprobaciones ejecutadas en el Mac, con comandos y hashes.
@@ -161,4 +161,4 @@ No elegir algoritmo sólo por esta tabla: concatenar salas mejora diccionario pe
 6. El compendio de referencia es 1.11; los tipos CRTC 3 y 4 no deben agruparse como «Plus».
 7. ZX0 ahorra más disco en el corpus ensayado, pero faltan los tiempos CPC para decidir el decoder.
 
-Las decisiones pendientes y el orden de implementación están en [PROTOTYPE_PLAN.md](PROTOTYPE_PLAN.md). Esta investigación proporciona una base verificable para esa implementación; no certifica FPS, carga musical continua ni compatibilidad física.
+Las decisiones pendientes y el orden de implementación están en [PROTOTYPE_PLAN.md](PROTOTYPE_PLAN.md). Quedan pendientes las mediciones de FPS, las pruebas de música durante la carga y la compatibilidad con hardware físico.

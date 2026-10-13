@@ -1,69 +1,54 @@
-# Dirección de Banterhouse 2: un juego nuevo
+# Dirección creativa
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Notas de diseño del 10 de octubre de 2026. El [estado del proyecto](STATUS.md) indica qué se ha implementado.
 
-Aclaración del usuario, 10 de octubre de 2026. Este documento prevalece sobre las recomendaciones anteriores que favorecían continuar la dinámica del primer Banterhouse.
+## La secuela
 
-## Mandato creativo
+Banterhouse 2 conserva los personajes y añade otros, pero su forma de jugar se diseña desde cero. Las habitaciones, reglas, cámara, contadores y ritmo del primer juego no son requisitos para esta segunda parte.
 
-Banterhouse 2 conserva los personajes e incorpora personajes nuevos. **Su dinámica se diseña desde cero y debe tener identidad jugable propia.** El primer juego aporta continuidad de personajes y material técnico que se puede estudiar; sus habitaciones, reglas, cámara, contadores, tamaño de sprites y ritmo no son requisitos de la secuela.
+La petición es hacer un juego rápido, divertido y con respuesta inmediata, y dedicar el mismo cuidado a los gráficos y al sonido. Chuckie Egg fue la referencia que puso el usuario: moverse y saltar resultaba agradable incluso con gráficos sencillos. Ese recuerdo sirve para orientar las pruebas; no se han medido aquí sus tiempos ni se ha revisado su audio.
 
-La aspiración es un juego CPC extraordinariamente divertido, rápido y con respuesta inmediata, acompañado de un despliegue técnico, gráfico y artístico importante. Las dos ambiciones deben convivir: construir una base jugable excelente y demostrar que mantiene sus cualidades al incorporar el arte, la animación, el sonido y los efectos finales.
+## Aspecto
 
-El usuario señala **Chuckie Egg** como referencia de experiencia: placer al moverse, saltar, recoger y escuchar una respuesta a las acciones. Esta es la descripción y motivación del usuario, no una auditoría histórica de las reglas, sonidos o tiempos de ese juego. No implica hacer un clon ni decidir ya que Banterhouse 2 será de plataformas.
+El sprite de Pitu es la referencia principal. Hay que conservar su identidad, sus proporciones y su silueta al dibujar poses nuevas. El resto del reparto, los fondos y los efectos deben encajar con él.
 
-## Dirección estética fijada por el usuario
+La estética pedida es la de un videojuego de los ochenta, muy pop: colores planos, cian, magenta, amarillo y lima, con negro y blanco para separar figuras. Las paletas se ajustan al CPC y se comprueban junto a Pitu, a tamaño de juego.
 
-**El sprite de Pitu es la base. Estética de videojuego de los 80, súper pop.** Escenarios, reparto, efectos, tipografía y presentación deben compartir su lenguaje de bloques de píxel, siluetas fuertes y color contundente. Preservar identidad y proporciones del sprite canónico; construir el mundo a su alrededor.
+Prince es la referencia cultural principal. Se proponen también guiños a Madonna, Bowie, Haring y Memphis en carteles, objetos y escenarios. Están detallados en [GAME_REFERENCES](GAME_REFERENCES.md). El apartado de [arte](GAME_DESIGN.md#10-arte-y-puesta-en-escena) describe su uso por capítulo.
 
-La dirección visual utiliza masas planas, cian, magenta, amarillo y lima, contraste con negro y blanco, geometría atrevida y rótulos exagerados. Las combinaciones exactas se adaptan a la paleta CPC y se prueban junto a Pitu. El detalle y los efectos deben conservar la lectura de las acciones. El [diseño del juego, sección 10](GAME_DESIGN.md#10-arte-y-puesta-en-escena), concreta esta dirección para los cuatro capítulos.
+## Controles y ritmo
 
-El usuario pide además referencias a **Prince e iconos de los 80**. Prince será la referencia cultural principal, con guiños reconocibles en carteles, utilería, escenarios y dirección musical. Madonna, Bowie, Haring y Memphis son la selección secundaria propuesta. Pitu conserva su identidad y sigue fijando el lenguaje gráfico. El diseño concreta la pantalla «Purple Paper» y las [fuentes culturales](GAME_REFERENCES.md#referencias-culturales-y-visuales-de-los-80).
+- Moverse, frenar, cambiar de dirección y saltar debe resultar predecible. La animación no debe retrasar la acción.
+- Cada acción necesita una señal visual y sonora breve. La música debe dejar oír saltos, aciertos y avisos de peligro.
+- Las amenazas deben verse con tiempo para reaccionar. El jugador debe poder entender por qué ha perdido.
+- Tiene que haber motivos para moverse: elegir una ruta, colocarse para devolver o evitar un perseguidor. Subir la velocidad de Pitu no basta.
+- El reintento debe ser rápido. Las cargas y animaciones de derrota no deben repetirse en cada intento si se pueden evitar.
+- Las reglas deben ser fáciles de aprender y permitir mejorar con la práctica.
 
-## Lo que debe funcionar desde el primer minuto
+Estos criterios se comprueban jugando. Siguen pendientes las pruebas con jugadores.
 
-- **Control:** empezar a moverse, detenerse y cambiar de intención de forma predecible. Aceleración, inercia y control aéreo, si existen, se eligen por cómo se juegan; no se heredan del original.
-- **Acciones satisfactorias:** cada verbo principal debe ser agradable de ejecutar incluso antes de sumar puntos. Si hay salto, explorar arco, altura y aterrizaje; si hay lanzamiento, explorar dirección, impacto y recuperación.
-- **Respuesta audiovisual:** señales breves y reconocibles para acciones, éxito y peligro. Diseñar SFX desde el primer prototipo. La música, los pasos repetidos y otros sonidos deben dejar oír la información útil; no añadir ruido continuo por obligación.
-- **Decisiones durante el movimiento:** rutas, riesgo, persecución, oportunidad o encadenamiento. La rapidez no se obtiene únicamente subiendo la velocidad del personaje.
-- **Claridad y justicia:** leer amenazas, entender por qué se ha fallado y poder atribuir un acierto al propio control. El decorado y los efectos deben mantener claras las siluetas y superficies relevantes.
-- **Reintento:** volver a jugar con pocas esperas; las cargas y las animaciones de derrota no pueden romper constantemente el ritmo.
-- **Dominio:** reglas que se comprenden pronto y admiten aprender recorridos, afinar acciones y asumir riesgos mayores. La puntuación apoya ese aprendizaje, no lo sustituye.
+## Propuesta elegida
 
-Son criterios de diseño, todavía sin validar en pruebas de juego. No se declara «adictivo» un prototipo por tener coleccionables, combos o una tasa alta de cuadros.
+[¡Devuelto!](GAME_DESIGN.md) propone saltar, esquivar y devolver proyectiles para apagar máquinas. Primero se prueban tres versiones pequeñas:
 
-## Propuesta concreta tras la petición de diseñar el juego
+| Prueba | Contenido |
+|---|---|
+| M0 | Movimiento, salto y sonidos |
+| M1 | Devolución contra una máquina |
+| M2 | Tres máquinas, un perseguidor y un rebote opcional |
 
-[¡Devuelto!](GAME_DESIGN.md) desarrolla la dirección de **esquivar y devolver** como plataformas arcade: salto libre, un gesto que devuelve proyectiles, máquinas que apagar, rutas alternativas y reintento breve. Es la propuesta actual del diseño, todavía pendiente de probar; no una aprobación del usuario a cada regla o parámetro.
+El [plan de prototipos](PROTOTYPE_PLAN.md) describe las pruebas. Los parámetros, la cámara y el alcance de la campaña se ajustarán con sus resultados.
 
-La exploración se concentra ahora en tres pruebas sucesivas: M0 movimiento y sonidos, M1 devolución contra una máquina, M2 una pantalla con tres máquinas, perseguidor y rebote opcional. El [plan de prototipos](PROTOTYPE_PLAN.md) concreta ese orden. Cámara completa y campaña de cuatro capítulos son hipótesis condicionadas a las partidas.
+Antes se consideraron dos alternativas: recoger objetos y escapar, o transportar y lanzar objetos entre puntos. Se conservan por si devolver proyectiles no funciona. No hay que producir tres juegos a la vez.
 
-## Exploración inicial conservada como alternativas
+En cada prueba se anotan dudas sobre los controles, errores que no se entienden, rutas distintas entre intentos y ganas de repetir. Después se añade el arte y el sonido de una pantalla completa y se vuelve a probar: las animaciones y efectos pueden cambiar la respuesta o dificultar la lectura.
 
-Antes de concretar ¡Devuelto! se propusieron los siguientes bucles. Se conservan como alternativas si falla la mecánica central; ya no se pide desarrollar los tres en paralelo:
+## Decisiones técnicas
 
-| Experimento | Bucle a explorar | Pregunta principal |
-|---|---|---|
-| Recoger y escapar | Recorrer plataformas o rutas conectadas, recoger objetivos y evitar perseguidores | ¿Elegir y ejecutar un recorrido resulta divertido y permite mejorar? |
-| Transportar y encadenar | Llevar/lanzar objetos entre puntos mientras cambian oportunidades y obstáculos | ¿Combinar movimiento y entregas produce decisiones ágiles y acciones satisfactorias? |
-| Esquivar y devolver | Evitar amenazas, aprovechar ventanas y devolverlas o redirigirlas | ¿La relación entre movimiento, precisión y respuesta audiovisual sostiene el juego? |
+Pantalla fija, scroll, doble búfer y motor híbrido siguen siendo opciones que hay que comparar con la misma escena. La oficina del primer juego puede servir para ensayos técnicos, pero no fija el diseño de la secuela.
 
-Cualquier prueba de estas alternativas tendrá un espacio pequeño, uno o dos verbos, una amenaza, una condición de éxito/fallo, reintento inmediato y SFX básicos. Empezar con gráficos legibles y movimiento cuidado; no producir niveles ni arte final de tres juegos distintos. Los personajes deben aportar personalidad y posibilidades de interacción a las reglas que prosperen.
+Hay que medir por separado el tiempo entre pulsar y cambiar el estado, ver la acción y oírla. Leer el teclado a 50 Hz no asegura que la imagen responda a esa frecuencia. También influyen el emulador y sus buffers.
 
-Probarlos con sesiones cortas y registrar observaciones: dudas sobre controles, acciones que se repiten por placer, errores incomprensibles, ocasiones de elegir otra ruta y ganas expresadas de repetir. Las pruebas automáticas verifican consistencia; **la diversión requiere jugar**. La evaluación del usuario y de jugadores reales queda pendiente, sin inventar testimonios.
+La presentación a 50 Hz es un objetivo por comprobar. Si una versión sólo alcanza 25 Hz, hay que probar su respuesta y ajustar dibujo, efectos o cantidad de objetos antes de aceptarla.
 
-Para la propuesta actual, construir después una muestra con arte y sonido ambiciosos y volver a probar. Una figura provisional muy ágil no demuestra que la versión con animación final conserve esa respuesta. La animación puede comunicar una acción inmediatamente sin obligar a esperar a que termine una pose decorativa para ejecutarla.
-
-## Consecuencias técnicas
-
-El motor híbrido, la pantalla única, el doble búfer y el scroll siguen siendo candidatos. Su selección depende de las reglas y de la cámara que las haga funcionar mejor. La escena anterior de oficina se conserva únicamente como fixture técnico reutilizable.
-
-Priorizar latencia de entrada a acción, entrada a imagen y entrada a sonido; estabilidad del movimiento; coste del peor cuadro y rapidez de reintento. Medir por separado esas rutas: leer teclado a 50 Hz no demuestra respuesta visible a 50 Hz. Registrar también buffers del emulador y dispositivo de entrada al evaluar sensación de control.
-
-50 Hz de presentación es un objetivo de exploración para la acción rápida, **no una prestación garantizada**. Un resultado a 25 Hz no se aprueba automáticamente porque permita más decorado: se debe juzgar su respuesta y legibilidad jugando. Ajustar coste visual, algoritmo y alcance antes de aceptar una pérdida perceptible del control. El resultado final debe reunir juego y presentación, no dar por terminada una mitad.
-
-## Uso de referencias CPC
-
-La investigación de juegos se centra en qué decisiones se toman y cómo responde el juego: movimiento, riesgo, ritmo, enemigos, sonidos, aprendizaje y reintento. Distinguir versión CPC de otras conversiones y documentar si se jugó, se observó o sólo se leyó una fuente. Ninguna lista de «mejores juegos» reemplaza esa comparación ni obliga a copiar una fórmula.
-
-Las [referencias del diseño actual](GAME_REFERENCES.md) registran las instrucciones y el testimonio consultados, con sus límites.
+Al comparar con otros juegos, indica la versión CPC, cómo se consultó —jugando, viendo una grabación o leyendo instrucciones— y qué se observó. Las [referencias](GAME_REFERENCES.md) conservan las fuentes usadas hasta ahora.

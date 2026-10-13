@@ -1,8 +1,8 @@
-# O00 — Estado real del runtime y preservación
+# O00 — Revisión y copia del prototipo
 
 Fecha: 11 de octubre de 2026. Auditoría local estática; no es benchmark.
 
-## Snapshot
+## Copia de referencia
 
 `research/runs/20261011T195739Z-O00-audit/inventory.json` registra y copia 73 archivos de fuente, configuración, herramientas, recursos usados y artefactos del candidato. Los 73 hashes originales y de snapshot coinciden y la fuente no cambió durante la copia. BIN/DSK existentes se etiquetaron `unverified-existing`; no se ejecutó `make clean`.
 

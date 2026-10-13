@@ -1,9 +1,9 @@
-# Reparación prioritaria de la entrega y prueba de partida completa
+# Reparación de la primera entrega
 
-> **Entrega pendiente de reparación (12 de octubre de 2026):** el usuario informa fallos de los BIN y música insuficiente. La aceptación anterior está retirada. Las verificaciones descritas debajo son históricas y no certifican la entrega actual. Seguir el [plan autónomo](AUTONOMOUS_REPAIR_PLAN.md); su implementación todavía está pendiente.
+> Registro histórico. Este candidato se rechazó el 12 de octubre por fallos de carga y problemas de música. La reparación se organizó en el [plan N00–N10](AUTONOMOUS_REPAIR_PLAN.md). El disco posterior está descrito en el [informe de entrega](../DELIVERY_REPORT.md).
 
 
-Petición del usuario, 12 de octubre de 2026. Intervención E00–E04 sobre el prototipo existente, anterior a continuar T06. No aprueba H0–H5 ni convierte las 24 variantes en la campaña narrativa diseñada. Ejecutar una tarea habilitada cada vez; conservar su resultado en DELIVERY_STATUS.json. STATUS.json mantiene intactos los hitos de producción.
+Petición del usuario, 12 de octubre de 2026. Intervención E00–E04 sobre el prototipo existente, anterior a continuar T06. Las revisiones H0–H5 y la producción de la campaña narrativa siguen pendientes. Ejecutar una tarea habilitada cada vez; conservar su resultado en DELIVERY_STATUS.json. STATUS.json mantiene intactos los hitos de producción.
 
 ## E00 Conservar y reproducir
 

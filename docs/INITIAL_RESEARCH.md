@@ -1,12 +1,12 @@
-# Banterhouse 2 y el aprovechamiento del CPC 6128
+# Investigación inicial del CPC 6128
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-> Contexto histórico: las preferencias por continuar habitaciones y dinámica del original quedan supersedidas por [la dirección creativa aclarada por el usuario](CREATIVE_DIRECTION.md). Este documento se conserva como hipótesis inicial, no como mandato de diseño.
+> La idea inicial de conservar las habitaciones y las reglas del primer juego se descartó. La decisión posterior está en [Dirección creativa](CREATIVE_DIRECTION.md).
 
 Investigación y propuesta técnica · 10 de octubre de 2026
 
-Banterhouse 2 puede conseguir una mejora importante de animación, escenarios y presentación en un CPC 6128 clásico de 128 KiB. La opción recomendada es un motor específico, con las partes críticas en Z80, lógica selectiva en C y recursos preparados en el ordenador de desarrollo. RASM, ACE-DL, Arkos Tracker y un compilador de recursos propio formarían el entorno de trabajo. CPCTelera puede seguir aportando rutinas útiles durante la transición.
+Banterhouse 2 puede conseguir una mejora importante de animación, escenarios y presentación en un CPC 6128 clásico de 128 KiB. La opción recomendada es un motor específico, con las partes críticas en Z80, lógica selectiva en C y recursos preparados en el ordenador de desarrollo. RASM, ACE-DL, Arkos Tracker y un compilador de recursos propio formarían el entorno de trabajo. CPCTelera puede seguir usándose para las rutinas que necesitemos.
 
 El objetivo de esta propuesta es el 6128 original, sin expansiones obligatorias. Las cifras de rendimiento futuro son objetivos para un prototipo, no resultados medidos. La revisión del proyecto corresponde al código disponible; las cifras de pruebas anteriores se atribuyen a su documentación y no se han vuelto a medir en esta investigación.
 
@@ -31,7 +31,7 @@ El [estado documentado](https://github.com/fersantxez/banterhouse/blob/main/docs
 
 La valoración de encaje de esta tabla es una recomendación de diseño. No existe aquí un benchmark que ordene las bibliotecas por velocidad.
 
-| Opción | Qué aporta realmente | Encaje para Banterhouse 2 |
+| Opción | Funciones | Uso posible en Banterhouse 2 |
 |---|---|---|
 | CPCTelera con motor propio | Rutinas de bajo nivel y entorno ya conocido | Buena transición. Sustituir las funciones críticas cuando una medición lo justifique |
 | Z80 propio con RASM | Control del código, bancos, recursos y tiempos | Primera opción para el núcleo gráfico y de sistema; requiere construir el motor |

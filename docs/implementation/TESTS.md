@@ -1,6 +1,6 @@
 # Pruebas y evidencia exigida
 
-Esta matriz define pruebas **por implementar y ejecutar**. Ningún caso se considera pasado por estar escrito aquí. Las comprobaciones host ya realizadas pertenecen a `research/` y `assets/cpc-studies/manifest.json`; no sustituyen los casos Z80.
+Esta matriz define los casos de prueba. Su resultado se registra después de ejecutarlos. Las primeras comprobaciones del ordenador están en `research/` y `assets/cpc-studies/manifest.json`; las pruebas Z80 se ejecutan aparte.
 
 ## Ejecución y resultados
 

@@ -1,16 +1,16 @@
 # Plan de implementación y pruebas de Banterhouse 2
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
 Versión 2 · 11 de octubre de 2026 · CPC 6128 clásico de 128 KiB.
 
-Este plan convierte «¡Devuelto!» en trabajo secuencial que puede ejecutar un modelo con poco contexto. El primer resultado es un pequeño juego con movimiento, salto, sonidos y devolución; la campaña se construye después de probar ese núcleo. Cada tarea tiene dependencias, archivos, pasos, pruebas y una condición de cierre.
+Este plan divide la implementación de ¡Devuelto! en tareas para un agente que trabaje con poco contexto. El primer resultado es un pequeño juego con movimiento, salto, sonidos y devolución; la campaña se construye después de probar ese núcleo. Cada tarea tiene dependencias, archivos, pasos, pruebas y una condición de cierre.
 
-**Estado observado en la revisión v2:** existen `src/`, Makefile, recursos generados y artefactos BIN/DSK del prototipo. No se ha certificado que cumplan las tareas T ni los contratos. La documentación v1 se había quedado atrás respecto al código. Empezar por O00 para conservar y auditar lo existente; no reconstruirlo a ciegas ni marcar tareas como terminadas. La aprobación estética no acredita jugabilidad, rendimiento o compatibilidad.
+**Estado observado en la revisión v2:** existen `src/`, Makefile, recursos generados y artefactos BIN/DSK del prototipo. Falta comprobar si cumplen los requisitos de las tareas T. La documentación v1 se había quedado atrás respecto al código. Empezar por O00 para conservar y auditar lo existente; no reconstruirlo a ciegas ni marcar tareas como terminadas. La aprobación estética no acredita jugabilidad, rendimiento o compatibilidad.
 
-La ampliación [Optimización CPC para 6.1 Luna](implementation/OPTIMIZATION_PLAN.md) concreta 17 tareas adicionales y 20 pruebas de optimización. Se integra en el mismo STATUS: **52 tareas en total**, una habilitada cada vez. La petición que produce este documento es de planificación; no se ha implementado el motor por escribirlo.
+La ampliación [Optimización CPC para 6.1 Luna](implementation/OPTIMIZATION_PLAN.md) concreta 17 tareas adicionales y 20 pruebas de optimización. Se integra en el mismo STATUS: **52 tareas en total**, una habilitada cada vez. El documento se redactó antes de ejecutar esas tareas.
 
-El [plan de reparación de la física de Pitu](implementation/PHYSICS_REPAIR_PLAN.md) y su [seguimiento F00–F08](implementation/PHYSICS_STATUS.json) definen una intervención prioritaria sobre la suspensión al abandonar plataformas y su regresión en las 24 arenas actuales. `make physics-plan-check` valida las fichas y sus dependencias junto con el plan general. Las certificaciones de teclado, arte, hardware y revisión humana conservan su estado real.
+El [plan de reparación de la física de Pitu](implementation/PHYSICS_REPAIR_PLAN.md) y su [seguimiento F00–F08](implementation/PHYSICS_STATUS.json) definen una intervención prioritaria sobre la suspensión al abandonar plataformas y su regresión en las 24 arenas actuales. `make physics-plan-check` valida las fichas y sus dependencias junto con el plan general. Las pruebas de teclado, arte, hardware y las revisiones con jugadores se registran por separado.
 
 La [reparación prioritaria de entrega](implementation/DELIVERY_REPAIR_PLAN.md) añade E00–E04: reproducir carga, corregir el bucle, completar todas las arenas en emulador y bloquear el empaquetado si no hay evidencia del mismo disco. Su seguimiento está en [DELIVERY_STATUS.json](implementation/DELIVERY_STATUS.json); se ejecuta antes de reanudar T06.
 
@@ -151,6 +151,6 @@ No sobrescribir evidencias anteriores. No actualizar automáticamente capturas e
 
 ## Fuentes que acompañan la implementación
 
-La base de diseño está en [GAME_DESIGN.md](GAME_DESIGN.md), la campaña en [STORY_STRUCTURE.md](STORY_STRUCTURE.md), los costes en [DISK_CONTENT_PLAN.md](DISK_CONTENT_PLAN.md) y la validación extensa en [PROTOTYPE_PLAN.md](PROTOTYPE_PLAN.md). Este plan ordena y concreta ese trabajo; no convierte sus objetivos de FPS y carga en resultados.
+La base de diseño está en [GAME_DESIGN.md](GAME_DESIGN.md), la campaña en [STORY_STRUCTURE.md](STORY_STRUCTURE.md), los costes en [DISK_CONTENT_PLAN.md](DISK_CONTENT_PLAN.md) y la validación extensa en [PROTOTYPE_PLAN.md](PROTOTYPE_PLAN.md). Los objetivos de FPS y carga siguen pendientes de medición.
 
 Para APIs, utilizar la fuente de la revisión fijada de CPCTelera. La documentación primaria de [paginación](https://lronaldo.github.io/cpctelera/files/memutils/cpct_pageMemory-asm.html) y [sprites enmascarados](https://lronaldo.github.io/cpctelera/files/sprites/cpct_drawSpriteMasked-asm.html), consultada el 11 de octubre de 2026, apoya esos contratos; la firma real y las restricciones del binario fijado prevalecen al escribir wrappers. No asignar tiempos de esas primitivas al juego completo.

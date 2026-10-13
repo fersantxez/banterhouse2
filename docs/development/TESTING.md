@@ -1,41 +1,44 @@
-# Cómo sabemos qué funciona
+# Pruebas
 
-[Guía de lectura](../README.md) · [Mapa del repositorio](REPOSITORY.md)
+## Tests en el ordenador
 
-Una prueba de lógica en el ordenador, una partida en emulador y una prueba en CPC físico contestan preguntas distintas. Mantener esa separación evita entregar un disco sólo porque su código compila.
-
-## 1. Pruebas que puede repetir un clon limpio
+Después de instalar las dependencias con `make bootstrap`, ejecuta:
 
 ```sh
-make public-check
-make test-host
-make campaign-disk
+make test
+make
 ```
 
-La primera revisa qué archivos entrarían en Git y comprueba enlaces locales. La segunda usa C, Python y sanitizadores para física, colisiones, máquinas, audio, niveles, entrada y supervisión de procesos. No necesita ROM ni abre un emulador. La tercera requiere el bootstrap y produce un disco cuya estructura se inspecciona contra el BIN y el mapa reales.
+`make test` revisa los archivos y enlaces del repositorio y ejecuta los tests de física, colisiones, máquinas, audio, niveles, controles y gestión de procesos. Usa C, Python y sanitizadores; no abre un emulador ni necesita ROM.
 
-La CI de GitHub ejecutará las dos primeras al subir el repositorio. Incluir el workflow no significa que ya se haya ejecutado en GitHub.
+`make` compila el disco y comprueba que sus archivos coinciden con el binario y el mapa de memoria generados.
 
-## 2. Pruebas de la máquina emulada
+GitHub ejecuta `make public-check` y `make test-host` en cada push y pull request. La [primera ejecución](https://github.com/fersantxez/banterhouse2/actions/runs/38470367753), sobre el commit `300c78b`, pasó el 13 de octubre de 2026. La compilación completa del CPC se ha comprobado localmente en macOS.
 
-Abre la build exacta en CPC 6128/128 KiB. Comprueba arranque desde frío, menú, controles, muerte, reintento, pausa, salida de audio, transición de capítulo y final de campaña. El modo D permite repetir el recorrido determinista; prueba también controles reales fuera del replay.
+## Pruebas en emulador
 
-El laboratorio opcional espera Caprice32 en `.tools/cap32`, su perfil en `.tools/cap32.cfg` y ROM en `.tools/rom/`. Esos archivos se preparan localmente; no se distribuyen en Git. También puedes indicar rutas externas con `python3 tools/run_game.py --emulator RUTA_CAPRICE --config-template PERFIL_CFG`. `python3 tools/doctor.py --emulator` comprueba su presencia.
+Usa el disco que acabas de compilar, con el emulador configurado como CPC 6128 de 128 KiB. Comprueba el arranque desde frío, los menús, el movimiento, la muerte, el reintento, la pausa, el sonido, los cambios de capítulo y el final.
 
-[run_game.py](../../tools/run_game.py) y [run_session.py](../../tools/run_session.py) gestionan una sesión exclusiva y guardan evidencia bajo `research/runs/`. Cada prueba tiene que cerrar su propio grupo de procesos incluso si falla o agota el tiempo. Nunca se cierran procesos ajenos por nombre.
+La tecla D del menú reproduce una partida con entradas predeterminadas. Sirve para repetir un recorrido, pero hay que probar también una partida normal con el teclado o el joystick.
 
-`make test-lab` incluye experimentos y verificaciones históricas que esperan capturas específicas. No es la ruta de bienvenida de un clon nuevo. `validate_release_evidence.py` exige el archivo de evidencias enumerado en `research/release-validation.json`; si falta, debe fallar. No se rellena una aprobación con datos ficticios.
+El lanzador de pruebas espera Caprice32 en `.tools/cap32`, su configuración en `.tools/cap32.cfg` y las ROM en `.tools/rom/`. También admite rutas externas:
 
-## 3. Rendimiento y audio
+```sh
+python3 tools/run_game.py --emulator RUTA_CAPRICE --config-template PERFIL_CFG
+```
 
-Registra la build por SHA-256 y las versiones del emulador y del host. Distingue pasos de simulación, cuadros renderizados y velocidad del emulador. La instrumentación de la web mide trabajo y cadencia del navegador; no certifica el tiempo de CPU del CPC físico.
+`python3 tools/doctor.py --emulator` comprueba la instalación local. Los scripts [run_game.py](../../tools/run_game.py) y [run_session.py](../../tools/run_session.py) guardan los resultados en `research/runs/` y cierran los procesos que han abierto, también si fallan o agotan el tiempo de espera.
 
-La captura PCM verifica señal, silencios y saturación. La escucha comprueba equilibrio, fatiga y calidad musical. Se necesitan ambas para afirmar que la música funciona bien.
+`make test-lab` necesita capturas y herramientas de pruebas anteriores. No se puede ejecutar entero desde un clon público sin recuperar esos archivos. Lo mismo ocurre con `validate_release_evidence.py`, que comprueba las pruebas enumeradas en `research/release-validation.json`.
 
-## 4. Pruebas que siguen siendo externas
+## Rendimiento y sonido
 
-La compatibilidad física, variantes de CRTC y disquetera requieren esos equipos. La diversión y la claridad de los controles requieren jugar y observar jugadores. [Plantilla de playtest](../PLAYTEST.md).
+Anota el SHA-256 del disco, las versiones del emulador y del sistema, y las condiciones de la prueba. Mide por separado los pasos de simulación, las imágenes dibujadas y la velocidad del emulador. Los tiempos del navegador no indican por sí solos cuánto tarda el CPC en ejecutar el código.
 
-## Después de un cambio
+Graba el audio para revisar silencios y saturación. Escúchalo también durante una partida: los efectos deben oírse sin tapar la música y las pausas no deben dejar notas sonando.
 
-Ejecuta las pruebas relacionadas con él, conserva los fallos como evidencia y vuelve a comprobar la build final. Si el DSK cambia, los resultados históricos ligados a otro hash no aprueban automáticamente el nuevo. La [entrega registrada](../DELIVERY_REPORT.md) sirve como referencia, no como permiso para saltarse ese paso.
+## Pruebas pendientes
+
+Falta probar en un CPC físico, con su disquetera y las distintas variantes de CRTC. También falta probar con jugadores para ajustar dificultad, controles y música. Hay una [plantilla de sesión](../PLAYTEST.md).
+
+Guarda los resultados, incluidos los fallos, junto al hash del disco probado. Cuando cambie el DSK, repite las pruebas afectadas. Los resultados de la [entrega anterior](../DELIVERY_REPORT.md) corresponden a ese disco concreto.

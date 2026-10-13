@@ -1,6 +1,6 @@
-# Cuatro estudios gráficos con píxeles CPC reales
+# Estudios gráficos CPC
 
-11 de octubre de 2026. Esta es la nueva referencia de **fidelidad técnica** para el diseño gráfico. Las imágenes anteriores de `assets/concepts/screens/` quedan como inspiración artística. Aquí cada pantalla se dibuja directamente en índices de tinta, se codifica en memoria de vídeo CPC y se vuelve a decodificar para producir la imagen que se muestra.
+11 de octubre de 2026. Estas cuatro imágenes sustituyeron a las primeras maquetas, que tenían demasiado detalle para el CPC. Se dibujaron con índices de tinta, se codificaron a memoria de vídeo y se decodificaron de nuevo para comprobar el resultado. Las maquetas descartadas se guardan fuera del repositorio.
 
 **Son pantallas estáticas construidas en el Mac, no capturas de un emulador ni de un juego funcionando.** La verificación cubre píxeles, paleta, direccionamiento y bytes de recursos; todavía no cubre movimiento, colisiones, Z80, audio o cargas físicas.
 
@@ -28,14 +28,14 @@ Dos fachadas hechas con bloques y ventanas repetidas, toldo a franjas, cartel de
 
 ![Purple Paper](04-purple.png)
 
-Telón magenta, focos representados por triángulos de color plano, altavoces y una moto reducida a un icono estático. El cartel de Prince da identidad sin requerir un retrato. No hay transparencias, iluminación calculada ni una lluvia de partículas oculta en el presupuesto.
+Telón magenta, focos representados por triángulos de color plano, altavoces y una moto reducida a un icono estático. El cartel hace referencia a Prince. Todo está dibujado con colores planos, sin transparencias, iluminación calculada ni partículas.
 
-## Restricciones efectivamente aplicadas
+## Formato y restricciones
 
 - **Mode 0 estándar: 160×200 píxeles lógicos.** Las vistas ampliadas miden 800×600: cada píxel lógico ocupa exactamente 5×3 píxeles de la vista. Esto aproxima una presentación 4:3 sin suavizado. No pretende simular un monitor CRT.
 - **16 posiciones de paleta** con colores del CPC clásico. Uso visible: 15 colores en oficina, taller y plató; 14 en calle. No hay Plus, rasters ni cambios de modo o paleta durante la pantalla. Los RGB del PNG son una aproximación digital de los niveles analógicos.
 - **Pitu y Alberto: 16×32 píxeles lógicos.** Cada pose enmascarada fuente ocupa 512 bytes. Se conserva la paleta de todos los índices opacos usados por ambos. Sólo se reasignan índices libres para el decorado.
-- **Tres máquinas estáticas, dos papeles pequeños y Pitu** por escena. La oficina añade a Alberto. Esta cantidad es el contenido dibujado, no un máximo de actores certificado.
+- **Tres máquinas estáticas, dos papeles pequeños y Pitu** por escena. La oficina añade a Alberto. Para saber si esa cantidad puede moverse a la velocidad prevista hay que probarla en el juego.
 - Fondo y HUD estáticos en estas imágenes. Dibujar una fotografía fija no exige moverla cada fotograma; el coste de restaurar el fondo y redibujar actores se tendrá que medir en el prototipo.
 - Las cuatro escenas comparten deliberadamente una geometría. Son cuatro tratamientos gráficos de una arena de prueba, no cuatro niveles ya diseñados y probados. F05 fijó la primera plataforma en X=42, Y=150, ancho 24: queda 34 píxeles sobre el suelo y su borde deja libre el sprite 16×32 apoyado bajo la siguiente. Los saltos simulados alcanzan las seis superficies. Esto valida la geometría del prototipo, no diversión ni niveles de campaña finales.
 
@@ -83,8 +83,8 @@ Python estándar, sin Pillow, generador de imágenes ni herramientas globales nu
 
 Comprobaciones ejecutadas: ida/vuelta para los 256 valores posibles de un byte M0; 16.000 direcciones visibles únicas y vectores de borde; reconstrucción de cada imagen desde el `.scr`; reconstrucción exacta de cada fondo desde tiles y mapa; máscaras válidas y conservación de las tintas de los personajes. Se revisaron visualmente las cuatro vistas ampliadas.
 
-## Qué cambia a partir de aquí
+## Pruebas pendientes
 
-Éste es un suelo de viabilidad gráfica, no el techo artístico del CPC. Se puede enriquecer el dibujo estático dentro de la misma rejilla y paleta. Lo que no se puede garantizar por una imagen es cuánto se podrá animar manteniendo el control inmediato.
+Los fondos se pueden seguir dibujando dentro de esta rejilla y paleta. Para decidir cuántos objetos se pueden animar hay que medir el dibujo y la respuesta a los controles en el CPC.
 
 El siguiente paso jugable sigue siendo movimiento y devolución con sonidos, sobre la oficina. Hay que comprobar legibilidad de pelo negro sobre cada fondo, proyectiles en movimiento, saltos, coste de restauración, sprites desplazados, peor cuadro e input a imagen. Después se refinan los otros escenarios. Las cargas entre capítulos amplían la variedad disponible en disco; no aumentan la resolución, las tintas simultáneas ni el tiempo de CPU por fotograma.

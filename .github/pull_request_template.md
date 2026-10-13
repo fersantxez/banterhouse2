@@ -1,11 +1,11 @@
 ## Cambio
 
-Explica el problema y el comportamiento resultante para el jugador.
+Qué cambia y por qué.
 
 ## Pruebas
 
-Comandos ejecutados, build/DSK y resultados observados.
+Qué has probado, con qué disco y cuál ha sido el resultado.
 
-## Límites
+## Pendiente
 
-Qué no se ha podido verificar y qué evidencia adicional necesita el cambio.
+Pruebas que faltan o problemas conocidos.

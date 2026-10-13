@@ -1,10 +1,10 @@
 # Historia y estructura de Banterhouse 2 — ¡Devuelto!
 
-> **Diseño e investigación históricos.** Este documento conserva propuestas y decisiones de su fecha; no describe por sí solo la build actual. Consulta [Estado](STATUS.md) y [la guía de lectura](README.md).
+> Nota de archivo. Algunas propuestas de este documento se descartaron o siguen pendientes. Consulta el [estado actual](STATUS.md).
 
-Propuesta v0.2 · 11 de octubre de 2026. Desarrolla el [diseño jugable](GAME_DESIGN.md) y se coordina con el [plan de disco y memoria](DISK_CONTENT_PLAN.md). Historia, nombres de pantallas y alcance son propuestas; no hay campaña implementada ni duración comprobada.
+Propuesta v0.2 · 11 de octubre de 2026. Desarrolla el [diseño jugable](GAME_DESIGN.md) y se coordina con el [plan de disco y memoria](DISK_CONTENT_PLAN.md). La historia y los nombres de pantalla eran propuestas en esa fecha; aún no se había implementado la campaña ni medido su duración.
 
-## La historia en una frase
+## Argumento
 
 El Presidente ha vendido una campaña que debe aparecer en todas partes antes de las seis. Su nuevo sistema convierte cada corrección en más encargos. Pitu descubre que la única forma de detenerlo es devolver el encargo original a quien lo firmó.
 
@@ -16,7 +16,7 @@ Tres viñetas breves: Alberto estrecha una mano fuera de plano; el Presidente pu
 
 Primer input útil en cuanto empieza la primera pantalla. La introducción se puede saltar; no se repite después de morir. El argumento se cuenta sobre todo mediante lo que hacen las máquinas y las reacciones del reparto.
 
-## Reparto y arco
+## Personajes
 
 - **Pitu:** protagonista tranquila e irónica. Empieza intentando salir del paso y termina cortando la cadena entera. Resuelve jugando; no necesita poderes nuevos ni cambiar su aspecto.
 - **Alberto:** ha vendido una promesa imposible. Corre para mantenerla y complica las rutas de Pitu. Al parar reprografía descubre que los encargos ya han salido hacia producción. Su obsesión comercial mueve la historia.
@@ -26,7 +26,7 @@ Primer input útil en cuanto empieza la primera pantalla. La introducción se pu
 
 Vera y Rulo quedan como incorporaciones originales opcionales, sin atribuirlos al cómic. El relato base funciona con el reparto documentado de Creatas y Ejecutas. El Ente continúa fuera del alcance confirmado.
 
-## Forma de la campaña
+## Organización de la campaña
 
 **Cuatro capítulos de seis pantallas: cinco arenas y un encuentro especial por capítulo.** Un recorrido principal lineal permite controlar aprendizaje y cargas. Dentro de cada arena hay rutas alternativas y orden libre de objetivos; no se necesita volver a un capítulo anterior para buscar una llave.
 
@@ -68,7 +68,7 @@ No cambiar un panel mientras el papel cruza su zona de seguridad. El encuentro t
 
 Una sola viñeta: la puerta de la agencia se abre y la publicidad invade la ciudad. Texto de Art: «Ahora sí que lo va a ver todo el mundo». Aquí se ofrece el código de continuación y se solicita la cara B.
 
-El cambio de cara tiene lugar en una pausa narrativa segura. No se llama automáticamente «carga instantánea» ni se fuerza un vídeo largo para disimularla. La pantalla explica qué cara necesita y permite reintentar una lectura fallida. El estado de partida permanece en memoria fija.
+El cambio de cara tiene lugar en una pausa narrativa segura. Hay que medir la carga y evitar alargar la transición con animaciones innecesarias. La pantalla explica qué cara necesita y permite reintentar una lectura fallida. El estado de partida permanece en memoria fija.
 
 ## Capítulo 3 — La campaña sale a la calle
 
@@ -95,7 +95,7 @@ El decorado del último encuentro sugiere un vehículo gigantesco, pero no exige
 | 20. Ensayo general | Alternancia de rutas frontales y rebotes; mismo control desde el primer capítulo |
 | 21. Detrás del cartel | Pasarelas alrededor de la escenografía; la oclusión nunca oculta proyectiles necesarios |
 | 22. A cinco minutos | Apoyos y reparto combinados; presión legible, sin cambiar la velocidad del juego |
-| 23. El último pase | Pantalla de lucimiento: varias soluciones que premian el dominio del movimiento |
+| 23. El último pase | Pantalla con varias rutas para practicar saltos y devoluciones |
 | 24. El Plan Perfecto | El Presidente presenta su máquina; Pitu devuelve sus tres familias de encargos y rompe el circuito |
 
 En el final hay tres fases cortas y checkpoint de fase en modo historia. Cada una permite devolver al conducto correspondiente. La última devolución lleva el encargo firmado hasta el panel del Presidente y hace caer el gran cartel sobre el botón de apagado. Todo se resuelve con la acción aprendida al principio.
@@ -106,7 +106,7 @@ La gran presentación queda en silencio. El Presidente: «¿Y esto quién lo ha 
 
 Una última máquina hace un pequeño ruido; Pitu vuelve la cabeza y se apaga sola. Créditos breves sobre una composición pop. Puede rejugarse para mejorar puntuación; el modo arcade reutiliza campaña y recursos.
 
-## Narración que cabe y no frena
+## Viñetas y diálogos
 
 Introducción de tres viñetas, un remate de una o dos viñetas por capítulo y final de tres viñetas. Presupuesto editorial inicial: unas 200–350 palabras de diálogo/texto en toda la campaña, sujeto a legibilidad. El guion anterior describe acciones para producción, no texto íntegro en pantalla.
 
@@ -120,4 +120,4 @@ Retratos con poses reutilizables, bocadillos compuestos por código y pequeñas 
 - La cara B incluye arranque y recursos comunes para comenzar directamente capítulos 3/4 con su código. El modo arcade exige empezar en el capítulo 1; un código de historia no crea una puntuación válida de arcade.
 - No se exige guardar sobre el disco del juego. Un sistema de guardado en disco sería una función posterior, con medio y protocolo definidos.
 
-La estructura de cuatro capítulos favorece producir variedad artística con paquetes pequeños. Su aprobación final depende de M0/M1/M2 y de una muestra CPC con arte y audio, tal como establece el [plan de prototipos](PROTOTYPE_PLAN.md).
+Antes de producir los cuatro capítulos hay que probar M0/M1/M2 y una pantalla con sus gráficos y sonido completos, según el [plan de prototipos](PROTOTYPE_PLAN.md).

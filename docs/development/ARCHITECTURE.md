@@ -1,49 +1,49 @@
-# Cómo funciona una partida
+# Código y funcionamiento
 
-[Guía de lectura](../README.md) · [Gráficos y música](ASSETS_AND_AUDIO.md)
+El juego usa C para las reglas y ensamblador Z80 para las rutinas de hardware, con CPCTelera como biblioteca. El CPC 6128 tiene 128 KiB de RAM, pero el Z80 sólo puede direccionar 64 KiB a la vez; para acceder al resto hay que cambiar los bancos de memoria.
 
-El CPC tiene un Z80 y 128 KiB de RAM. Esa memoria no aparece toda a la vez en el espacio de direcciones de 64 KiB del procesador: los bancos deben mapearse. El proyecto usa C para la lógica y ensamblador Z80 para las operaciones cercanas al hardware, con CPCTelera como biblioteca.
+## Bucle principal
 
-## Un paso de juego
+[input.c](../../src/platform/input.c) lee el teclado y el joystick. [input_logic.c](../../src/platform/input_logic.c) distingue una pulsación nueva de una tecla que sigue apretada. Esto permite, por ejemplo, pedir que el jugador suelte y vuelva a pulsar para reintentar.
 
-La entrada comienza en [input.c](../../src/platform/input.c): lee teclado y joystick. [input_logic.c](../../src/platform/input_logic.c) separa una tecla mantenida de una pulsación nueva. Así saltar, confirmar o reiniciar no dependen de cuántas veces se vuelva a dibujar una tecla apretada.
+[clock.c](../../src/platform/clock.c) cuenta seis interrupciones del CPC por paso de simulación. El bucle de [main.c](../../src/main.c) consume los pasos pendientes, actualiza el juego y el audio, y dibuja la imagen. El objetivo es ejecutar 50 pasos por segundo; falta comprobar que todo el trabajo cabe siempre en ese tiempo.
 
-El [reloj](../../src/platform/clock.c) cuenta seis interrupciones CPC por paso de simulación. El bucle de [main.c](../../src/main.c) consume los pasos pendientes, actualiza el juego, avanza el audio y presenta la imagen. La referencia nominal es 50 pasos por segundo; esto no demuestra que el trabajo de un paso siempre quepa en ese tiempo.
+## Reglas y física
 
-```mermaid
-flowchart LR
-    A[Teclado y joystick] --> B[Estado de entrada]
-    B --> C[Física y reglas]
-    C --> D[Música y efectos]
-    D --> E[Restaurar y dibujar]
-    E --> A
-```
+| Archivo | Responsabilidad |
+|---|---|
+| [player.c](../../src/core/player.c), [collision.c](../../src/core/collision.c) | Movimiento y contacto con plataformas, con coordenadas de punto fijo |
+| [machine.c](../../src/core/machine.c), [projectile.c](../../src/core/projectile.c) | Máquinas, disparos y devoluciones; el número de objetos simultáneos está limitado |
+| [flow.c](../../src/game/flow.c) | Vidas, daño y reintento |
+| [main.c](../../src/main.c) | Menús, niveles, dibujo e integración de la campaña |
 
-## Dónde viven las reglas
+`main.c` todavía concentra bastante lógica. La primera pantalla usa la colisión más reciente; otras pantallas y parte de la demostración conservan el comportamiento anterior. Si cambias la física, prueba las dos variantes.
 
-- [player.c](../../src/core/player.c) y [collision.c](../../src/core/collision.c) calculan movimiento y contactos con plataformas usando enteros de punto fijo.
-- [machine.c](../../src/core/machine.c) y [projectile.c](../../src/core/projectile.c) gestionan emisores, papel y devoluciones mediante conjuntos de tamaño limitado.
-- [flow.c](../../src/game/flow.c) gestiona vidas, daño y reintento.
-- `main.c` integra menús, niveles, dibujo y las variantes de campaña. Todavía concentra bastante lógica; el proyecto no presenta esa integración como una arquitectura final ya desacoplada.
+## Dibujo
 
-La arena inicial tiene una ruta de colisión más reciente. Las otras arenas y parte del replay conservan comportamiento anterior. Al modificar física, comprueba ambas rutas.
+Usamos **Mode 0: 160 × 200 píxeles y 16 tintas simultáneas**. Cada byte contiene dos píxeles. Las líneas de la pantalla no ocupan posiciones consecutivas en memoria, algo que las rutinas de dibujo deben tener en cuenta.
 
-## Dibujar sin rehacerlo todo
+Los sprites tienen máscara y variantes para las orientaciones y alineaciones necesarias. El fondo descomprimido se guarda en `&8000–&BFFF` y la pantalla visible en `&C000–&FFFF`. Para mover un objeto se restaura su fondo y se dibuja en la posición nueva. Al cambiar de pantalla o mostrar ciertos paneles se redibuja la imagen completa.
 
-La pantalla está en **Mode 0: 160 × 200 píxeles lógicos y 16 tintas simultáneas**. Un byte representa dos píxeles y las líneas están entrelazadas en la memoria de vídeo. Los sprites incluyen una máscara para preservar el fondo y variantes según orientación y alineación.
+`src/render/render_g.c` contiene un experimento de dibujo separado. La campaña no lo usa.
 
-El fondo expandido se conserva en `&8000–&BFFF`; la imagen visible vive en `&C000–&FFFF`. El renderer restaura regiones del fondo y dibuja encima objetos y personajes. Al cambiar de arena o mostrar determinados paneles se reconstruye la imagen completa. El módulo `src/render/render_g.c` es un experimento separado, no el renderer que se enlaza automáticamente en la campaña.
+## Cargas de disco
 
-## El disquete amplía el contenido
+El DSK contiene `DEVUELTO.BIN` y cuatro archivos, `CH01.BIN`–`CH04.BIN`. Cada uno guarda un fondo comprimido con ZX0, compartido por seis pantallas.
 
-El DSK contiene `DEVUELTO.BIN` y `CH01.BIN`–`CH04.BIN`. El programa y las reglas permanecen residentes. Cada archivo de capítulo aporta un fondo comprimido ZX0, compartido por seis arenas.
+Al cambiar de capítulo, el juego:
 
-Al cambiar de capítulo, el juego pausa la música, prepara el firmware y AMSDOS, lee el recurso comprimido a `&8000`, lo expande hacia la pantalla y guarda el fondo resultante para restauraciones. Después reinicia la cola del reloj y reanuda la música. El banco 7 conserva el espacio de trabajo del firmware que hace falta recuperar en lecturas sucesivas.
+1. Pausa la música y prepara el firmware y AMSDOS.
+2. Lee el fondo comprimido en `&8000`.
+3. Lo descomprime en la pantalla y guarda una copia para restaurar el fondo al mover sprites.
+4. Reinicia la cola del reloj y reanuda la música.
 
-Esto es una carga entre capítulos. No es streaming durante el movimiento ni una descarga de todo el motor: las tablas de niveles y el código siguen residentes. El mismo espacio se reutiliza para el siguiente fondo.
+El banco 7 conserva el espacio de trabajo del firmware necesario para las siguientes lecturas. El código y las tablas de niveles permanecen en RAM; sólo se sustituye el fondo. Durante la acción no hay lecturas de disco.
 
-Las rutinas están en [disk_assets.s](../../src/platform/disk_assets.s); el empaquetado, en [attach_chapter_assets.py](../../tools/attach_chapter_assets.py). [check_campaign_dsk.py](../../tools/check_campaign_dsk.py) comprueba archivos, cabeceras y correspondencia con el binario.
+Las rutinas están en [disk_assets.s](../../src/platform/disk_assets.s). [attach_chapter_assets.py](../../tools/attach_chapter_assets.py) añade los archivos al DSK y [check_campaign_dsk.py](../../tools/check_campaign_dsk.py) comprueba su contenido y sus cabeceras.
 
-## El mapa se mide en cada build
+## Memoria
 
-El enlace coloca código desde `&0100` y datos desde `&7C50`. La portada ocupa un área temporal desde `&8000`, que después se reutiliza. El mapa `.map` generado y los validadores son la referencia para la ocupación real; los diagramas de [arquitecturas candidatas](../ARCHITECTURES.md) pertenecen a la investigación y no sustituyen ese mapa.
+El enlazador coloca el código a partir de `&0100` y los datos desde `&7C50`. La portada usa temporalmente el área que empieza en `&8000`; después se reutiliza para el fondo.
+
+Consulta el archivo `.map` de cada compilación para conocer su ocupación. Los mapas de [ARCHITECTURES.md](../ARCHITECTURES.md) son propuestas anteriores, no el mapa del ejecutable actual.

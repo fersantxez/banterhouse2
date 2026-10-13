@@ -40,3 +40,10 @@
 - Ejecutar `make public-check` antes de preparar un commit. No añadir archivos ignorados a la fuerza.
 - El sitio web está en el repositorio hermano `../banterhouse2-site`; no copiarlo ni convertirlo en un gitlink accidental.
 - La limpieza deja la evidencia histórica en `../banterhouse2-archive`. Las nuevas sesiones pueden usar `research/runs/` ignorado; preservar las evidencias necesarias fuera del contenido público.
+
+## Redacción de documentación
+
+- Usar títulos descriptivos: «Compilar el juego», «Pruebas», «Gráficos y música». Evitar eslóganes, metáforas y preguntas retóricas como títulos.
+- Escribir en español directo, con archivos, comandos y ejemplos concretos. Quitar frases de relleno y advertencias repetidas.
+- Conservar las fechas, resultados, fuentes y límites de las pruebas. Explicar lo pendiente una vez, en el lugar donde afecta al lector.
+- No inventar experiencias personales ni testimonios para dar un tono más humano.

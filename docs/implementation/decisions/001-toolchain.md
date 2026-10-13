@@ -1,4 +1,4 @@
-# 001 — Toolchain observada en el candidato
+# 001 — Herramientas de compilación del prototipo
 
 Estado: fijación y verificación local para el DSK CPC clásico; reproducibilidad limpia y CPC físico aún pendientes.
 
