@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-10",
+  "local_file_links_checked": 24,
+  "original_inputs_sha256_unchanged": 18,
+  "budget_negative_cases_rejected": [
+    "overlap",
+    "overflow",
+    "time_sum"
+  ],
+  "CPC_runtime_tested": false
+}

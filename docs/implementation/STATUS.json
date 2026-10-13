@@ -1,0 +1,1005 @@
+{
+  "schema_version": 1,
+  "plan_version": "2",
+  "created": "2026-10-11",
+  "scope": "T13 cerrado. T14/H1 preparado con dos builds M1 (A: sello 6/8; B: 8/8), mapas y discos validados; espera evaluación/decisión humana para escoger ventana. El build CPC principal usa A y Caprice quedó abierto.",
+  "first_task": "T14",
+  "hardware_verified": false,
+  "notes": [
+    "Arte estático aprobado por el usuario; gameplay no evaluado todavía.",
+    "T19 y T20 pueden avanzar mientras T18 espera revisión humana.",
+    "T35 puede entregar candidato de emulación con T34 pendiente; no certifica hardware.",
+    "O00 reconcilia código existente y estado antes de T01; preservar prototipo y builds previos.",
+    "O03–O14 pueden medir sin H2 aprobada; T21 sigue requiriendo T18 y T20.",
+    "O16 precede T34/T35; sólo T34 acredita pruebas físicas.",
+    "outcome en tareas O: accepted, rejected, not_needed o report_only según la ficha; null hasta ejecutar.",
+    "La selección recorre tasks en orden y toma la primera pending habilitada, reanudando antes in_progress habilitada.",
+    "2026-10-11: build candidata dist/Devuelto-CPC6128.dsk; evidencia, SHA-256 y límites en FINAL_CANDIDATE.md.",
+    "Comprobado en Caprice32 4.6.0: arranque CPC 6128, movimiento, pausa/reanudación y reinicio de arena; OSD observado 44–50 FPS en interacción breve, no benchmark.",
+    "La tabla de 24 arenas supera el validador estático. No se ha jugado ni verificado la finalización completa de las 24 en emulador.",
+    "H0/H1/H2 siguen pendientes de evaluación humana. Sin salida de audio disponible ni CPC físico conectado.",
+    "Quedan fuera del candidato las viñetas, paneles de rebote, encuentros exclusivos de Carlitos/Presidente y los paquetes de carga por caras descritos en la historia.",
+    "O01 conserves source and published DSK/CDT hashes; the original release was not executed. Its output is not yet a performance baseline.",
+    "2026-10-11: menú inicial, entrada a ayuda, regreso, selección de música ON/OFF y arranque probados en Caprice32 4.6.0; Derecha movió Pitu y P pausó/reanudó. Caprice desactiva audio por CoreAudio AudioQueueStart; AY compila, escucha no verificada. Perfil del proyecto usa joysticks=0 y joystick_emulation=0 para entrada directa de teclado.",
+    "2026-10-11: música revisada en src/platform/music.s: melodía original aguda y bajo AY a 150 BPM (semicorchea cada 5 ticks de 50 Hz); sin melodías o MIDI comerciales. Decisión y límites en docs/implementation/decisions/004-ay-pop-hook.md. make package pasa; DSK dist/Devuelto-CPC6128.dsk de 204544 bytes, SHA-256 20b2a92de9574c3693464684d075d4310b1d2ed4b5996320ba073e50cbd0cba1. En Caprice 4.6.0 se verificó menú/ayuda/inicio/reinicio/movimiento y toggle OFF/ON con teclas sostenidas ~200 ms; no se declara cerrada P01-P04 ni T04, pues el perfil de diagnóstico no llegó a ejecutar el test visible de 3000 VSYNC.",
+    "2026-10-11: salto candidato con 7 ticks mínimos antes del corte al soltar; make build y make test pasan, la simulación discreta estima 28 px de altura sobre plataformas separadas 24 px. Registro en docs/implementation/decisions/005-salto-tap-corto.md. DSK vigente entonces de 204544 bytes, SHA-256 d30ff7dfa378b58ae039379f958163c5ec64829e8c6650641450bdda9731b014. T08 y H0 siguen pendientes: no hay reproducción por tick del aterrizaje ni revisión humana aprobada.",
+    "2026-10-11: se incorporó el arreglo local de ocho compases del MIDI de Holiday suministrado por el usuario; generador determinista, 125 BPM en canales AY B/C, código Z80 compilado, make package pasa. Decisión 006. El MIDI fuente queda ignorado en Git y el DSK es sólo candidato privado; audio escuchado y T17 siguen pendientes. DSK de 204544 bytes, SHA-256 d3f740a1b3bbbce497e749d04dbfbe0d40795805f23d76bbac553f81d51a8f07.",
+    "2026-10-12: fresh Caprice keyboard smoke on current DSK: Space 250 ms entered arena; Right 1500 ms moved Pitu right; P showed pause indicator. Up/jump trajectory remained inconclusive because of capture timing/sprite flashing. Evidence in research/runs/20261012T-T02-keyboard-smoke/results.json; this is not P02 or H0 approval.",
+    "2026-10-12: Caprice reproduction of T08 edge-fall defect: Space starts, Right moves Pitu, Up reaches a platform, then holding Right walks beyond its edge while Pitu remains at the same vertical height. Source inspection points to grounded not being cleared when support overlap ends. Evidence: research/runs/20261012T-T08-edge-fall-repro/results.json. Fix/test remain scheduled under T08 after T05-T07.",
+    "2026-10-12: nueva prueba manual en Caprice32 4.6.0 con DSK SHA-256 49b2fd15a7d6de45f82256efbc9e94e68e3c188676e4f08edd41252b664cea8d: Space ~250 ms entra en arena y Derecha ~1000 ms mueve a Pitu. Arriba ~1000 ms, captura 1.5 s después, deja el sprite mayormente ocluido por la plataforma inferior; trayectoria/aterrizaje inconclusos. T04 P02 y H0 no aprobadas; audio no escuchado. Evidencia: research/runs/20261012T-T02-keyboard-smoke-midis/results.json.",
+    "2026-10-12: make test && make package exit 0 after bounded VSYNC polling change; current candidate DSK SHA-256 c9594ef61d84ad1ff4553b679ba175562ca8ea9c1b15bf4163c05bdf4d796795, 204544 bytes. New Caprice T04 run showed diagnostic graphics then returned to BASIC before results; exact counters not claimed. Evidence: research/runs/20261012T-T04-reset-observation/results.json. T04 remains in_progress.",
+    "2026-10-12: P01 aislado en Caprice al retirar las actualizaciones de pantalla durante los 3000 intervalos: panel PASS, 3000 ticks, 18001 IRQ, rango 06..06. La corrida anterior dibujaba cada 256 bordes y añadía exactamente 11 ticks; no se cambió la tasa del reloj. P02 sigue inconclusa: la pantalla alterna entre negra y el panel, con held/pressed/released en 000 incluso tras Right/Space sintéticos. P04 pasa sólo con cola 03→00. Evidencia exacta: research/runs/20261012T173008Z-T04-vsync-no-render/results.json.",
+    "2026-10-12: rebuilt and ran the current 3000-edge T04 diagnostic in Caprice32 4.6.0/CPC6128. Final panel visually read ticks 3011, IRQ 18067, min/max 06/06; ticks exceed the ±1 threshold, so P01 fails pending diagnosis. Forced overrun showed 03 pending and 04 after attempted drain, so P04 recovery is not demonstrated. P02 matrix remains unrun; P03 waits for T07. Build/host checks pass. Evidence: research/runs/20261012T-T04-3000-rebuilt/results.json.",
+    "2026-10-12: relectura CPC con DSK diagnóstico SHA-256 4487d5f5050adfb613960c33b780cf8b72f57d21c55b91857117a4fc0abad88e: panel P01 PASS, ticks 3000, IRQ 18001, mínimo/máximo 06/06. En la primera pulsación de Derecha, máscaras held/pressed/released=002 y contadores press/release=01/01; la repetición posterior dio contadores 03/02 y capturas negras intermitentes, así que P02 parcial/inconclusa. P04 corto 03→00; replay P03 espera T07. make test, make package y validador del plan exit 0. Evidencia: research/runs/20261012T173649Z-T04-vsync-key-results/results.json. Juego relanzado en Caprice32 desde dist/Devuelto-CPC6128.dsk, menú inicial visible con JUGAR seleccionado y MÚSICA ON; flecha abajo/arriba navega el menú. Audio no escuchado.",
+    "2026-10-12: T04 P04 CPC ampliada con DSK diagnóstico SHA-256 15bbeb38957ff1eeeeb39d4dbd1a3e9e1cdc4802268233db889f246e321ce1ce: se acumuló cola de 32 ticks y se drenó a 00; P01 volvió a mostrar 3000 ticks/3000 VSYNC, 18001 IRQ, min/max 06/06. ASan/UBSan host conserva la prueba de wrap elapsed(1,65535)=2; no es wrap observado en CPC ni cubre expiraciones de simulación. P02 continúa inconclusa por contadores de tecla variables y capturas negras; matriz no ejecutada. P03 espera T07. Evidencia: research/runs/20261012T174100Z-T04-long-backlog/results.json.",
+    "2026-10-12: nuevo intento autónomo T04 P02: Caprice recibió llamadas CUA concurrentes Left/Right de 800 ms; captura posterior muestra HELD=00000, PRESS=00003, RELEASE=00003 y 2 flancos de press/release. Confirma ambos eventos individuales, no que el mismo muestreo CPC viera ambas teclas mantenidas; captura y límites en research/runs/20261012T-T04-cua-chord-probe/results.json y caprice-post-chord.png. P02 sigue abierta. En la reproducción de arena del build 07ab928, las capturas tras entrada/movimiento se volvieron gráficamente inestables; no sustituye ni invalida la reproducción previa de borde guardada en T08.",
+    "2026-10-12: verificación autónoma final make test && make package exit 0; plan validator exit 0. DSK dist/Devuelto-CPC6128.dsk 204544 bytes SHA-256 07ab928c46c4aa8aed1feda27762926356732d920b35af7b99af8d502ec4f6b2. Caprice32 4.6.0/CPC 6128 quedó ejecutando el paquete desde arranque limpio, en título con JUGAR seleccionado y MÚSICA ON; captura research/runs/20261012T-final-autonomous-check/caprice-menu.png. El reintento de movimiento tuvo salida gráfica inestable; la reproducción T08 previa sigue siendo el dato controlado. T04 permanece abierta; no se atribuyen gates humanos, audio escuchado ni CPC físico.",
+    "2026-10-12: nueva ruta de P02 probada sin intervención humana: mapear CPC_RIGHT a Mayús+Izquierda mientras se conserva CPC_LEFT es rechazado por Caprice32 al detectar SDLK_LEFT MOD_PC_SHIFT duplicado. La máscara histórica acumulada no sirve como muestra simultánea; el error y límites se añaden a research/runs/20261012T-T04-cua-chord-probe/results.json. P02 sigue abierta y el perfil estándar no se modifica.",
+    "2026-10-12: límite de automatización P02 confirmado: CUA rechaza también app.click con key=Left+Right (keyPressIncludedMultipleNonModifierKeys) antes de actuar. Junto con los keymaps concurrentes no simultáneos y el rechazo de SDLK_LEFT MOD_PC_SHIFT por Caprice, no hay ruta de acorde CPC verificable en este host sin hardware o tecnología de inyección adicional. Evidencia actualizada en research/runs/20261012T-T04-cua-chord-probe/results.json. T04 continúa como primera tarea habilitada; T05 y T08 no se saltan.",
+    "2026-10-12: el usuario confirma que «la física ya funciona, pitu sube y baja y cae correctamente». Se registra como confirmación explícita de la física básica del candidato F08; H0 comparativa no se da por aprobada. F07: 2,4 millones de ticks host en 24 arenas y replay CPC de 256 ticks con 16 hashes de checkpoint coincidentes. F08: make package PASS; Caprice CPC6128 desde arranque limpio verificó menú, controles, música ON/OFF/ON y arena inicial. DSK dist/Devuelto-CPC6128.dsk SHA-256 fe0b10a5d71c7274e763054219d09ffb5f7ec3256c18a9dc37a1ead563c2d209. Audio audible y CPC físico no comprobados; evidencia en research/runs/20261012T-final-physics-F08/results.json y research/runs/20261012T235500Z-F07-physics-campaign/results.json.",
+    "2026-10-12: T04 P01–P04 cerrado con pruebas actuales de Caprice y host. El perfil temporal de joystick emulado se creó en /tmp y la prueba Joy0-only eliminó las ramas de teclado; CH=007 confirmó Left+Right, Up+Down y Left+Up. No se certifica joystick físico. El replay CPC de jugador preservó PlayerState por tick a 50/25 presentaciones y durante 12 pasos pausados. T07 repetirá sobre GameState; U04/O12 medirá sonido audible cuando el entorno lo permita.",
+    "2026-10-12: el usuario confirma que la física visible ya funciona: Pitu sube, baja y cae correctamente. Se conserva pendiente la revisión H0 y la regresión automatizada de T08; la confirmación no sustituye esas pruebas.",
+    "2026-10-12: T05 K01–K03 PASS en Caprice32 4.6.0 con fixture aislado, código RAM0 0100–1363, globals hasta 319A, stack fijo RAM2 y pantalla RAM3. Marcadores en pantalla: seis checks PASS. Ver research/runs/20261012T233951Z-T05-banks/results.json. Riesgo de integración registrado: el mapa del juego se solapa con 4000–7FFF al paginar; no integrar hasta resolverlo en T20.",
+    "2026-10-12: A03/T03 palette-state blocker resolved. Caprice32 4.6.0 Shift+F3 SNA snapshots contain the programmed 17 Gate Array inks per upstream source; all 16 active inks in each of four canonical gallery scenes match byte-for-byte. Evidence: research/runs/20261012T234446Z-T03-snapshot-palette/results.json. This proves emulator state only, not physical CPC output.",
+    "2026-10-13: T09 automatizado y build CPC/Caprice comprobados. AY único propietario desde el bucle principal, SFX A, música B/C, cola de prioridad y reintento en RAM. make test PASS; audio configurado y buffer Caprice inicializado, pero no se afirma escucha subjetiva. H0 queda aceptado dentro del alcance informado por el usuario: «la física ya funciona, pitu sube y baja y cae correctamente»; sin afirmar comparación A/B ni tres recorridos. Evidencia T09/T10 en research/runs/20261013T0302Z-*; DSK build/DEVUELTO.dsk SHA-256 f455266b46aa36298f3d4a61dce319e9bb8a3d0634e111af7abd51b643f121cc.",
+    "2026-10-13: T11 implementado y probado. machine/projectile separan estados y pools fijos; M1 usa espera 50, aviso 15 y periodo 76 ticks, reserva antes de avisar, pool lleno aplaza sin borrar, apagar/reintentar libera reservas. Traza xq=81,78,75 guardada. make test-machine, test-game, test-render, build/check-map y make test PASS; replay host completa 24 arenas y puntuación 36375. make run-m1 ejecutó el DSK build en Caprice32/CPC6128 y volvió a dejar menú JUGAR/MÚSICA ON. Un intento sostenido de Derecha terminó en SIN VIDAS tras el retardo de captura; no se cuenta como prueba de calidad de movimiento. Audio audible, señal de aviso en pantalla y CPC físico no confirmados. Evidencia: research/runs/20261013T031729Z-T11-machine-projectile/results.json; BIN SHA-256 8e6d15bb1cde1bf0d18ce552c3fc52e899b999c0bb5e91a685b67e0d2121c1b6, DSK SHA-256 fa9022a92b493002c195b84a8f49f4a2f5430fec2272cea1539f6723cedd54d1.",
+    "2026-10-13: T12 D01-D05/R04/U02 cerradas con barrido AABB relativo, prioridad del sello, ventana exacta 6/8, boca de máquina, sólidos y simultaneidad; ASan/UBSan y harness completo PASS. CODE M1 0100-6F82, DATA 7800-78C4; guardas de pila/vídeo intactas. Para caber en CPC6128 clásico, run-m1 compila una arena y omite 3 fondos/paletas y el replay de diagnóstico; el harness host conserva replay de 24 arenas. BIN SHA-256 577a3692d329ae29259f69c0dc595fe00f1a2d6b94a957c34c9bc1aa8339b7a6; DSK SHA-256 c23f5265d262494d4c486614201f281d68ab85ad6739a389a24cf8fd902e8788. La UI Caprice visible aún no confirma de forma fiable que esa ventana esté ejecutando el último DSK; se mantiene como comprobación pendiente para el cierre jugable. Evidencia: research/runs/20261013T035444Z-T12-swept-seal/results.json.",
+    "2026-10-13: T13 cerrado para M1. src/game/flow.* centraliza dos impactos, 50 ticks exactos de invulnerabilidad y reintento sólo tras soltar/pulsar; main resuelve daño en lote después de puntuar, y al apagar la última máquina cancela papeles/reservas antes del daño del mismo tick. F01–F05 pasan en harness host con ASan/UBSan, incluidos 100 reintentos de RAM, prioridad de salida y score de checkpoint. make test (suite completa), make build/check-map, test_game_build y check_disk pasan; mapa código 0100–7042, datos 7800–78C8, DSK 204544 B, BIN 30665 B. BIN SHA-256 76701acc9dee3f2a61122287b8b7ebc21e635b801db18842437a0d7866235d08; DSK SHA-256 bcb70391aef7cd156716de3a9a7c246ec25e10ad062512a97f34f21b89169770. Evidencia research/runs/20261013T-T13-arena-flow/results.json. 100 reintentos son prueba host; no se midieron FDC ni ejecución CPC de esos reinicios. H1 sigue pendiente y no se sustituye con tests automáticos."
+  ],
+  "tasks": [
+    {
+      "id": "O00",
+      "title": "Auditar y conservar el prototipo existente",
+      "depends_on": [],
+      "status": "done",
+      "substep": "1-5",
+      "evidence": [
+        "docs/implementation/decisions/000-runtime-audit.md",
+        "research/runs/20261011T195739Z-O00-audit/inventory.json",
+        "OP01: snapshot exacto de 73 archivos; rutas Make sin dependencias Python ausentes",
+        "check_implementation_plan.py: grafo/IDs/enlaces/negativos pasan"
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "report_only"
+    },
+    {
+      "id": "T01",
+      "title": "Fijar herramientas y proteger las referencias",
+      "depends_on": [
+        "O00"
+      ],
+      "status": "done",
+      "substep": "complete",
+      "evidence": [
+        "cfg/toolchain.lock.json",
+        "docs/implementation/decisions/001-toolchain.md",
+        "make doctor exit 0; all locked dependencies and CPCTelera SHA found",
+        "make package exit 0; resource/campaign/map/disk/DSK package"
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "O01",
+      "title": "Congelar referencias de la primera parte",
+      "depends_on": [
+        "T01"
+      ],
+      "status": "done",
+      "substep": "complete",
+      "evidence": [
+        "tools/capture_legacy_reference.py",
+        "research/runs/20261011T200531Z-O01-legacy/legacy-reference.json",
+        "20/20 allowlisted original sources copied with matching hashes; DSK/CDT hashes recorded without running original",
+        "tests/fixtures/legacy/manifest.json",
+        "Original project scripts/build/emulator not executed"
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "report_only"
+    },
+    {
+      "id": "T02",
+      "title": "Arranque mínimo y mapa real",
+      "depends_on": [
+        "T01"
+      ],
+      "status": "done",
+      "substep": "complete",
+      "evidence": [
+        "make package exit 0 tras menú/controles/música: assets, campaña, mapa, DSK; binario 30574 bytes cargado en &0100; mapa code 0100-4F36, globals 7800-7865, stack 7FF0",
+        "Caprice32 4.6.0 CPC6128: menú persistente, navegación, ayuda/retorno, toggle ON/OFF, inicio con Space; movimiento Derecha observado y pausa P observada",
+        "docs/implementation/decisions/002-smoke-boot.md y research/runs/20261011T204830Z-T02-smoke/results.json",
+        "make package exit 0; build candidata preservada en dist/Devuelto-CPC6128.dsk",
+        "smoke-boot: build aislada 483 B a &0100; mapa real y 4 fixtures negativos pasan",
+        "Caprice32 CPC6128/128K: marca visible verifica retorno C→ASM &7D3C y canario de pila con >=256 B libres en el camino smoke",
+        "smoke-resets: 10 boots fríos independientes, proceso vivo 1.5 s cada uno",
+        "repro: dos builds limpias independientes; BIN f854ee751be606ae021beba9ad950131104e81c4649ade72974c9da7497b3990 y DSK 10f74522d4eb504f3127272c7e31a86c6a98a572e53ac7d4c7cd14b8a0bdadfd idénticos"
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "report_only"
+    },
+    {
+      "id": "T03",
+      "title": "Importación de arte y galería nativa",
+      "depends_on": [
+        "T02"
+      ],
+      "status": "done",
+      "substep": "complete: canonical assets, rejection fixtures, four gallery builds, runtime VRAM comparisons and direct Gate Array palette extraction",
+      "evidence": [
+        "make assets-check smoke-gallery PASS: 35 frozen assets, 8 invalid fixtures rejected, 256 Mode 0 round-trips, 4 exact ZX0 screens, 4 gallery DSKs and byte-exact VRAM/palette payloads.",
+        "Caprice32 4.6.0 CPC 6128/128 KiB: ran GAL01.BIN–GAL04.BIN and saved snapshots with Shift+F3; tools/check_gallery_snapshots.py extracts 16 programmed Gate Array inks from each SNA and compares to canonical .hwpal; all 4 pass byte-exactly.",
+        "tools/test_caprice_snapshot_palette.py PASS: a one-ink corruption in a captured snapshot is rejected.",
+        "Caprice SNA field contract cross-checked against upstream ColinPitrat/caprice32 commit 6c12c4c92360065cdc229ac9ada7551f941436b8: slotshandler.cpp saves GateArray.ink_values[0..16], cap32.h defines the packed header.",
+        "make test exit 0 including smoke-gallery and test-gallery-snapshots."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T04",
+      "title": "Reloj, entrada e instrumentación mínima",
+      "depends_on": [
+        "T02"
+      ],
+      "status": "done",
+      "substep": "P01–P04 cerradas a nivel plataforma; teclado y Joy0 emulado verificados en Caprice; P03 PlayerState a 50/25 presentaciones y pausa PASS. La repetición sobre GameState queda dentro de T07; audio audible/coste en U04/O12; CPC/joystick físicos no disponibles.",
+      "evidence": [
+        "research/runs/20261011T225304Z-T04-clock/results.json: Caprice CPC smoke de 30 VSYNC, 30 ticks, 181 IRQ, min/max 6",
+        "research/runs/20261012T160659Z-T04-clock-3000/results.json: bucle CPC de 3000 VSYNC completado; panel pasó/terminó aparente, cifras no transcritas y P02 inconclusa",
+        "make test-platform y make platform-logic exit 0; mapa residente y DSK de diagnóstico validados",
+        "research/runs/20261012T-T04-readable-panel/results.json: build/map/logic pass; CPC panel inconclusive, no timing values claimed",
+        "research/runs/20261012T-T04-reset-observation/results.json: earlier stale/ambiguous run; superseded by current rebuild evidence",
+        "research/runs/20261012T-T04-3000-rebuilt/results.json: visible final counters transcribed; P01 count mismatch",
+        "research/runs/20261012T-T04-drain-snapshot/results.json: short CPC overrun read 03 and immediate post-drain 00; P04 mechanism passes this injection",
+        "research/runs/20261012T-T04-current-recheck/results.json: make test/package/plan pass; CPC panel FAIL ticks 3011, IRQ 18067, min/max 02/16; Right deja el área de diagnóstico negra; P04 corto conserva OVERRUN 03/DRAINED 00",
+        "research/runs/20261012T172600Z-T04-input-recheck/results.json: misma reconstrucción diagnostic DSK SHA-256 07844674b4816aa800ed19d1e8ec986d51319266ac3043eb2c437baa61928876; lectura final 3011/18067/02..16; Right 250 ms mantiene panel pero campos 000, Right 2000 ms vuelve negra el área; P02 sigue fallando",
+        "research/runs/20261012T173008Z-T04-vsync-no-render/results.json: P01 pass en CPC; draw de progreso eliminado y lecturas visibles 3000/18001/06..06; P02 sigue inconclusa; P04 sólo 3 ticks",
+        "research/runs/20261012T173649Z-T04-vsync-key-results/results.json: repetición CPC con hashes actuales; P01 PASS, Derecha detectada una vez pero repetición no estable, P04 sólo 3 ticks",
+        "research/runs/20261012T174100Z-T04-long-backlog/results.json: P01 repetida, cola de 32 ticks recuperada y wrap modular host; no simula wrap físico/expiración",
+        "research/runs/20261012T-input-render-probe/results.json: P01 3000/18001/06..06 PASS; P04 32→00; toque corto X: máscara acumulada 016 y contadores PC/RC 01/01; al actualizar campos desaparece texto estático. P02 incompleta; pulsación automatizada larga repite transiciones; no se afirma matriz completa.",
+        "research/runs/20261012T-wrap-recheck/results.json: DSK SHA-256 38e99f4e…; Caprice visible PASS 3000 ticks, 18001 IRQ, 06..06; P04 OVERRUN 32/DRAINED 00 y wrap CPC &FFFA→&0002 con delta modular 8.",
+        "research/runs/20261012T-input-render-probe/results.json: pruebas individuales de teclado en Caprice (izq/der/arriba/abajo, espacio/X, P/R); toques cortos registran un flanco de press y release; X repetido vuelve a registrar un flanco. 500 ms automatizados generan repetición, por tanto no prueban hold. CPC chords/joystick pendientes; host cubre lógica de edges y LEFT+RIGHT.",
+        "research/runs/20261012T-input-matrix-recheck/results.json: Caprice reconoce toques individuales de cursores, Space/X, P y R; cada toque corto observado da un press/release. La lógica host verifica hold/edge/repress y LEFT|RIGHT. Hold sintético de 500 ms repite transiciones; chord CPC no legible; perfil joystick emulado con cursores de teclado eliminados no produjo flancos; Joy0 queda sin validar.",
+        "research/runs/20261012T-T04-input-automation-limitations/results.json: Caprice visible P01/P04 PASS; hold Right 1000 ms produce PC/RC 12/12 por repetición de la API; CUA no acepta chord Left+Right; no hay joystick físico. P02 incompleta, sin certificar CPC hold/chord.",
+        "research/runs/20261012T-T04-input-automation-limitations/results.json: repetición 1000 ms de Derecha varía entre PC/RC 12/12 y 01/01; dos llamadas simultáneas Izquierda+Derecha producen PC/RC 13/13 y máscara 013. La inyección CUA no es reproducible para certificar hold/chord; P02 continúa pendiente.",
+        "research/runs/20261012T-T04-keymap-chord-probe/results.json: prueba con mapa duplicado F11→LEFT|RIGHT no produce máscara 003; llamadas CUA simultáneas breves siguen mostrando PC/RC 12/12 y máscara 012. Chord no certificado.",
+        "research/runs/20261012T-T04-user-keyboard-hold/results.json: usuario informa que al mantener Derecha Pitu avanza continuamente; reporte manual, duración y tasa no medidas. Evidencia parcial de tecla mantenida; acorde Izquierda+Derecha y resto de matriz CPC siguen pendientes, no cierra P02.",
+        "research/runs/20261012T-T04-closeout/results.json: make test PASS; Caprice P01 3000 ticks/VSYNC, 18001 IRQ, 06..06; P02 matriz de 7 bits y CH=007 con teclado y Joy0-only emulado; P03 replay CPC 120/60 presentaciones y pausa PASS; P04 cola 32→00 y wrap &FFFA→&0002/delta 8. Límites: audio audible y hardware físico; GameState se repetirá en T07."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T05",
+      "title": "API de bancos con guardas",
+      "depends_on": [
+        "T04"
+      ],
+      "status": "done",
+      "substep": null,
+      "evidence": [
+        "research/runs/20261012T233951Z-T05-banks/results.json: make test-banks PASS; K01 patrones RAM1/RAM4–7 y guardas RAM2/vídeo; K02 nesting/IFF/ISR/10.000 ciclos; K03 copia scratch de 64 bytes, rangos y handles caducados; pantalla Caprice PASS.",
+        "tools/check_banks_map.py: código 0100–1363 y datos hasta 319A en RAM fija; pila BC F0–BF EF en RAM2; ventana 4000–7FFF sin código/datos/pila.",
+        "DSK fixture SHA-256 5bb26041962f0d1ddcf65c72ff02f90971bc3c0b736dba92f7bc07a80919404c; binario BANKS.BIN SHA-256 38c8bcc9e9cb1a11954842c10daa4cc44e4cfb29e8c65332db96264ae1791662.",
+        "make test exit 0 after adding test-banks; full asset/level/map/smoke/platform/physics/campaign/reproducibility suite passed on 2026-10-12.",
+        "make test exit 0 (full suite) after test-banks became part of the target."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T06",
+      "title": "Renderer G correcto",
+      "depends_on": [
+        "T03",
+        "T05"
+      ],
+      "status": "done",
+      "substep": "T06 cerrada: R01–R05 verificados en host/Caprice; R05 en emulador, hardware aparte.",
+      "evidence": [
+        "make test-render PASS: 126 frames y 2.064.384 bytes CPC comparados exactamente con el compositor independiente; barrido de bordes, solapes, cruces, cambio de pose/dirección, retirada/reuso y fondo persistente; ASan/UBSan.",
+        "Caprice32 4.6.0/CPC 6128: siete escenarios CPC ejecutados; snapshot research/runs/20261013T-T06-render/cpc-pass.sna alcanza stage 0x55, CRTC R12=0x20; RAM2 visible coincide byte a byte (16.384 bytes) con el oráculo y guarda de pila de 256 bytes intacta. make test-render-snapshot PASS.",
+        "Mapa CPC PASS: código fijo RAM0 0100–2B64, globals hasta 3C5C, stack/guard fijo RAM0, backbuffer RAM2, variantes paginadas RAM4/RAM6; guardas y rangos de disco pasan.",
+        "R05 PASS en Caprice emulado: clip aislado de 8 s, 402 cuadros H.264 a 50,25 fps promedio, OSD apagado; revisión visual sin tearing/parpadeo observado. research/runs/20261013T-T06-render/r05-caprice-clean.mov; SHA-256 0348fa3ea89408cd586e7a5ed59a09af8cac2fb862cfe9a50904f080ee4df67d. Sin CPC físico no se certifica hardware."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "O02",
+      "title": "Crear captura e instrumentación verificables",
+      "depends_on": [
+        "T04",
+        "T06"
+      ],
+      "status": "done",
+      "substep": "OP03 y calibración CPC emulada cerradas; la evidencia separa lo medido del hardware físico y de las fases del juego aún no instrumentadas.",
+      "evidence": [
+        "research/runs/20261013T-O02-final/results.json y summary.json: probe CPC6128 128 KiB con build-id, contador 42, centinelas, byte done, firma de código, VRAM visible, snapshot SNA y guarda de pila verificados.",
+        "Caprice32 4.6.0 fijado al commit 15dd50d7bc498ff0d509e8b78c827f98d1f28a5a: secuencias NOP de una/dos instrucciones = 4/8 T-states; 8 intervalos PPI/VSYNC = 79.870 ciclos por intervalo (error 0,1625% frente a 80.000). Resolución 1 T-state.",
+        "Marca CPC begin/end de prueba: 48 ciclos de coste total y 24 ciclos en el intervalo. Parser de fases inclusivas/exclusivas probado con frame/sim/audio anidados; audio no se suma de nuevo al padre. El ISR de gameplay todavía no tiene subfase separada.",
+        "make test-o02-probe, make test-o02-backend, python3 tools/test_cpc_backend.py y make test-platform PASS; mapa O02 0100–023A, globals hasta 3C0F, guardas y espacio de vídeo separados. Build normal sin función telemetry_phase_mark.",
+        "Negativos del backend PASS: build-id incorrecto, símbolo ausente, timeout, SNA incompleto, marcadores ausentes y cierre de fase desbalanceado. T04 aporta P01/P04 (3000 VSYNC/ticks, cola y wrap CPC emulado); hardware físico no certificado.",
+        "Detalles y límites: docs/implementation/decisions/008-o02-capture.md. El probe deshabilita IRQ durante las secuencias; las fases de gameplay y el ISR durante esperas se medirán al congelar la carga O03/O05."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "PASS en Caprice32 emulado y pruebas host; no certifica CPC físico ni mide todavía fases reales del juego."
+    },
+    {
+      "id": "O04",
+      "title": "Establecer corrección gráfica antes de optimizar",
+      "depends_on": [
+        "T06",
+        "O02"
+      ],
+      "status": "done",
+      "substep": "OP05/OP06, A01-A03, R01-R05 y B03 comprobadas; referencia host y snapshot CPC emulado coinciden byte por byte.",
+      "evidence": [
+        "make test-render: compositor independiente, 232 frames/3.801.088 bytes, bordes, fases Y, papel 4x6, transparencia/negro opaco, restauración y persistencia PASS.",
+        "research/runs/20261013T-O04-render-snapshot/marker-capture-config/capture.sna y cycles.csv: Caprice32 4.6.0/CPC6128 128 KiB, stage=55, VRAM RAM2 exacta (16.384 B), SP=3F43 y canario de stack intactos; marcador done a 284.414.100 ciclos acumulados de arranque.",
+        "make test-render-snapshot RENDER_SNAPSHOT=research/runs/20261013T-O04-render-snapshot/marker-capture-config/capture.sna: PASS; VRAM SHA-256 ffdcfbc8e1bba18e5dd6de2426f307777b1d02e345fd54cd55706191ac56cb07.",
+        "make test-gallery-snapshots, make test-render-capture, make test-render-pageflip-probe, make assets-check y make smoke-gallery: PASS. Map/disk del fixture RENDER validados; 4 paletas/pantallas de galería y negativos de assets verificados.",
+        "R05 y grabación visual previa en Caprice: research/runs/20261013T-T06-render/results.json; sólo evidencia emulada, no CPC físico.",
+        "Procedimiento y límites: docs/implementation/decisions/009-o04-render-correctness.md."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "PASS en oráculo host independiente y Caprice32 emulado; sin certificación de CPC físico."
+    },
+    {
+      "id": "T07",
+      "title": "Simulación compartida y colisión estática",
+      "depends_on": [
+        "T06"
+      ],
+      "status": "done",
+      "substep": "S01-S03, serialización explícita, geometría estática y comparación host/Z80 cerradas. Añadido M0 mínimo exportable y test-sim reproducible.",
+      "evidence": [
+        "make test-sim: exportador M0, 5 negativos, prueba host con ASan/UBSan, test-physics-host, build/validación DSK Z80 y campaña host pasan.",
+        "assets/levels/m0.json + tools/build_m0_level.py + tests/host/test_m0_level.c: suelo y dos one-way; spawn apoyado; caída al salir del borde y aterrizaje en suelo con player_step compartido.",
+        "research/runs/20261012T230000Z-F04-core-physics/results.json: máscara CPC 0FFF. SHA-256 de player/collision/state y headers coinciden para las comprobaciones S01-S03; cambios posteriores de tuning no se atribuyen a este resultado.",
+        "research/runs/20261012T235500Z-F07-physics-campaign/results.json: 2.400.000 ticks host y replay host/Z80 de 256 ticks, 16 checkpoints coincidentes B0D5; emulator only.",
+        "Procedimiento, cobertura y alcance: docs/implementation/decisions/010-t07-shared-simulation.md."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T08",
+      "title": "Movimiento y salto de Pitu",
+      "depends_on": [
+        "T07"
+      ],
+      "status": "done",
+      "substep": "S04-S08 y replay de simulación a 50/25: host PASS; mediciones de salto y geometría del fixture CPC F05 coinciden con el core/tuning vigente; añadido y probado run-m0.",
+      "evidence": [
+        "research/runs/20261012T-T08-current-movement/results.json: con el DSK 07ab..., Space entra; Derecha 100 ms hace desaparecer Pitu; R no la restaura; reiniciar Caprice sí devuelve el estado inicial. Observación de reproducción, no arreglo ni aprobación H0.",
+        "research/runs/20261012T-T08-playthrough-recheck/results.json: production DSK 07ab…; Space opens arena; Right 100 ms moves Pitu; after ~1 s idle she stays at the same mid-air Y. Reproduction only; no T08 code change or fix, and T08 remains pending behind T07.",
+        "research/runs/20261012T-T08-playthrough-recheck/results.json: además de suspensión tras idle, holds Right 1000/1800 ms la dejan en la misma Y incluso al salir del borde; captura visual de Caprice muestra cabeza intersectando cara inferior de plataforma superior. Reproducción, sin arreglo ni H0; T08 sigue pendiente de T07.",
+        "research/runs/20261012T-T08-playthrough-recheck/results.json: nueva observación manual 2026-10-12: usuario informa que Pitu sigue volando y plantea que el fallo puede ocurrir al alejarse de plataformas; secuencia exacta aún sin confirmar. Captura actual de Caprice confirma a Pitu suspendida en arena. Hipótesis pendiente de reproducción controlada; sin arreglo ni aprobación H0.",
+        "research/runs/20261012T-T08-playthrough-recheck/results.json: usuario confirma que Pitu comienza a flotar al salir del borde (no al entrar ya suspendida); acorde simultáneo Izquierda+Derecha no probado. Reproducción más acotada, sin arreglo ni aprobación H0.",
+        "research/runs/20261013T-T08-motion/results.json: make test-sim, test-physics-host, reachability, campaign, fixtures CPC/build y make run-m0; medidas, hashes y límites.",
+        "Host ASan/UBSan: salto corto 3567 Q7/34 ticks; salto mantenido 4630 Q7/41 ticks; coyote gaps 0–2 aceptados y 3 rechazado; buffer, caída por borde, descenso, techos/paredes, pausa/retry y igualdad de estado tick a tick en 120/60 presentaciones PASS.",
+        "Caprice32 4.6.0: F05 result mask FFFF y geometría/alcance en research/runs/20261012T233000Z-F05-jump-geometry/results.json; coincide SHA-256 de player.c, tuning.h y tests/cpc/physics/main.c actuales. Replay host/Z80 F07 con 16 checkpoints hasta tick 256 coincide B0D5.",
+        "M0 ampliado a cinco marcas y validado contra geometría/spawn de arena_01; make run-m0 abrió en Caprice el menú del candidato con JUGAR, CONTROLES y MÚSICA ON."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "PASS para pruebas automatizadas y recorrido M0 en Caprice; el usuario confirmó movimiento y caída. H0 comparativo y CPC físico permanecen independientes."
+    },
+    {
+      "id": "T09",
+      "title": "SFX y reinicio de M0",
+      "depends_on": [
+        "T08"
+      ],
+      "status": "done",
+      "substep": "U01-U03 automatizadas; SFX originales, propietario AY y reinicio RAM integrados; build CPC y menú de Caprice comprobados. Escucha subjetiva no verificada.",
+      "evidence": [
+        "research/runs/20261013T0302Z-T09-audio/results.json: hashes, prioridades, capacidad/overflow, latencia lógica, pruebas y límites.",
+        "make test-audio PASS: prioridad, retención de eventos críticos en cola llena, overflow, cancelación y traza idéntica con 50/25 presentaciones.",
+        "make test-game PASS con ASan/UBSan: salto sostenido una vez, pasos apoyada, sello vacío, aterrizaje, movimiento mientras suena, pausa y cancelación al reintentar en RAM.",
+        "make test PASS; make build check-map PASS. DSK 204544 bytes, SHA-256 f455266b46aa36298f3d4a61dce319e9bb8a3d0634e111af7abd51b643f121cc; código 0x0100-0x7288 y datos residentes 0x7800-0x78C9.",
+        "Caprice32 4.6.0 CPC6128: build/DEVUELTO.dsk llegó al menú inicial con JUGAR seleccionado y MÚSICA ON; perfil con sonido habilitado y log de Caprice con Sound buffer ready."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "PASS en automatización, build/map y arranque de Caprice. La escucha y reconocimiento subjetivo de timbres no se afirman como verificados."
+    },
+    {
+      "id": "T10",
+      "title": "Revisión humana H0 del movimiento",
+      "depends_on": [
+        "T09"
+      ],
+      "status": "done",
+      "substep": "H0: aceptación explícita del usuario de la física vertical actual; alcance exacto y límites registrados en playtest-h0.md.",
+      "evidence": [
+        "research/runs/20261013T0302Z-T10-h0/playtest-h0.md: el usuario confirma «la física ya funciona, pitu sube y baja y cae correctamente» y se conserva la variante actual para continuar.",
+        "La aprobación se limita al comportamiento de subida/descenso/caída informado; no se atribuyen al usuario una comparación A/B ni tres recorridos repetidos."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": {
+        "id": "H0",
+        "status": "approved",
+        "evidence": [
+          "El usuario confirma directamente que la física actual funciona y que Pitu sube, baja y cae correctamente; se mantiene el tuning actual de M0."
+        ]
+      }
+    },
+    {
+      "id": "T11",
+      "title": "Máquina y pool de papel",
+      "depends_on": [
+        "T10"
+      ],
+      "status": "done",
+      "substep": "M01-M03/R03: estados, reserva previa al aviso, cadencia, pool lleno, apagado/reinicio, traza y render de papel validados.",
+      "evidence": [
+        "research/runs/20261013T031729Z-T11-machine-projectile/results.json",
+        "make test-machine PASS con ASan/UBSan; M01-M03 y traza xq 81,78,75.",
+        "make test-game PASS; replay runtime host de campaña completa y puntuación 36375.",
+        "make test-render PASS: 232 frames y test de raster 4x6/recorte/restauración; build CPC y mapa de memoria PASS.",
+        "make test PASS; make run-m1 inició el DSK en Caprice32 4.6.0/CPC 6128 y dejó el menú visible."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T12",
+      "title": "Devolución y colisión barrida",
+      "depends_on": [
+        "T11"
+      ],
+      "status": "done",
+      "substep": "D01-D05/R04/U02: barrido relativo; 6 ticks activa/8 de recuperación; sello gana empate; boca apaga/consume; contacto sólido consume; dos papeles coincidentes resueltos por orden estable.",
+      "evidence": [
+        "research/runs/20261013T035444Z-T12-swept-seal/results.json",
+        "make test-sweep test-machine test-game PASS con ASan/UBSan; harness cubre D01-D05, R04 y U02.",
+        "make build check-map test-game-build PASS; mapa CODE 0100-6F82, DATA 7800-78C4; guardas y páginas de vídeo sin solape.",
+        "python3 tools/check_disk.py PASS; BIN extraído, checksum AMSDOS y entry &23BB coinciden."
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T13",
+      "title": "Daño, finalización, puntos y reintento",
+      "depends_on": [
+        "T12"
+      ],
+      "status": "done",
+      "substep": "complete",
+      "evidence": [
+        "src/game/flow.h y src/game/flow.c: estado de arena compartido entre CPC y host.",
+        "tests/host/game_harness.c: F01–F05; dos fuentes simultáneas, 50 ticks, fresh release/press, completion-priority, checkpoint score y 100 retries en RAM.",
+        "make test exit 0 antes de extender el mismo harness con bucle 100x; make test-game PASS después del bucle 100x.",
+        "make build check-map, tools/test_game_build.py y tools/check_disk.py PASS; mapa CPC válido y DSK consistente.",
+        "research/runs/20261013T-T13-arena-flow/results.json"
+      ],
+      "remaining": [],
+      "blocker": null,
+      "human_review": null,
+      "outcome": "accepted"
+    },
+    {
+      "id": "T14",
+      "title": "Revisión humana H1 de la devolución",
+      "depends_on": [
+        "T13"
+      ],
+      "status": "in_progress",
+      "substep": "A/B candidates built and host-validated; awaiting H1 playtest",
+      "evidence": [
+        "tools/build_h1_variants.py: genera A/B CPC con ventana 6/8 y recuperación fija de 8, cadencia de máquina fija en 50.",
+        "research/runs/20261013T-T14-H1-candidates/results.json: BIN/DSK, mapas, SHA-256, cabecera AMSDOS y payload validados.",
+        "make test-game: harness del runtime PASS para A y B; F01-F05 y 100 retries RAM.",
+        "El usuario no ha aprobado ninguna variante; H1 sigue pendiente."
+      ],
+      "remaining": [
+        "Comparar A y B en Caprice: claridad de devolución, ventanas al aire, errores de alcance y sensación del acierto.",
+        "Elegir ventana; después producir comparación de cadencia 50/70 sin cambiar la ventana elegida.",
+        "Registrar la decisión humana y repetir pruebas afectadas."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "H1",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T15",
+      "title": "Alberto como perseguidor",
+      "depends_on": [
+        "T14"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T16",
+      "title": "Panel y arena M2 con dos rutas",
+      "depends_on": [
+        "T15"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T17",
+      "title": "Arte animado y música de la muestra",
+      "depends_on": [
+        "T16"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "O03",
+      "title": "Congelar cargas comparables y replays",
+      "depends_on": [
+        "T17",
+        "O01",
+        "O02",
+        "O04"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O05",
+      "title": "Medir la referencia y localizar costes",
+      "depends_on": [
+        "O03"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O06",
+      "title": "Comparar flags y coste de llamadas",
+      "depends_on": [
+        "O05"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O07",
+      "title": "Implementar restauración especializada Z80",
+      "depends_on": [
+        "O06"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O08",
+      "title": "Separar invalidación de fondo y HUD",
+      "depends_on": [
+        "O07"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O09",
+      "title": "Crear generador determinista de sprites especializados",
+      "depends_on": [
+        "O08"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O10",
+      "title": "Ejecutar sprites compilados y fallback en CPC",
+      "depends_on": [
+        "O09"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O11",
+      "title": "Optimizar residencia y uso de bancos",
+      "depends_on": [
+        "O10",
+        "T05"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O12",
+      "title": "Integrar control, audio y costes de simulación",
+      "depends_on": [
+        "O11",
+        "T17"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O13",
+      "title": "Resolver pantalla única frente a doble búfer",
+      "depends_on": [
+        "O12"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "O14",
+      "title": "Publicar comparación y elegir candidatos",
+      "depends_on": [
+        "O13"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "T18",
+      "title": "Revisión humana H2 de la muestra completa",
+      "depends_on": [
+        "T17"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "H2",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T19",
+      "title": "Perfil y comparación G frente a H",
+      "depends_on": [
+        "T17",
+        "O14"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T20",
+      "title": "Congelar la arquitectura de la muestra",
+      "depends_on": [
+        "T19"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T21",
+      "title": "Formato de paquetes y packer host",
+      "depends_on": [
+        "T18",
+        "T20"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T22",
+      "title": "Decoder Z80 y validación antes de escribir",
+      "depends_on": [
+        "T21"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T23",
+      "title": "FDC bloqueante con errores acotados",
+      "depends_on": [
+        "T21",
+        "T05"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T24",
+      "title": "Transición de paquetes y recuperación",
+      "depends_on": [
+        "T22",
+        "T23"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "O15",
+      "title": "Comparar compresión y tiempo total de transición",
+      "depends_on": [
+        "T20",
+        "T22",
+        "T24"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "T25",
+      "title": "Muestra de dos arenas y encuentro con disco",
+      "depends_on": [
+        "T24",
+        "O15"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "H3",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T26",
+      "title": "Menú, ajustes y continuación",
+      "depends_on": [
+        "T25"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T27",
+      "title": "Reparto y biblioteca artística de producción",
+      "depends_on": [
+        "T25"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "Reparto",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T28",
+      "title": "Primer capítulo completo",
+      "depends_on": [
+        "T26",
+        "T27"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "H4",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T29",
+      "title": "Capítulo de Producción urgente",
+      "depends_on": [
+        "T28"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "Capítulo 2",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T30",
+      "title": "Capítulo de calle y apoyos móviles",
+      "depends_on": [
+        "T29"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "Capítulo 3",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T31",
+      "title": "Purple Paper y final",
+      "depends_on": [
+        "T30"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "Capítulo 4",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "T32",
+      "title": "Dos caras y ocupación física del disco",
+      "depends_on": [
+        "T31"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T33",
+      "title": "Regresión de campaña en emuladores",
+      "depends_on": [
+        "T32"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": {
+        "id": "H5",
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    {
+      "id": "O16",
+      "title": "Cerrar regresión y preparar evidencia final",
+      "depends_on": [
+        "T33",
+        "O15"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Ejecutar la ficha en OPTIMIZATION_TASKS.md y sus pruebas OP; la planificación no certifica ejecución."
+      ],
+      "blocker": null,
+      "human_review": null,
+      "outcome": null
+    },
+    {
+      "id": "T34",
+      "title": "Validación en CPC físico",
+      "depends_on": [
+        "T33",
+        "O16"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    },
+    {
+      "id": "T35",
+      "title": "Empaquetar el candidato y entregar instrucciones",
+      "depends_on": [
+        "T33",
+        "O16"
+      ],
+      "status": "pending",
+      "substep": null,
+      "evidence": [],
+      "remaining": [
+        "Implementar o preparar la tarea y ejecutar sus criterios de cierre."
+      ],
+      "blocker": null,
+      "human_review": null
+    }
+  ],
+  "updated": "2026-10-13"
+}

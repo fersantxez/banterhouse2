@@ -1,0 +1,26 @@
+{
+  "result": "PASS_arithmetic_only_not_asset_fit_or_hardware_validation",
+  "sides": {
+    "A": {
+      "raw_bytes": 184320,
+      "after_directory_bytes": 182272,
+      "assigned_including_overheads_bytes": 157696,
+      "unassigned_reserve_bytes": 24576,
+      "sum_bytes": 182272
+    },
+    "B": {
+      "raw_bytes": 184320,
+      "after_directory_bytes": 182272,
+      "assigned_including_overheads_bytes": 161792,
+      "unassigned_reserve_bytes": 20480,
+      "sum_bytes": 182272
+    }
+  },
+  "candidate_A_physical_bytes_reserved": 131072,
+  "fixed_staging_bytes_reserved": 4096,
+  "illustrative_background_bytes": 10692,
+  "illustrative_sprites_six_poses_bytes": 13056,
+  "illustrative_sprites_eight_poses_bytes": 17408,
+  "measured_disk_loads": null,
+  "actual_campaign_packed_bytes": null
+}

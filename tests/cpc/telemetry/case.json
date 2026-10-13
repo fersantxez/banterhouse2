@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "case_id": "o02-telemetry-probe-v1",
+  "build_id": "B2O2-20261012-01",
+  "binary": "build/o02-probe/O02.bin",
+  "disk": "build/o02-probe/O02.dsk",
+  "map": "build/o02-probe/O02.map",
+  "autocmd": "CAP32_DELAY run\"O02.BIN\"",
+  "evidence_symbol": "_o02_evidence",
+  "evidence_address": 15360,
+  "evidence_size": 16,
+  "expected_evidence_hex": "b24f3032262002b22a000055aaffa500",
+  "stack_guard": {"address": 15872, "size": 128, "fill": 165},
+  "markers": [
+    {"symbol": "_o02_probe_short_begin", "label": "probe_short_begin"},
+    {"symbol": "_o02_probe_short_end", "label": "probe_short_end", "expected_delta_cycles": 4},
+    {"symbol": "_o02_probe_long_begin", "label": "probe_long_begin"},
+    {"symbol": "_o02_probe_long_end", "label": "probe_long_end", "expected_delta_cycles": 8},
+    {"symbol": "_o02_phase_probe_begin", "label": "phase_probe_begin"},
+    {"symbol": "_o02_phase_probe_end", "label": "phase_probe_end", "expected_delta_cycles": 48},
+    {"symbol": "_o02_vsync8_begin", "label": "vsync8_begin"},
+    {"symbol": "_o02_vsync8_end", "label": "vsync8_end", "vsync_intervals": 8},
+    {"symbol": "_o02_case_done", "label": "done"}
+  ]
+}

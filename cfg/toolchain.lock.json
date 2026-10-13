@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "target": "Amstrad CPC 6128 classic, 128 KiB",
+  "observed_utc_date": "2026-10-11",
+  "abi": "SDCC --sdcccall 0; verify all CPCTelera calls and wrappers per task T01",
+  "compiler": {
+    "path": "sdcc",
+    "version": "SDCC 4.6.0 #16555 (Mac OS X ppc)"
+  },
+  "assembler": {
+    "path": "sdasz80",
+    "version": "V05.50.4+NoICE+SDCCmods-WIP-R14"
+  },
+  "archiver": {
+    "path": "sdar",
+    "version": "SDAR from the Homebrew SDCC 4.6.0 toolchain"
+  },
+  "host_compiler": "Apple clang 21.0.0 (clang-2100.1.1.101), arm64-apple-darwin25.6.0",
+  "cpctelera": {
+    "path": "tmp/cpctelera/cpctelera",
+    "library_sha256": "64191573c577c44cfd8f0d47d7500f6feba85c91baf7f0ae0d45ddde2c957f09",
+    "git_commit": "b3f48a1b49dc9d99b73c75f98cefaf9c1e60dc31",
+    "repository": "https://github.com/lronaldo/cpctelera.git"
+  },
+  "emulator": {
+    "name": "Caprice32",
+    "version_observed_in_window": "4.6.0",
+    "executable": ".tools/cap32",
+    "executable_sha256": "aaa86ade0ad449386d3e5871e79c340b5cf74f6f66cb971ad437506740d2e0e7",
+    "model": "CPC6128",
+    "ram_kib": 128,
+    "local_copy": ".tools/cap32"
+  },
+  "roms": {
+    "cpc6128_sha256": "31c3668c67bea027dab698ece233c9434d9324f9ba7dac84db58f400b6689562"
+  },
+  "flags": {
+    "compile": "--sdcccall 0 --opt-code-size",
+    "assemble": "-plosgff",
+    "link": "-mz80 --sdcccall 0 --no-std-crt0 -Wl-u --code-loc 0x0100 --data-loc 0x7C50"
+  },
+  "build_targets": [
+    "make bootstrap",
+    "make doctor",
+    "make test-host",
+    "make campaign-disk"
+  ],
+  "limitations": [
+    "Reference versions were observed on macOS; no universal host or physical CPC compatibility is claimed.",
+    "Emulator and ROM files are not distributed in the source repository.",
+    "The library hash is a historical observation, not an installation path or a substitute for rebuilding."
+  ],
+  "archive": {
+    "path": "sdar"
+  },
+  "background_codec": {
+    "host_encoder": "tmp/research-tools/ZX0/src/zx0",
+    "repository": "https://github.com/einar-saukas/ZX0.git",
+    "git_commit": "ecde3a2ae05061fe06469ed46df81a33b7de7d86"
+  },
+  "disk_tools": {
+    "hex2bin": "tmp/cpctelera/cpctelera/tools/hex2bin-2.0/bin/hex2bin",
+    "iDSK": "tmp/cpctelera/cpctelera/tools/iDSK-0.13/bin/iDSK"
+  }
+}

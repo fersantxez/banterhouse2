@@ -1,0 +1,71 @@
+{
+  "scope": "Reparación del prototipo entregado, no certificación de la campaña final",
+  "tasks": [
+    {
+      "id": "E00",
+      "title": "Conservar y reproducir",
+      "depends_on": [],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261013T002106Z-E00-delivery-repair/manifest.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "E01",
+      "title": "Arranque que llega al menú",
+      "depends_on": [
+        "E00"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261013T002106Z-E00-delivery-repair/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "E02",
+      "title": "Corregir el bucle jugable",
+      "depends_on": [
+        "E01"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261013T-E02-game-repair/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "E03",
+      "title": "Ejecutar hasta el final en CPC emulado",
+      "depends_on": [
+        "E02"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261013T-E03-emulator-campaign/campaign-final.json",
+        "research/runs/20261013T-E03-emulator-campaign/final-pause-comparison.json",
+        "research/runs/20261013T-E03-emulator-campaign/clean-build.log",
+        "research/release-validation.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "E04",
+      "title": "Publicar exactamente el disco probado",
+      "depends_on": [
+        "E03"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261013T-E04-packaged-boot/results.json",
+        "research/runs/20261013T-E04-packaged-boot/release-gate.log",
+        "research/release-validation.json"
+      ],
+      "remaining": []
+    }
+  ],
+  "current_acceptance": "revoked_pending_repair",
+  "superseded_by": "AUTONOMOUS_STATUS.json",
+  "note": "E00–E04 conserva resultados históricos; no constituye aceptación de la entrega tras el nuevo fallo comunicado por el usuario."
+}

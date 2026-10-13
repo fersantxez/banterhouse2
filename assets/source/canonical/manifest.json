@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "purpose": "Frozen CPC Mode 0 source resources for Banterhouse 2; no preview recoloring.",
+  "upstream_source": "../banterhouse/src/graphics.c",
+  "upstream_source_sha256": "135db808f84203d8f6e16f1bf14b6c6cb8d2356c0f86301477e5c05465f73313",
+  "upstream_palette_source_sha256": "093369e46c63188240910eb1c2f83f5fffa68e2a2dd936a7e381322ae4669746",
+  "upstream_manifest": "assets/cpc-studies/manifest.json",
+  "upstream_manifest_sha256": "500f316dcf96f360f5c79db1802882f6f78b50cbc585716c0d94b8f591e09175",
+  "files": [
+    {
+      "path": "01-copias.scr",
+      "source": "assets/cpc-studies/01-copias.scr",
+      "bytes": 16384,
+      "sha256": "cfe58ff45522e2b3b8a23ef170397ee870aaae8d247b4829965dcbdba3c3e020"
+    },
+    {
+      "path": "01-copias.background.scr",
+      "source": "assets/cpc-studies/01-copias.background.scr",
+      "bytes": 16384,
+      "sha256": "ffb6d236438a3570a761701c1b2a214b02375ee31816194d5f6e1877051c601f"
+    },
+    {
+      "path": "01-copias.background.scr.zx0",
+      "source": "assets/cpc-studies/01-copias.background.scr.zx0",
+      "bytes": 1100,
+      "sha256": "3777a6df78b2ee0d7a5af8f1f3facf51aa203a62780184f3be96c674e0705416"
+    },
+    {
+      "path": "01-copias.fwpal",
+      "source": "assets/cpc-studies/01-copias.fwpal",
+      "bytes": 16,
+      "sha256": "d536f29deafe0bb57156b3e7bc6ad8fd3e7a7e91c43bdd6246654b20adb000e6"
+    },
+    {
+      "path": "01-copias.hwpal",
+      "source": "assets/cpc-studies/01-copias.hwpal",
+      "bytes": 16,
+      "sha256": "78d79d0dc67c160e03ba4e9c1d1439ab5110cb75aa2a3e7dd0cac62a99b10eab"
+    },
+    {
+      "path": "01-copias.tiles.bin",
+      "source": "assets/cpc-studies/01-copias.tiles.bin",
+      "bytes": 4736,
+      "sha256": "cded41cc0998bbf765e1d2f8441382b6b820f4cdf244cdcf7e8ea548606d5b0e"
+    },
+    {
+      "path": "01-copias.map.bin",
+      "source": "assets/cpc-studies/01-copias.map.bin",
+      "bytes": 500,
+      "sha256": "af3177d0bbae0ae1733a66a3798ab1f700a0bee7c606b2697abcd3721a27ded0"
+    },
+    {
+      "path": "01-copias.native.png",
+      "source": "assets/cpc-studies/01-copias.native.png",
+      "bytes": 1467,
+      "sha256": "c777566027789aa8980df08672cc7fabe095089755883868380be1c8305e6d13"
+    },
+    {
+      "path": "02-produccion.scr",
+      "source": "assets/cpc-studies/02-produccion.scr",
+      "bytes": 16384,
+      "sha256": "219db50bd016a80f6f56f39a8a903f74e624df1c18aeadfb4b58acfa8cfb55ae"
+    },
+    {
+      "path": "02-produccion.background.scr",
+      "source": "assets/cpc-studies/02-produccion.background.scr",
+      "bytes": 16384,
+      "sha256": "b54eca711180acb7dc6958c988fe80693e6e0627718d29eacbefad8461bc886f"
+    },
+    {
+      "path": "02-produccion.background.scr.zx0",
+      "source": "assets/cpc-studies/02-produccion.background.scr.zx0",
+      "bytes": 1255,
+      "sha256": "faafeadf9325d29335a1ff1006b964704d3327e16c7c8af32ab1e57bacaad465"
+    },
+    {
+      "path": "02-produccion.fwpal",
+      "source": "assets/cpc-studies/02-produccion.fwpal",
+      "bytes": 16,
+      "sha256": "12bbb3ad97a37af50a367776004019b0beba081a486aa9261e3fc4e52793c1ae"
+    },
+    {
+      "path": "02-produccion.hwpal",
+      "source": "assets/cpc-studies/02-produccion.hwpal",
+      "bytes": 16,
+      "sha256": "c2912e554fe539624d6bf8e1821d5ff7f24fafedb45e1f5e8f5d6a0e7b1b1622"
+    },
+    {
+      "path": "02-produccion.tiles.bin",
+      "source": "assets/cpc-studies/02-produccion.tiles.bin",
+      "bytes": 5056,
+      "sha256": "ffe0e032aec4117200f59e8cfc7caf0b97d8ceab5991c96f963bd4e8958ee585"
+    },
+    {
+      "path": "02-produccion.map.bin",
+      "source": "assets/cpc-studies/02-produccion.map.bin",
+      "bytes": 500,
+      "sha256": "11455e9efc0b6c7389f357ed7954e8565fe3f8e28ecdf5c2cc02347d38a3a155"
+    },
+    {
+      "path": "02-produccion.native.png",
+      "source": "assets/cpc-studies/02-produccion.native.png",
+      "bytes": 1449,
+      "sha256": "2684261ed5cd19535d6ffcb5902a4a4a86382ff838148b7d4b9bf9529977b5d1"
+    },
+    {
+      "path": "03-calle.scr",
+      "source": "assets/cpc-studies/03-calle.scr",
+      "bytes": 16384,
+      "sha256": "04f4a5c3d6efbd7c84eb55d31d90c7f4cce91f5d4985cfb0f3d9cca803451951"
+    },
+    {
+      "path": "03-calle.background.scr",
+      "source": "assets/cpc-studies/03-calle.background.scr",
+      "bytes": 16384,
+      "sha256": "11d5e25627879734b590edaefc94c4538f5333cdfab24060c7bb71cbbe3bd3d7"
+    },
+    {
+      "path": "03-calle.background.scr.zx0",
+      "source": "assets/cpc-studies/03-calle.background.scr.zx0",
+      "bytes": 1195,
+      "sha256": "f0e1e346fc0e907acf0c9bb37f25154da0d7f6cb335a657f804b21efc9ce813e"
+    },
+    {
+      "path": "03-calle.fwpal",
+      "source": "assets/cpc-studies/03-calle.fwpal",
+      "bytes": 16,
+      "sha256": "878e0d94f022fcbeb65bf792ac49151a8e77e1a9c5c9d6d5201ecd24a7db78cd"
+    },
+    {
+      "path": "03-calle.hwpal",
+      "source": "assets/cpc-studies/03-calle.hwpal",
+      "bytes": 16,
+      "sha256": "d98e92a1ce908697d5cabbdd864a0bbf58f9ac550ad7848c1ab932f335615837"
+    },
+    {
+      "path": "03-calle.tiles.bin",
+      "source": "assets/cpc-studies/03-calle.tiles.bin",
+      "bytes": 6432,
+      "sha256": "03df629bb49df4f96db3825afdd325db9dc3cb102054f501cad5fa847e958d6d"
+    },
+    {
+      "path": "03-calle.map.bin",
+      "source": "assets/cpc-studies/03-calle.map.bin",
+      "bytes": 500,
+      "sha256": "1c73a8949b1dcb9b8e52bdf598b10b0227c09aca94218432cd12becf5c83c033"
+    },
+    {
+      "path": "03-calle.native.png",
+      "source": "assets/cpc-studies/03-calle.native.png",
+      "bytes": 1323,
+      "sha256": "567d9783ad7cae0fbf9c59c675ad29155e16710cfbd2c0b5748e741e7d2a1343"
+    },
+    {
+      "path": "04-purple.scr",
+      "source": "assets/cpc-studies/04-purple.scr",
+      "bytes": 16384,
+      "sha256": "e7e3e024f9576bb1e2792c6bdb59a6b9269f62b2c63e30399fa108826a99d1a1"
+    },
+    {
+      "path": "04-purple.background.scr",
+      "source": "assets/cpc-studies/04-purple.background.scr",
+      "bytes": 16384,
+      "sha256": "0d34c4c686538785f36e33beaa8ffcf19b717189290293f865ae0de06d8bc52a"
+    },
+    {
+      "path": "04-purple.background.scr.zx0",
+      "source": "assets/cpc-studies/04-purple.background.scr.zx0",
+      "bytes": 1150,
+      "sha256": "062c5dbca496c7c58a3dd50ac98a586d6d7072a8d30a373aa2108a982314e445"
+    },
+    {
+      "path": "04-purple.fwpal",
+      "source": "assets/cpc-studies/04-purple.fwpal",
+      "bytes": 16,
+      "sha256": "12bbb3ad97a37af50a367776004019b0beba081a486aa9261e3fc4e52793c1ae"
+    },
+    {
+      "path": "04-purple.hwpal",
+      "source": "assets/cpc-studies/04-purple.hwpal",
+      "bytes": 16,
+      "sha256": "c2912e554fe539624d6bf8e1821d5ff7f24fafedb45e1f5e8f5d6a0e7b1b1622"
+    },
+    {
+      "path": "04-purple.tiles.bin",
+      "source": "assets/cpc-studies/04-purple.tiles.bin",
+      "bytes": 4736,
+      "sha256": "1447364b19c466ce5ad4a68c77fdc12c7d52c74a44b347763bce87d5d6111862"
+    },
+    {
+      "path": "04-purple.map.bin",
+      "source": "assets/cpc-studies/04-purple.map.bin",
+      "bytes": 500,
+      "sha256": "620506c31eff3791bf6690218ca643fd2af1d3fcd26911a67b01fd411960026f"
+    },
+    {
+      "path": "04-purple.native.png",
+      "source": "assets/cpc-studies/04-purple.native.png",
+      "bytes": 1355,
+      "sha256": "8dc6115cfe5d3f5538baa9e348b6f4023a53e15213abe7aaab034a5bec88bd67"
+    },
+    {
+      "path": "g_pitu.masked.bin",
+      "source": "assets/cpc-studies/g_pitu.masked.bin",
+      "bytes": 512,
+      "sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8"
+    },
+    {
+      "path": "g_pitu_walk.masked.bin",
+      "source": "assets/cpc-studies/g_pitu_walk.masked.bin",
+      "bytes": 512,
+      "sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179"
+    },
+    {
+      "path": "g_alberto.masked.bin",
+      "source": "assets/cpc-studies/g_alberto.masked.bin",
+      "bytes": 512,
+      "sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e"
+    }
+  ]
+}

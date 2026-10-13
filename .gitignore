@@ -1,0 +1,28 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local tools, builds, private inputs and preserved test evidence.
+/build/
+/dist/
+/.tools/
+/tmp/
+/.local/
+/artifacts/
+/research/runs/
+/assets/audio/private/
+/assets/references/
+
+# The website has its own deployment repository and access configuration.
+/site/
+
+# Emulator output must never become an accidental source input.
+/snapshot_*.sna
+/screenshot_*.png
+/DEVUELTO.BIN

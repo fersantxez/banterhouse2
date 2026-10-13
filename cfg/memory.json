@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "machine": "Amstrad CPC 6128 classic, 128 KiB, default RAM configuration",
+  "code": { "start": "0x0100", "end_exclusive": "0x7c50", "purpose": "fixed executable and linked SDK; includes measured gap above resident globals" },
+  "globals": { "start": "0x7c50", "end_exclusive": "0x7d60", "purpose": "C data, BSS and initializers; ends before reserved stack and guard" },
+  "stack": { "start": "0x7d60", "top_exclusive": "0x7ff0", "reserved_bytes": 656 },
+  "stack_guard": { "start": "0x7d60", "end_exclusive": "0x7e60", "reserved_bytes": 256 },
+  "clean_background": { "start": "0x8000", "end_exclusive": "0xc000", "reserved_bytes": 16384, "boot_use": "ZX0 loading bitmap begins at 0x8000; actual linked size is recorded in the build map. Decompressed before load_stage overwrites this buffer; maximum boot payload ends before 0xa700" },
+  "disk_io_buffer": { "start": "0x9000", "end_exclusive": "0x9800", "reserved_bytes": 2048, "purpose": "CAS IN OPEN 2 KiB buffer, outside CPCtelera firmware workspace (&A6FC-&BFFF) and after the compressed chapter payload ending below &9000; background copy may reuse this RAM after the read" },
+  "visible_screen": { "start": "0xc000", "end_exclusive": "0x10000", "reserved_bytes": 16384 },
+  "bootstrap": { "start": "0x0100", "end_exclusive": "0x0100", "purpose": "AMSDOS loads and enters the linked binary; counted in code area" }
+}

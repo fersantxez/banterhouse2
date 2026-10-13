@@ -1,0 +1,24 @@
+#ifndef BANTERHOUSE2_TUNING_H
+#define BANTERHOUSE2_TUNING_H
+
+/* Initial C4 parameters, in 1/128-pixel units. Not yet tuned by human review. */
+#define PLAYER_Q_ONE 128
+#define PLAYER_BODY_LEFT 3
+#define PLAYER_BODY_RIGHT 13
+#define PLAYER_BODY_TOP 4
+#define PLAYER_BODY_BOTTOM 32
+#define PLAYER_MIN_X 0
+#define PLAYER_MAX_X 144
+#define PLAYER_MIN_Y 12
+#define PLAYER_MAX_SPEED_X 166
+#define PLAYER_ACCEL_X 83
+#define PLAYER_JUMP_SPEED (-450)
+#define PLAYER_GRAVITY 23
+#define PLAYER_MAX_FALL 384
+#define PLAYER_JUMP_CUT (-192)
+#define PLAYER_COYOTE_TICKS 3
+#define PLAYER_JUMP_BUFFER_TICKS 4
+#define PLAYER_MIN_JUMP_TICKS 7
+#define PLAYER_DROP_TIMEOUT_TICKS 30
+
+#endif

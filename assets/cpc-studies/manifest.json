@@ -1,0 +1,445 @@
+{
+  "scope": "Static CPC Mode 0 art; host validation only; no emulator or FPS measurement",
+  "source": "../banterhouse/src/graphics.c",
+  "source_sha256": "135db808f84203d8f6e16f1bf14b6c6cb8d2356c0f86301477e5c05465f73313",
+  "source_palette_main_c_sha256": "093369e46c63188240910eb1c2f83f5fffa68e2a2dd936a7e381322ae4669746",
+  "sprites": {
+    "g_pitu": {
+      "bytes": 512,
+      "sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "opaque_pens": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "g_pitu_walk": {
+      "bytes": 512,
+      "sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "opaque_pens": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "g_alberto": {
+      "bytes": 512,
+      "sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "opaque_pens": [
+        0,
+        1,
+        2,
+        5,
+        15
+      ]
+    }
+  },
+  "dimensions": [
+    160,
+    200
+  ],
+  "preview_scale": [
+    5,
+    3
+  ],
+  "screen_bytes": 16384,
+  "visible_bytes": 16000,
+  "unused_screen_bytes": 384,
+  "tests": {
+    "mode0_byte_roundtrips": 256,
+    "unique_visible_addresses": 16000,
+    "sprite_palette_preserved": true,
+    "full_screen_roundtrips": 4,
+    "tile_background_roundtrips": 4
+  },
+  "scenes": [
+    {
+      "name": "01-copias",
+      "sha256_scr": "cfe58ff45522e2b3b8a23ef170397ee870aaae8d247b4829965dcbdba3c3e020",
+      "firmware_palette": [
+        0,
+        26,
+        11,
+        20,
+        9,
+        13,
+        8,
+        10,
+        25,
+        3,
+        7,
+        24,
+        15,
+        16,
+        12,
+        1
+      ],
+      "used_pens": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unique_rgb_colours": 15,
+      "background_tiles_8x8": 148,
+      "tiles_bytes": 4736,
+      "map_bytes": 500,
+      "map_index_bytes": 1,
+      "tile_pack_bytes": 5236,
+      "platforms_x_y_w": [
+        [
+          0,
+          184,
+          160
+        ],
+        [
+          42,
+          150,
+          24
+        ],
+        [
+          80,
+          136,
+          28
+        ],
+        [
+          120,
+          112,
+          34
+        ],
+        [
+          76,
+          88,
+          26
+        ],
+        [
+          20,
+          64,
+          40
+        ]
+      ],
+      "actors": [
+        {
+          "name": "Pitu",
+          "x": 75,
+          "y": 152,
+          "w": 16,
+          "h": 32
+        },
+        {
+          "name": "Alberto",
+          "x": 114,
+          "y": 152,
+          "w": 16,
+          "h": 32
+        }
+      ],
+      "paper_count": 2,
+      "static_machine_count": 3,
+      "background_zx0_bytes": 1100,
+      "background_zx0_roundtrip": true
+    },
+    {
+      "name": "02-produccion",
+      "sha256_scr": "219db50bd016a80f6f56f39a8a903f74e624df1c18aeadfb4b58acfa8cfb55ae",
+      "firmware_palette": [
+        0,
+        26,
+        11,
+        20,
+        9,
+        13,
+        8,
+        4,
+        25,
+        3,
+        7,
+        24,
+        15,
+        16,
+        12,
+        1
+      ],
+      "used_pens": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unique_rgb_colours": 15,
+      "background_tiles_8x8": 158,
+      "tiles_bytes": 5056,
+      "map_bytes": 500,
+      "map_index_bytes": 1,
+      "tile_pack_bytes": 5556,
+      "platforms_x_y_w": [
+        [
+          0,
+          184,
+          160
+        ],
+        [
+          42,
+          150,
+          24
+        ],
+        [
+          80,
+          136,
+          28
+        ],
+        [
+          120,
+          112,
+          34
+        ],
+        [
+          76,
+          88,
+          26
+        ],
+        [
+          20,
+          64,
+          40
+        ]
+      ],
+      "actors": [
+        {
+          "name": "Pitu",
+          "x": 75,
+          "y": 152,
+          "w": 16,
+          "h": 32
+        }
+      ],
+      "paper_count": 2,
+      "static_machine_count": 3,
+      "background_zx0_bytes": 1255,
+      "background_zx0_roundtrip": true
+    },
+    {
+      "name": "03-calle",
+      "sha256_scr": "04f4a5c3d6efbd7c84eb55d31d90c7f4cce91f5d4985cfb0f3d9cca803451951",
+      "firmware_palette": [
+        0,
+        26,
+        11,
+        20,
+        9,
+        13,
+        8,
+        1,
+        25,
+        3,
+        7,
+        24,
+        15,
+        16,
+        12,
+        1
+      ],
+      "used_pens": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unique_rgb_colours": 14,
+      "background_tiles_8x8": 201,
+      "tiles_bytes": 6432,
+      "map_bytes": 500,
+      "map_index_bytes": 1,
+      "tile_pack_bytes": 6932,
+      "platforms_x_y_w": [
+        [
+          0,
+          184,
+          160
+        ],
+        [
+          42,
+          150,
+          24
+        ],
+        [
+          80,
+          136,
+          28
+        ],
+        [
+          120,
+          112,
+          34
+        ],
+        [
+          76,
+          88,
+          26
+        ],
+        [
+          20,
+          64,
+          40
+        ]
+      ],
+      "actors": [
+        {
+          "name": "Pitu",
+          "x": 75,
+          "y": 152,
+          "w": 16,
+          "h": 32
+        }
+      ],
+      "paper_count": 2,
+      "static_machine_count": 3,
+      "background_zx0_bytes": 1195,
+      "background_zx0_roundtrip": true
+    },
+    {
+      "name": "04-purple",
+      "sha256_scr": "e7e3e024f9576bb1e2792c6bdb59a6b9269f62b2c63e30399fa108826a99d1a1",
+      "firmware_palette": [
+        0,
+        26,
+        11,
+        20,
+        9,
+        13,
+        8,
+        4,
+        25,
+        3,
+        7,
+        24,
+        15,
+        16,
+        12,
+        1
+      ],
+      "used_pens": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unique_rgb_colours": 15,
+      "background_tiles_8x8": 148,
+      "tiles_bytes": 4736,
+      "map_bytes": 500,
+      "map_index_bytes": 1,
+      "tile_pack_bytes": 5236,
+      "platforms_x_y_w": [
+        [
+          0,
+          184,
+          160
+        ],
+        [
+          42,
+          150,
+          24
+        ],
+        [
+          80,
+          136,
+          28
+        ],
+        [
+          120,
+          112,
+          34
+        ],
+        [
+          76,
+          88,
+          26
+        ],
+        [
+          20,
+          64,
+          40
+        ]
+      ],
+      "actors": [
+        {
+          "name": "Pitu",
+          "x": 75,
+          "y": 152,
+          "w": 16,
+          "h": 32
+        }
+      ],
+      "paper_count": 2,
+      "static_machine_count": 3,
+      "background_zx0_bytes": 1150,
+      "background_zx0_roundtrip": true
+    }
+  ],
+  "zx0": {
+    "git_sha": "ecde3a2ae05061fe06469ed46df81a33b7de7d86",
+    "encoder_sha256": "af655f9f183f1223c30d04a93af58f4b4cb1b7e93f9c2582ccd0bbc2be027b90",
+    "scope": "host sizes and round-trips; no Z80 timing"
+  }
+}

@@ -1,0 +1,13 @@
+name: Source checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  host:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Public source and documentation
+        run: make public-check
+      - name: Host logic and format checks
+        run: make test-host

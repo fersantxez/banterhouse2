@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "machine": "O02 isolated calibration image, CPC6128 classic 128 KiB",
+  "code": {"start": "0x0100", "end_exclusive": "0x3C00", "purpose": "probe code"},
+  "globals": {"start": "0x3C00", "end_exclusive": "0x3E00", "purpose": "evidence bytes"},
+  "stack": {"start": "0x3E00", "top_exclusive": "0x3FF0", "reserved_bytes": 496},
+  "stack_guard": {"start": "0x3E00", "end_exclusive": "0x3E80", "reserved_bytes": 128},
+  "clean_background": {"start": "0x8000", "end_exclusive": "0xC000", "reserved_bytes": 16384},
+  "visible_screen": {"start": "0xC000", "end_exclusive": "0x10000", "reserved_bytes": 16384},
+  "bootstrap": {"start": "0x0100", "end_exclusive": "0x0100", "purpose": "AMSDOS run entry"}
+}

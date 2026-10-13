@@ -1,0 +1,39 @@
+{
+  "source": "banterhouse2-portada-vazquez.png",
+  "source_sha256": "04c21b8f051ee86224619abea8ed39e01dbe6c11ff16f453b6902ee91e0ff24c",
+  "screen_sha256": "fe810856ee0ab4c31b53f9190f0492fd90e938567d99e5d8cf7724dbb0a3c721",
+  "mode": 0,
+  "dimensions": [
+    160,
+    200
+  ],
+  "screen_bytes": 16384,
+  "firmware_palette": [
+    0,
+    26,
+    24,
+    6,
+    13,
+    25,
+    12,
+    16,
+    3,
+    15,
+    21,
+    10,
+    1,
+    17,
+    9,
+    22
+  ],
+  "image_region": [
+    40,
+    0,
+    80,
+    200
+  ],
+  "display_pixel_aspect": "5:3",
+  "full_source_preserved": true,
+  "dithering": false,
+  "conversion": "ffmpeg area scale; contrast 1.12, saturation 1.15; nearest classic CPC inks"
+}

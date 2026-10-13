@@ -1,0 +1,353 @@
+{
+  "kind": "host_only_no_CPC_timing",
+  "consulted": "2026-10-10",
+  "host": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.9.6",
+  "original_head": "98ac5607cf1c4591bad0ffbcb74300b55c313e3c",
+  "inputs": {
+    "src/graphics.c": {
+      "bytes": 50170,
+      "sha256": "135db808f84203d8f6e16f1bf14b6c6cb8d2356c0f86301477e5c05465f73313"
+    },
+    "dsk_files/LOADING.SCR": {
+      "bytes": 16384,
+      "sha256": "4f7d32e2b8a37f15f49868467d30d47609dec67205520505b4ce745d53ce18cf"
+    },
+    "generated/resources/lab-paper.scr": {
+      "bytes": 16384,
+      "sha256": "398f9c537b847618fdcc3264790db96defc182ebf421a9efebd47277861f2a80"
+    },
+    "generated/rooms/room_f1_brainstorm.bin": {
+      "bytes": 120,
+      "sha256": "c9d2f6fda67febe5ae6eb11731376ddcfd59fa3349e514ceeeb5345ba4ad2032"
+    },
+    "generated/rooms/room_f1_elevator.bin": {
+      "bytes": 118,
+      "sha256": "209c12c9a227e89c7fa0a56d8213af80480e7d6a25d7f40fff8bd24128895c73"
+    },
+    "generated/rooms/room_f1_reception.bin": {
+      "bytes": 116,
+      "sha256": "4d384bfa721dee0a75c953883a45500ff6fbc8e7d4b0935d02b3ebe3a2349bd2"
+    },
+    "generated/rooms/room_f2_copy.bin": {
+      "bytes": 111,
+      "sha256": "62a6ea97f6333d98b00c119fa1c996142b0ca31cb30973bad7502ed0c349d6cc"
+    },
+    "generated/rooms/room_f2_edit.bin": {
+      "bytes": 119,
+      "sha256": "69a53df5034df7210f520e66103c2915994dcc4b303d675b13b7d8c5aed85170"
+    },
+    "generated/rooms/room_f2_elevator.bin": {
+      "bytes": 127,
+      "sha256": "5f37c55229a7c9536f37018b1482f0b00d6a5d522e0a8f6b17701bb308a958db"
+    },
+    "src/game_render.c": {
+      "bytes": 15429,
+      "sha256": "fd8d936a57643717866e1b08ea4483400fa1b169f6b1acaf5314a5d89895049c"
+    },
+    "src/game.c": {
+      "bytes": 18619,
+      "sha256": "e59e8384060bb6c91b365314e96a0153ade4bc3472c59f3895bd4c33e56adf64"
+    },
+    "src/audio.c": {
+      "bytes": 2762,
+      "sha256": "25087e908f6671d140c86cdf915a9c9adbf7c2a46ae0d3553c2f4e15e954f56a"
+    },
+    "src/main.c": {
+      "bytes": 2563,
+      "sha256": "093369e46c63188240910eb1c2f83f5fffa68e2a2dd936a7e381322ae4669746"
+    },
+    "src/resource_manager.c": {
+      "bytes": 4940,
+      "sha256": "77919155632139d40b3c6b08e28e487dbe8d5bcaef3b7a9b2194196bf2e50754"
+    },
+    "src/storage_fdc_lab.s": {
+      "bytes": 6909,
+      "sha256": "a5079accde4e35cd4003118ccc6838243244f7987b80f4a22af9fbffeb18944f"
+    },
+    "tools/expanded_kernel.s": {
+      "bytes": 7656,
+      "sha256": "b65c39ad0a334467968106ae08e8858a60a469d526bc2716919bf6a5c97cc930"
+    },
+    "cfg/build_config.mk": {
+      "bytes": 9784,
+      "sha256": "73a45d0bfbc121a8723815336872ade1b228e87e4b5db54cbe962faf9b52679f"
+    },
+    "docs/IMPLEMENTATION_STATUS.md": {
+      "bytes": 3163,
+      "sha256": "256248e2f0477901c27084de7426edae5a54afeeaf9d88765ef20f7ea7cc2882"
+    }
+  },
+  "sprites": [
+    {
+      "name": "g_pitu",
+      "bytes_masked": 512,
+      "sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "transparent": 90,
+      "opaque": 134,
+      "partial": 32,
+      "specialization_equivalence_cases": 65536
+    },
+    {
+      "name": "g_pitu_walk",
+      "bytes_masked": 512,
+      "sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "transparent": 81,
+      "opaque": 139,
+      "partial": 36,
+      "specialization_equivalence_cases": 65536
+    },
+    {
+      "name": "g_alberto",
+      "bytes_masked": 512,
+      "sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "transparent": 105,
+      "opaque": 123,
+      "partial": 28,
+      "specialization_equivalence_cases": 65536
+    },
+    {
+      "name": "g_alberto_walk",
+      "bytes_masked": 512,
+      "sha256": "e2164c9628c5115d6567d51fae5f52596a6facf0dcb5631677ec328fc42d4786",
+      "transparent": 104,
+      "opaque": 121,
+      "partial": 31,
+      "specialization_equivalence_cases": 65536
+    }
+  ],
+  "compression": [
+    {
+      "corpus": "sprites_originales",
+      "format": "zx0",
+      "input_bytes": 2048,
+      "input_sha256": "4e1b1c2aafd28eb2af9f06a53aabc23d0130a8338a7e1d98c4dc30270e5fc6e3",
+      "packed_bytes": 384,
+      "packed_sha256": "ebd8f7f6bf87c09efd1f23ffe4665786a8fe516ea155ecf9a228c45f02865383",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/ZX0/src/zx0",
+        "./tmp/research-probe/sprites_originales.bin",
+        "./tmp/research-probe/sprites_originales.zx0"
+      ],
+      "stdout": "ZX0 v2.2: Optimal data compressor by Einar Saukas\n[...............................................]\nFile compressed from 2048 to 384 bytes! (delta 2)",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "sprites_originales",
+      "format": "lzsa1",
+      "input_bytes": 2048,
+      "input_sha256": "4e1b1c2aafd28eb2af9f06a53aabc23d0130a8338a7e1d98c4dc30270e5fc6e3",
+      "packed_bytes": 469,
+      "packed_sha256": "a9432656822faf57499f2cab6f80c2c989e06b5b377aac3b8f6335422053384e",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "1",
+        "./tmp/research-probe/sprites_originales.bin",
+        "./tmp/research-probe/sprites_originales.lzsa1"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "sprites_originales",
+      "format": "lzsa2",
+      "input_bytes": 2048,
+      "input_sha256": "4e1b1c2aafd28eb2af9f06a53aabc23d0130a8338a7e1d98c4dc30270e5fc6e3",
+      "packed_bytes": 412,
+      "packed_sha256": "a84307f784ef3cfe2cd76279c641a4b51db4bcd7ed09a322197a6e537283f69e",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "2",
+        "./tmp/research-probe/sprites_originales.bin",
+        "./tmp/research-probe/sprites_originales.lzsa2"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "pantalla_carga",
+      "format": "zx0",
+      "input_bytes": 16384,
+      "input_sha256": "4f7d32e2b8a37f15f49868467d30d47609dec67205520505b4ce745d53ce18cf",
+      "packed_bytes": 6292,
+      "packed_sha256": "dff02409dbc637d950b67098a97ab6af436cfbd19051b1d3139db162efcd28d1",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/ZX0/src/zx0",
+        "./tmp/research-probe/pantalla_carga.bin",
+        "./tmp/research-probe/pantalla_carga.zx0"
+      ],
+      "stdout": "ZX0 v2.2: Optimal data compressor by Einar Saukas\n[...............................................]\nFile compressed from 16384 to 6292 bytes! (delta 2)",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "pantalla_carga",
+      "format": "lzsa1",
+      "input_bytes": 16384,
+      "input_sha256": "4f7d32e2b8a37f15f49868467d30d47609dec67205520505b4ce745d53ce18cf",
+      "packed_bytes": 7328,
+      "packed_sha256": "7d81602a2caa5ca7fda92dd6d78a6635acb2e7f73b0f86b68f068d4e550e959b",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "1",
+        "./tmp/research-probe/pantalla_carga.bin",
+        "./tmp/research-probe/pantalla_carga.lzsa1"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "pantalla_carga",
+      "format": "lzsa2",
+      "input_bytes": 16384,
+      "input_sha256": "4f7d32e2b8a37f15f49868467d30d47609dec67205520505b4ce745d53ce18cf",
+      "packed_bytes": 6516,
+      "packed_sha256": "93c974de04397e28a26b21adb8b56dc1969b48d37cbdfb74a03d9d6d096e94e1",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "2",
+        "./tmp/research-probe/pantalla_carga.bin",
+        "./tmp/research-probe/pantalla_carga.lzsa2"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "fixture_lab_paper",
+      "format": "zx0",
+      "input_bytes": 16384,
+      "input_sha256": "398f9c537b847618fdcc3264790db96defc182ebf421a9efebd47277861f2a80",
+      "packed_bytes": 2337,
+      "packed_sha256": "b2640e88a2490d804b2f9cada526c31ad75ab86eafee00346683b9bc6a0c6321",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/ZX0/src/zx0",
+        "./tmp/research-probe/fixture_lab_paper.bin",
+        "./tmp/research-probe/fixture_lab_paper.zx0"
+      ],
+      "stdout": "ZX0 v2.2: Optimal data compressor by Einar Saukas\n[...............................................]\nFile compressed from 16384 to 2337 bytes! (delta 2)",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "fixture_lab_paper",
+      "format": "lzsa1",
+      "input_bytes": 16384,
+      "input_sha256": "398f9c537b847618fdcc3264790db96defc182ebf421a9efebd47277861f2a80",
+      "packed_bytes": 2708,
+      "packed_sha256": "1e29d1ce3ccd68696b2f9981b0d01edce226946abb6cfc3ad17b0883c0e5c106",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "1",
+        "./tmp/research-probe/fixture_lab_paper.bin",
+        "./tmp/research-probe/fixture_lab_paper.lzsa1"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "fixture_lab_paper",
+      "format": "lzsa2",
+      "input_bytes": 16384,
+      "input_sha256": "398f9c537b847618fdcc3264790db96defc182ebf421a9efebd47277861f2a80",
+      "packed_bytes": 2457,
+      "packed_sha256": "0e2a1a214d045c95e9053279aebb84ffc64682ded6bc00cfc7dade7cd2eaee5d",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "2",
+        "./tmp/research-probe/fixture_lab_paper.bin",
+        "./tmp/research-probe/fixture_lab_paper.lzsa2"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "salas_lab_concatenadas",
+      "format": "zx0",
+      "input_bytes": 711,
+      "input_sha256": "31d3946d61d5609602171ba1db9e7cd66cedc2e6aa589cd68a7aae6a077d2641",
+      "packed_bytes": 474,
+      "packed_sha256": "0c16de96c89cb3661d3fa848f4e68f49da0a75d08e4b9b4493c593bf124df852",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/ZX0/src/zx0",
+        "./tmp/research-probe/salas_lab_concatenadas.bin",
+        "./tmp/research-probe/salas_lab_concatenadas.zx0"
+      ],
+      "stdout": "ZX0 v2.2: Optimal data compressor by Einar Saukas\n[...............................................]\nFile compressed from 711 to 474 bytes! (delta 2)",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "salas_lab_concatenadas",
+      "format": "lzsa1",
+      "input_bytes": 711,
+      "input_sha256": "31d3946d61d5609602171ba1db9e7cd66cedc2e6aa589cd68a7aae6a077d2641",
+      "packed_bytes": 582,
+      "packed_sha256": "1efb4ba46d9ed2563156d33ca6bb267901aab63aa785541af6fec88935f93f62",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "1",
+        "./tmp/research-probe/salas_lab_concatenadas.bin",
+        "./tmp/research-probe/salas_lab_concatenadas.lzsa1"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    },
+    {
+      "corpus": "salas_lab_concatenadas",
+      "format": "lzsa2",
+      "input_bytes": 711,
+      "input_sha256": "31d3946d61d5609602171ba1db9e7cd66cedc2e6aa589cd68a7aae6a077d2641",
+      "packed_bytes": 530,
+      "packed_sha256": "36a2dbbcc16281c67a00096cd9eba93a1decb6e4225c41550f2dbea4bc04a449",
+      "roundtrip_host": true,
+      "command": [
+        "./tmp/research-tools/lzsa/lzsa",
+        "-r",
+        "-f",
+        "2",
+        "./tmp/research-probe/salas_lab_concatenadas.bin",
+        "./tmp/research-probe/salas_lab_concatenadas.lzsa2"
+      ],
+      "stdout": "",
+      "CPC_depack_ms": null
+    }
+  ],
+  "tool_commits": {
+    "ZX0": "ecde3a2ae05061fe06469ed46df81a33b7de7d86",
+    "lzsa": "15ee2dfe118eeb8f7683ca44f64821c3a61ca1e5"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "arithmetic": {
+    "screen_visible_bytes": 16000,
+    "screen_reserved_bytes": 16384,
+    "masked_actor_8poses_2directions_2alignments_bytes": 17408,
+    "save_under_4actors_max_width_bytes": 1152,
+    "data_disk_gross_bytes": 184320,
+    "data_disk_after_directory_bytes": 182272,
+    "ideal_ldir_16KiB_tstates": 344059,
+    "ideal_ldir_16KiB_ms_at_4MHz": 86.01475
+  },
+  "publication_note": "Local absolute paths were made relative for publication; unmodified historical record retained in the local archive."
+}

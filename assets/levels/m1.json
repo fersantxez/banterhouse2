@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "m1",
+  "description": "Primera arena jugable de máquina: un copiador y cuatro plazas fijas de papel.",
+  "bounds": {"x": 0, "y": 0, "width": 160, "height": 200},
+  "geometry_id": "opening_arena_v1",
+  "spawn": {"x": 24, "y": 152},
+  "pools": {"machines": 3, "projectiles": 4},
+  "timing_ticks": {"initial_wait": 140, "warning": 35, "period": 112},
+  "machines": [
+    {"id": 0, "x": 110, "ground_y": 184, "direction": "right"}
+  ],
+  "presentation": {"shell_static": true, "warning_lamp": "cyan", "hostile_sprite": "paper_hostile"}
+}

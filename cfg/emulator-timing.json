@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "profile_id": "caprice32-4.6.0-cpc6128-timing-v1",
+  "machine": {
+    "model": "CPC6128 classic",
+    "caprice_model_id": 2,
+    "ram_kib": 128,
+    "clock_hz": 4000000,
+    "nominal_frame_period_us": 20000,
+    "nominal_cycles_per_frame": 80000,
+    "vsync_jumper": 30
+  },
+  "emulator": {
+    "name": "Caprice32",
+    "version": "4.6.0",
+    "source_url": "https://github.com/ColinPitrat/caprice32",
+    "source_commit": "15dd50d7bc498ff0d509e8b78c827f98d1f28a5a",
+    "instrumented_binary": "build/caprice-timing/source/cap32"
+  },
+  "settings": {
+    "speed_mhz": 4,
+    "speed_limit": false,
+    "audio_emulation": false,
+    "fps_osd": false,
+    "disk_acceleration": "Caprice32 default; record actual config hash"
+  },
+  "measurement": {
+    "unit": "Z80 T-state cycles",
+    "resolution_cycles": 1,
+    "counter": "sum of Caprice32 z80_wait_states iCycleCount, including instruction/interrupt execution",
+    "vsync_calibration_intervals": 8,
+    "vsync_tolerance_percent": 1.0,
+    "wall_time_is_cpc_cycles": false,
+    "guest_marker_address": "0x3FFF when BH2_TELEMETRY_PHASE_MARKERS is enabled; external PC markers do not alter guest code"
+  },
+  "rom_sha256": "31c3668c67bea027dab698ece233c9434d9324f9ba7dac84db58f400b6689562",
+  "limits": [
+    "Cycle totals are from the documented, pinned Caprice32 Z80 model, not measurements on a physical CPC.",
+    "The timing emulator is instrumented on host-side PC boundaries; guest T-states are not incremented by trace output.",
+    "The current profile disables audio output/emulation for calibration; audio integration requires a separate measured profile."
+  ]
+}

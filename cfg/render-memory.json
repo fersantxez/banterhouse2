@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "machine": "Amstrad CPC 6128 classic, 128 KiB, isolated renderer fixture",
+  "code": { "start": "0x0100", "end_exclusive": "0x3c00", "purpose": "renderer, bank manager and generated sprite variants in fixed RAM0" },
+  "globals": { "start": "0x3c00", "end_exclusive": "0x3c68", "purpose": "fixed RAM0 renderer state and globals" },
+  "stack": { "start": "0x3c68", "top_exclusive": "0x3f68", "reserved_bytes": 768 },
+  "stack_guard": { "start": "0x3c68", "end_exclusive": "0x3d68", "reserved_bytes": 256 },
+  "background": { "start": "0x4000", "end_exclusive": "0x8000", "purpose": "physical RAM1 clean/persistent background while C0 is mapped" },
+  "back_buffer": { "start": "0x8000", "end_exclusive": "0xc000", "purpose": "RAM2 offscreen frame; CRTC page flip at VSYNC" },
+  "screen": { "start": "0xc000", "end_exclusive": "0x10000", "purpose": "physical RAM3 visible video memory" }
+}

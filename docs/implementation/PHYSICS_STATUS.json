@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "plan": "PHYSICS_REPAIR_PLAN.md",
+  "updated": "2026-10-12",
+  "tasks": [
+    {
+      "id": "F00",
+      "title": "Conservar el candidato y habilitar la reparación",
+      "depends_on": [],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T214508Z-F00-physics-repair/results.json",
+        "research/runs/20261012T214508Z-F00-physics-repair/baseline.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F01",
+      "title": "Reproducir el fallo con el código que ejecuta el juego",
+      "depends_on": [
+        "F00"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T220000Z-F01-F02-physics-repair/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F02",
+      "title": "Corregir la pérdida de apoyo sin retocar el salto",
+      "depends_on": [
+        "F01"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T220000Z-F01-F02-physics-repair/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F03",
+      "title": "Declarar las superficies de cada arena",
+      "depends_on": [
+        "F02"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T222000Z-F03-level-geometry/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F04",
+      "title": "Consolidar colisión e integración numérica",
+      "depends_on": [
+        "F03"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T230000Z-F04-core-physics/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F05",
+      "title": "Afinar saltos y eliminar encajamientos en todo el recorrido",
+      "depends_on": [
+        "F04"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T233000Z-F05-jump-geometry/results.json",
+        "research/runs/20261012T233000Z-F05-jump-geometry/caprice-f05.png"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F06",
+      "title": "Integrar reloj y estados del juego",
+      "depends_on": [
+        "F05"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T234500Z-F06-clock-state/results.json"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F07",
+      "title": "Ejecutar la regresión automática de las 24 arenas",
+      "depends_on": [
+        "F06"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T235500Z-F07-physics-campaign/results.json",
+        "research/runs/20261012T235500Z-F07-physics-campaign/caprice-campaign-cpc.png"
+      ],
+      "remaining": []
+    },
+    {
+      "id": "F08",
+      "title": "Verificar el candidato y dejarlo jugable en Caprice",
+      "depends_on": [
+        "F07"
+      ],
+      "status": "done",
+      "evidence": [
+        "research/runs/20261012T-final-physics-F08/results.json",
+        "research/runs/20261012T-final-physics-F08/caprice-menu.png",
+        "research/runs/20261012T-final-physics-F08/caprice-controls.png",
+        "research/runs/20261012T-final-physics-F08/caprice-arena-start.png"
+      ],
+      "remaining": []
+    }
+  ]
+}

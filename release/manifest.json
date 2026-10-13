@@ -1,0 +1,18 @@
+{
+  "title": "Banterhouse 2 — ¡Devuelto!",
+  "scope": "Prototipo de 24 arenas; no campaña narrativa de producción",
+  "target": "Amstrad CPC 6128 clásico, 128 KiB",
+  "disk": "Devuelto-CPC6128.dsk",
+  "bytes": 204544,
+  "dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+  "boot": "RUN\"DEVUELTO.BIN\"",
+  "contents": [
+    "DEVUELTO.BIN",
+    "CH01.BIN",
+    "CH02.BIN",
+    "CH03.BIN",
+    "CH04.BIN"
+  ],
+  "validation_report": "../docs/DELIVERY_REPORT.md",
+  "hardware_verified": false
+}

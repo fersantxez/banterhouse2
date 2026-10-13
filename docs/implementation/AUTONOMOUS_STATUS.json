@@ -1,0 +1,236 @@
+{
+  "plan_version": 1,
+  "scope": "Prototipo técnico ¡Devuelto! empaquetado y verificado para prueba del usuario; no equivale a campaña narrativa de producción ni a aprobación artística/hardware.",
+  "acceptance": "ready_for_user",
+  "first_task": "N00",
+  "execution_started": true,
+  "tasks": [
+    {
+      "id": "N00",
+      "title": "Conservar el fallo y retirar la aceptación anterior",
+      "depends_on": [],
+      "status": "done",
+      "substep": "bounded preservation, revocation and process/resource inventory complete",
+      "evidence": [
+        "research/runs/20261013T041554Z-N00-inventory/manifest.json: 282 artifact copies (6,335,995 bytes) and 51 source/toolchain hashes.",
+        "research/runs/20261013T041554Z-N00-inventory/processes-before.txt and ui-process-observation.json: two existing Caprice processes and Computer Use app identities captured; neither was adopted as a new test.",
+        "research/runs/20261013T041554Z-N00-inventory/disk-space-before.txt: 3.6 GiB free at inventory.",
+        "research/release-validation.json acceptance already revoked_pending_repair; previous accepted report preserved at research/runs/20261013T-autonomous-repair-planning/release-validation-before-user-rejection.json.",
+        "python3 tools/validate_release_evidence.py rejected old report: evidence does not match current DEVUELTO.dsk.",
+        "make package was inadvertently started; it ran the broad test prerequisites and rebuilt build/DEVUELTO.*, then was terminated by exact owned PID tree before completing. Its partial results are preserved in package-gate.log and are not accepted. dist DSK hash remained 667d79479f899607155e5de96c000f995b404459e8ff6d676500157d68feea48 (manifest-copied exact prior bytes)."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N01",
+      "title": "Aislar pruebas y asegurar cierre incluso al fallar",
+      "depends_on": [
+        "N00"
+      ],
+      "status": "done",
+      "substep": "exclusive per-run supervisor and user launch path implemented and tested",
+      "evidence": [
+        "tools/run_session.py: advisory OS lock, per-run config/log/manifest/result, timeout, signal forwarding, exact process-group cleanup and crash-safe lock release.",
+        "tools/run_game.py and Jugar.command share the supervised launch path and accept an explicit DSK; no fixed build/launch.log.",
+        "tools/test_run_session.py; make test-run-session exit 0 and persisted 11-case evidence at research/runs/20261013T041554Z-N01-supervisor/results.json with 31 hashed artifacts.",
+        "python3 -m py_compile and sh -n Jugar.command PASS.",
+        "The two Caprice processes listed at N00 were present before N01; lifecycle tests spawned no Caprice and left no test-owned child or process residue."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N02",
+      "title": "Reproducir y clasificar cada fallo de carga",
+      "depends_on": [
+        "N01"
+      ],
+      "status": "done",
+      "substep": "real cold boot reproduced and repaired: Caprice 4.6 autocmd needed firmware delay before implicit Return; dist and candidate now reach title without operator keys",
+      "evidence": [
+        "research/runs/20261013T043000Z-N02-load-matrix/results.json preserves the false-positive history and corrected evidence.",
+        "tools/run_game.py: CAP32_DELAY now separates typed BASIC RUN from Caprice parser’s appended Return; Jugar.command shares this route.",
+        "python3 tools/test_run_game.py PASS; py_compile and sh -n PASS.",
+        "Dist autonomous cold boot title: research/runs/20261013T080000Z-N02-launcher/runs/20261013T050750Z-session-14802873/result.json PASS, screenshot_20261013_010804.png.",
+        "Current candidate autonomous cold boot and Phase 01: research/runs/20261013T082000Z-N02-candidate-delay/runs/20261013T050858Z-session-5c05fcdf/result.json PASS; screenshot_20261013_010908.png.",
+        "Every emulator session closed by F10 and supervisor reports process_group_absent=true; no Caprice/run_game/run_session process remains."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N03",
+      "title": "Corregir carga, build y memoria a partir del caso mínimo",
+      "depends_on": [
+        "N02"
+      ],
+      "status": "done",
+      "substep": "reproducible candidate rebuilt twice from independent empty object/output trees; memory, AMSDOS and DSK payload checks pass; no load fix warranted because cold boot issue not reproduced",
+      "evidence": [
+        "research/runs/20261013T063000Z-N03-repro/results.json: two independently compiled current game candidates are byte-identical: BIN 76701acc… and DSK bcb70391….",
+        "python3 tools/check_memory_map.py PASS: code 0100-7042, resident data 7800-78C8; stack and video do not overlap.",
+        "python3 tools/check_disk.py PASS for build candidate: valid AMSDOS checksum, LOAD 0100, EXEC 23D5, extracted 30,665-byte program matches raw build.",
+        "No application code change: no cold-boot failure reproduced; dist/build stale-package mismatch is reserved for N09 after campaign/audio final hash."
+      ],
+      "remaining": [
+        "N04: exercise launcher and full physical-key route matrix before any acceptance."
+      ],
+      "blocker": null
+    },
+    {
+      "id": "N04",
+      "title": "Probar la ruta real de arranque y teclado",
+      "depends_on": [
+        "N03"
+      ],
+      "status": "done",
+      "substep": "10/10 arranques fríos del candidato (5 BASIC manual + 5 launcher), matriz de controles pulsada en Caprice, rutas/negativos de lanzamiento detectados y limpieza completa. La devolución real de X queda como comportamiento de juego de N05; sin objetivo de papel en el pulso, no se contabiliza una devolución CPC.",
+      "evidence": [
+        "Observed from candidate: title to Phase 01 responds to Space, arrows navigate menu (duration ≥200 ms on CUA), but a hit removes a life almost immediately; capture saved in N02 candidate evidence. This is logged as gameplay defect for N05, not a load failure.",
+        "research/runs/20261013T-N05-opening-window/results.json: Caprice session 175.029 s, menu→fase, apertura con máquina mirando fuera de Pitu, movimiento Right/Up y pausa con VIDA 2; cierre F10 y process_group_absent=true. El primer disparo hacia Pitu del candidato previo se reprodujo y causó dos impactos; capturas F3 conservadas.",
+        "Nueva secuencia de entradas generada con las reglas actuales: ./build/tests/game_harness solve completó 24 arenas con score 36375 y 7283 ticks; make test-game/test-machine y make build/check-map/test-game-build pasan. Esto no reemplaza la matriz N04 ni la sesión CPC N08.",
+        "Comparación de captura: las bandas negras verticales de F3 también aparecen en research/runs/20261013T082000Z-N02-candidate-delay/screenshots/screenshot_20261013_010908.png; CUA en vivo mostró imagen de pausa legible. No se atribuyen al cambio de apertura.",
+        "Un proceso ajeno detectado en research/runs/20261013-loading-integration/tape-verified/session (PID 9166, timeout 400 s) mantiene el candado común. No fue interrumpido; el quinto Caprice de esta matriz espera su cierre natural.",
+        "Non-counted launcher attempt 20261013T052756Z-session-d1b86d4b exited cleanly after 115.586 s and F10; no gameplay PASS credited because post-selection view was ambiguous. Evidence: research/runs/20261013T-N04-cold-series/launcher/20261013T052756Z-session-d1b86d4b/session.log.",
+        "A separate tape integration test now owns the shared Caprice lock: research/runs/20261013-loading-integration/tape-fixed/session, PID 10755, configured timeout 400 s. Left untouched; route tests wait for its natural cleanup.",
+        "Second non-counted launcher attempt 20261013T053303Z-session-0b40b8aa exited cleanly after 86.457 s/F10. BASIC and stage menu appeared; post-selection gameplay was visually ambiguous. No route PASS credited; see session.log.",
+        "The unrelated tape-fixed Caprice session released the shared lock naturally; process 10755 was absent before this new test.",
+        "Fifth counted launcher route: research/runs/20261013T-N04-cold-series/launcher-repeat/20261013T053940Z-session-532b7ce0/result.json PASS, 130.521 s, F10 and process_group_absent=true. Space hold 240 ms started Phase 01; Right/Up moved and jumped; P showed VIDA 2. Two later hits reproduced SIN VIDAS; release+press Space retried to VIDA 2. F3 screenshots are saved under that run.",
+        "Current first arena is still too lethal for the intended opening: the normal Right+jump approach enters the first paper lane and consumes both starting lives within seconds. Recorded as a real gameplay defect for N05, not a load failure or acceptance.",
+        "Arranque BASIC 5/5 del DSK reparado; cada sesión muestra Fase 01 y cierra con process_group_absent=true: research/runs/20261013T-N04-cold-series/manual-basic-repaired/ (runs 20261013T055058Z, 055202Z, 055243Z, 055319Z, más dos sesiones N05).",
+        "Arranque con launcher 5/5 del mismo DSK reparado; menú→Fase 01, movimiento Right y pausa P observados, F10 y limpieza: research/runs/20261013T-N04-cold-series/launcher-repaired/20261013T055352Z-session-49b033e7 a 20261013T055542Z-session-be47e735.",
+        "En el run real con ruta absoluta y nombre de carpeta con espacios, desde cwd /tmp, Caprice cargó la copia byte-identica del DSK, mostró menú/Fase 01 y aceptó Left/Right/Up/Down/X/Space/P/R. Evidencia extensa de muerte, “SIN VIDAS”, reintento por Space, movimiento tras reintento y limpieza (256.168 s): research/runs/20261013T-N04-path/space-launch/20261013T055825Z-session-aae02865/result.json; SHA del DSK=37d22962c0ec3b7dba004f968959f0560744f3d1bbc547c5708ef5810fa8fd2b.",
+        "El lanzador concurrente devolvió SESSION BUSY (exit 73) mientras el primer Caprice seguía abierto, sin crear segunda ventana. Copia de nombre interno ausente mostró “MISSING .BIN not found”; DSK truncado produjo “Drive A: disc missing / Retry, Ignore or Cancel?”.",
+        "ROM ausente: Caprice terminó en 1.156 s con exit 255, log identifica cpc6128.rom ausente y process_group_absent=true: research/runs/20261013T-N04-negative/missing-rom/session/20261013T060251Z-session-3ae5dd0f/result.json. DSK/config inexistentes rechazados por preflight específico de run_game.py.",
+        "Matriz efectiva en CPC confirmada por eventos del log: Left/Right desplazaron Pitu; Up saltó; Down la dejó caer; Space seleccionó JUGAR y reintentó; P abrió/cerró pausa; R devolvió Pitu al spawn. X se pulsó/mantuvo/soltó y llegó al teclado CPC; la devolución sobre un papel vivo se valida en N05.",
+        "Negativos y controles se ejecutaron en ventanas propias; se guardaron capturas/logs en cada run, se cerró con F10 y los supervisores confirmaron process_group_absent=true."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N05",
+      "title": "Corregir juego y representación visible",
+      "depends_on": [
+        "N04"
+      ],
+      "status": "done",
+      "substep": "M1 visual/checkpoint CPC confirmado; host harness con sanitizers prueba física, colisiones, devolución según orientación, pausa, muerte y retry, y resuelve las 24 arenas por el runtime real. No se cierra al morir: la sesión muestra SIN VIDAS, acepta Space y Pitu vuelve a jugar. La impresión subjetiva de dificultad y la escucha siguen sin certificarse.",
+      "evidence": [
+        "CPC run ruta con espacios, 256.168 s; Right+Up y Down verificados, pausa/reanudación, R, muerte visible y Space reintentado con vida 2; movimiento confirmado después del reintento y proceso limpiado: research/runs/20261013T-N04-path/space-launch/20261013T055825Z-session-aae02865.",
+        "CPC focused run 77.573 s; control Right cruza a línea de fuego, X llegó al runtime pero no devolvió el papel en ese timing, aparece SIN VIDAS; Space reintenta y Left continúa el juego 4.5 s. Evidencia conservada en research/runs/20261013T-N04-controls-x/20261013T060330Z-session-46b7c4cc, cleanup process_group_absent=true.",
+        "El usuario se quejó de cierre inmediato tras morir. En las últimas pruebas no se cerró en la muerte: se observaron y capturaron estados de vida 0 y post-reintento; la última ventana duró 77.573 s y quedó cerrada sólo tras seguir jugando.",
+        "make test-game test-machine test-sweep check-map PASS (ASan/UBSan en harness); prueba H1B (ventana 8/recovery 8) también PASS, sin elegir/aprobar humanamente el tuning. Salida conservada en build/tests y manifiesto de run siguiente.",
+        "make test-game host demo usa el mismo decoder/runtime; 24 arenas completadas con score 36375, checkpoint por arena, WIN y nueva partida; score/ticks/invulnerability sin escritura directa de estado.",
+        "build DSK reproducible tras reconstrucción: SHA-256 37d22962c0ec3b7dba004f968959f0560744f3d1bbc547c5708ef5810fa8fd2b; tools/check_disk.py PASS, payload 39,119 bytes, LOAD &0100, EXEC &2430; mapa CPC PASS CODE 0100-70BC, DATA 7800-78C8.",
+        "M1 en Caprice: movimiento lateral, salto, drop desde plataforma, invulnerabilidad visual parpadeante, P pausa/reanudación, R restart, SIN VIDAS, Space retry; segunda partida siguió 4.5 s; la captura de retry muestra HUD VIDA2 y Pitu moviéndose. Instancias de 256.168 s y 77.573 s acabaron con F10 y cleanup.process_group_absent=true.",
+        "Camino con espacios validado desde /tmp y duplicado simultáneo rechazado por el supervisor; estos resultados permanecen ligados al DSK hash indicado.",
+        "Nueva sesión dirigida por Computer Use, 282.598 s: hubo dos estados SIN VIDAS, se aceptó Space en ambos y cada reintento devolvió VIDA 2; tras el segundo reintento se jugó más de un minuto con movimiento/salto/acción y pausa/reanudación antes de F10. La ventana no se cerró al morir; F10 y cleanup.process_group_absent=true. Registro y capturas: research/runs/20261013T-N06-playthrough/."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N06",
+      "title": "Crear música melódica pop para la primera fase",
+      "depends_on": [
+        "N05"
+      ],
+      "status": "done",
+      "substep": "Tema AY A/B de 16 compases implementado. Tests de tablas/mixer/pausa PASS; captura PCM efectiva del emulador confirma melodía y bajo con notas cambiantes y silencio exacto durante pausa, seguidos de audio al reanudar. No se certifica valoración subjetiva ni altavoces físicos.",
+      "evidence": [
+        "src/platform/music.s actual genera 128 semicorcheas en B y bajo en C; el origen está documentado en docs/implementation/decisions/006-holiday-ay-local.md. Las tablas/código no prueban reproducción audible.",
+        "Caprice logs del CPC usado en los runs muestran devices BlackHole 2ch y MacBook Air Speakers, Freq 48kHz, “Sound buffer ready”; la configuración efectiva y PCM aún se deben medir en N06/N07.",
+        "Captura PCM preliminar de 10 s desde entrada AVFoundation BlackHole 2ch con el candidato musical recién compilado: WAV estéreo 48 kHz, 846336 muestras intercaladas, máximo absoluto=0 y RMS=0. Esta ruta de captura no acredita música; investigar ruteo emulador→dispositivo. WAV: research/runs/20261013T-N06-music-smoke/menu-output.wav; Caprice log del run anterior bajo la misma carpeta.",
+        "Implementación determinista tools/build_pop_ay.py → src/platform/music.s: melodía AY B, bajo/arpegio AY C, 256 pasos, 16 compases, 125 BPM; audio_ay.s sfx_mute sólo silencia volumen A. music_pause/resume y wrappers en audio.c/main.c congelan, silencian y restauran B/C.",
+        "make test-pop-music build check-map test-game test-audio PASS después del cambio; tests host incluyen ASan/UBSan y variante H1B. Mapa: CODE 0100-740E, DATA 7800-78C9, no solapa stack/video.",
+        "Regresión CPC nueva: Caprice 4.6.0 arranca build/DEVUELTO.dsk, menú→Fase 01→Pausa→reanudar; sesión 64.785 s, F10, process_group_absent=true: research/runs/20261013T-N06-audio-regression/session/20261013T062034Z-session-d9c6b6e0.",
+        "tools/check_disk.py PASS, BIN extraído igual al build, AMSDOS/checksum válidos, LOAD &0100, EXEC &2436, 39119 bytes. Candidato DSK SHA-256 9159fa196fe85f60ee55ae0083ab52989d56f5adc771c46b960cbb3115911c7e.",
+        "2026-10-13 prueba dirigida de salida del runtime: BlackHole 2ch seleccionado temporalmente como salida macOS, AVFoundation captura estéreo PCM S16LE/48 kHz durante 159.787 s; DSK SHA-256 9159fa196fe85f60ee55ae0083ab52989d56f5adc771c46b960cbb3115911c7e, WAV SHA-256 dba0f874b12db063bbd38184a6f073f37dfb6a6dd5165449cde23e074d839092. RMS global 7.075/32768; después del primer bloque de 5 s, ventanas de 5 s peak ≤4 y RMS ≈1.05–1.14 (≈−89.8 dBFS): FAIL, no acredita música tonal. Ver research/runs/20261013T-N06-pcm-capture/pcm-analysis.json.",
+        "El session runner finalizó limpiamente (345.238 s, process_group_absent=true). La pantalla estable volvió al menú tras acciones cortas; esta sesión no obtuvo prueba de gameplay. MacBook Air Speakers restaurados en Ajustes de Sonido a 0%/muted, coincidiendo con estado inicial; sin proceso Caprice/FFmpeg residual.",
+        "Corrección de ruta de captura: ffmpeg -list_devices identifica [0] Open Audio 8 DJ y [1] BlackHole 2ch; las dos capturas anteriores desde :0 midieron el dispositivo equivocado y se mantienen sólo como fallos de ruta. BlackHole se seleccionó temporalmente en Ajustes y se restaurará al finalizar.",
+        "PCM real de Caprice: research/runs/20261013T-N06-pcm-capture/blackhole-correct-index.wav, 53.259 s, S16LE estéreo 48 kHz; DSK SHA-256 9159fa196fe85f60ee55ae0083ab52989d56f5adc771c46b960cbb3115911c7e; WAV SHA-256 7f29559477e03b163a4b9951d08e3b7472d4a0114101b58d540d43057f83c74b. RMS 3557.617/32768 (−19.29 dBFS), peak 17128; analyzer finds 24 distinct 10-Hz melody bins and 14 distinct 5-Hz bass bins. In a 5-second summary, pause contains 1.5 s of exact zero PCM; output returns after resume. See blackhole-correct-index-analysis.json.",
+        "tools/analyze_ay_pcm.py + tools/test_analyze_ay_pcm.py and `make test-audio-pcm` PASS: synthetic changing melody/bass accepted; silence and fixed tone rejected. This is a diagnostic building block, not the full N07 matrix."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N07",
+      "title": "Validar audio efectivo del emulador",
+      "depends_on": [
+        "N06"
+      ],
+      "status": "done",
+      "substep": "Captura PCM 66 s idle (dos loops) y 65 s con controles; ON/OFF/ON y pausa/reanudación desde el menú; canal SFX separado con periodos AY detectados en PCM. Negativos de melodía, bajo, mixer, silencio y tempo pasan; ruido residual contrastado con BlackHole sin Caprice. Sin afirmación de escucha subjetiva.",
+      "evidence": [
+        "La sesión interactiva N06 ejecutó menú → CONTROLES → JUGAR → Fase 01; Right mueve a Pitu, Up la hace saltar, P pausa con panel visible y reanuda. No se usó esa ruta como una prueba de muerte/reintento.",
+        "Los tests actuales se probaron con entradas sintéticas mono PCM S16LE; la captura real de Caprice confirma ambos canales AY mediante bandas tonales dinámicas, aunque todavía no cubre 60 s idle + 60 s acciones ni todos los negativos de la ficha.",
+        "research/runs/20261013T-N07-audio-matrix/audio-evidence-manifest.json: same DSK/BIN/Caprice hashes linked to all PCM captures, exact WAV and capture-report hashes, and four supervised session results with process_group_absent=true.",
+        "research/runs/20261013T-N07-audio-loop/phase-idle-two-loops-analysis.json: 66 s (132 half-second windows), 19 distinct melody bands, 24 bass bands, 0.12 s step, no >2 s silence, no clipping.",
+        "research/runs/20261013T-N07-audio-actions/phase-controls-sfx-pause-analysis.json: 65 s real controls capture, 21 melody bands, 28 bass bands, stable 0.12 s step. Caprice showed active phase, pause overlay, resume, retry and continued play.",
+        "research/runs/20261013T-N07-audio-menu/on-off-on-analysis.json and paused-control-check-analysis.json: menu ON/OFF/ON and pause states observed. research/runs/20261013T-N07-audio-menu/background-no-caprice-analysis.json defines the shared-loopback residual (300 Hz and 36-42 Hz) without Caprice; off/pause intervals match this floor.",
+        "research/runs/20261013T-N07-sfx-isolated/sfx-event-analysis.json: with music OFF, real X and Up input events detected in runtime PCM at expected AY tones 1120 Hz (period 56) and 560 Hz (period 112), strengths 1,405,220 and 6,191,611.",
+        "tools/analyze_ay_events.py and tools/test_analyze_ay_events.py; make test-audio-pcm PASS, including captured SFX detector fixture, channel-B-absent/bass-only, fixed-tone, post-effect mixer loss, pause and corrupted-tempo negatives."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N08",
+      "title": "Completar campaña y estabilidad con el candidato final",
+      "depends_on": [
+        "N07"
+      ],
+      "status": "done",
+      "substep": "Dos campañas completas independientes en Caprice32; una tercera en 1984 v0.4.20 CPC6128/128 KiB; 30:22 de estabilidad con pausa/reanudación y recarga de arena. Los cuatro activos de capítulo se cargan desde disco durante la campaña.",
+      "evidence": [
+        "research/runs/20261013T-N08-stability-35min/campaign-stability-report.json: campañas Caprice 1 y 2 completan las 24 arenas (7.308 ticks, 36.375 puntos, 1 vida, error 0), cada una con snapshot final vinculado al DSK SHA 034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c.",
+        "research/runs/20261013T-N08-emulator-1984/campaign report: la tercera campaña completa en el emulador independiente 1984 v0.4.20, CPC6128 clásico de 128 KiB, misma SHA; snapshot verificado y pantalla FIN DE LA CAMPAÑA.",
+        "research/runs/20261013T-N08-stability-35min: estabilidad 1.822,55 s (30:22), pausa/reanudación, reinicio R, nueve instantáneas de checkpoint con identidad de código del candidato; supervisor exit 0 y process_group_absent=true.",
+        "La campaña activa los cuatro paquetes de capítulo mediante cargas desde el DSK; no se exige que sus datos residan en una sola carga. DSK modular: programa de arranque más cuatro activos AMSDOS independientes.",
+        "tools/check_game_snapshot.py ahora acepta artefactos congelados explícitos y modo --image-only; solo excluye las ocho celdas documentadas del loader (0x7284–0x728B). Código/recursos coinciden hasta 0x79F0."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N09",
+      "title": "Impedir falsos positivos y empaquetar los bytes probados",
+      "depends_on": [
+        "N08"
+      ],
+      "status": "done",
+      "substep": "Gate estructurado v2 valida 10 casos y hashes ligados al mismo DSK; 8 negativos se rechazan antes de modificar dist. Se empaquetó el candidato aprobado byte por byte con lanzador, guía y manifiesto SHA-256; tres arranques fríos del paquete pasan y la invocación directa de dist/Jugar.command termina limpia.",
+      "evidence": [
+        "research/release-validation.json: 10 casos PASS sobre DSK SHA-256 034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c; sesiones y evidencia indexadas por SHA-256.",
+        "tools/validate_release_evidence.py y tools/package_release.py; dist/SHA256SUMS.json cubre DSK, lanzador y guía.",
+        "tools/test_release_gate.py: ocho negativos PASS; disco publicado permanece inalterado.",
+        "Tres sesiones package_cold_launch en research/runs/20261013T201603Z-session-4210cd84, 20261013T201648Z-session-3dcb8267 y 20261013T201727Z-session-7bb72753: estado PASS, teclas observadas, cierre limpio y disco intacto.",
+        "research/runs/20261013T202440Z-session-63dd372d: ejecución directa del lanzador dentro de dist sobre el DSK publicado, estado PASS, duración 31.671 s, grupo de procesos ausente.",
+        "research/runs/20261013T-N09-package/modular-disk-report.json y tools/check_campaign_dsk.py: programa principal idéntico más CH01.BIN–CH04.BIN y estructura AMSDOS válida."
+      ],
+      "remaining": [],
+      "blocker": null
+    },
+    {
+      "id": "N10",
+      "title": "Cerrar sesión y entregar informe utilizable",
+      "depends_on": [
+        "N09"
+      ],
+      "status": "done",
+      "substep": "Documentación de ejecución y limitaciones actualizada; entrega con hash visible. Ajustes de audio restaurados; Caprice y su grupo de procesos cerrados; limpieza final verificada sin relanzar el emulador.",
+      "evidence": [
+        "README.md, docs/PLAYTEST.md y docs/DELIVERY_REPORT.md documentan cómo abrir el DSK modular, controles, resultados y límites.",
+        "dist/Jugar.command, dist/LEEME.txt y dist/SHA256SUMS.json; SHA-256 del DSK 034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c.",
+        "La sesión final 20261013T202440Z-session-63dd372d termina con status=pass y cleanup.process_group_absent=true.",
+        "Ajustes de sonido restaurados a MacBook Air Speakers, volumen 0, mute on; ventana Sound cerrada. Inventario CUA posterior no lista Caprice ni ventana de System Settings."
+      ],
+      "remaining": [],
+      "blocker": null
+    }
+  ],
+  "updated": "2026-10-13"
+}

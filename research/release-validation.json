@@ -1,0 +1,733 @@
+{
+  "schema_version": 2,
+  "release_status": "candidate_verified",
+  "candidate": {
+    "dsk": "research/runs/20261013T-N08-campaign-replay-three/DEVUELTO.dsk",
+    "dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+    "bin": "research/runs/20261013T-N08-campaign-replay-three/DEVUELTO.bin",
+    "bin_sha256": "dc1bfb7d54ac9aed9cf3a130b88ac297449ad9ba5730299b0446d4a5d05416c3",
+    "map": "research/runs/20261013T-N08-campaign-replay-three/DEVUELTO.map",
+    "map_sha256": "d96dcb4ea8f924011b0aafd2534931d7f102043a7540526b95215be938c34c1e"
+  },
+  "evidence_files": {
+    "campaign_caprice_1_report": {
+      "path": "research/runs/20261013T-N08-campaign-replay-two/complete-campaign-report.json",
+      "sha256": "fe98aa557f14c3f65ed57e724b23f432b3b795701414576fa1fe1907791795c3"
+    },
+    "campaign_caprice_1_snapshot": {
+      "path": "research/runs/20261013T-N08-campaign-replay-two/captures/snapshot_20261013_151812.sna",
+      "sha256": "9f38991d6d3c9da67ca15b93be19311062ce9c5fede63b11b00af4df02997efc"
+    },
+    "campaign_caprice_1_session": {
+      "path": "research/runs/20261013T-N08-campaign-replay-two/sessions/20261013T191052Z-session-2314a412/result.json",
+      "sha256": "5000840681a7309c0c1403373734a8d77d0bf895cf72a11e091189207e737209"
+    },
+    "campaign_caprice_2_report": {
+      "path": "research/runs/20261013T-N08-campaign-replay-three/complete-campaign-report.json",
+      "sha256": "aeaf18b19e2f1bddec1a474cc407791e302c84d7f0a0d5be3f02e9bb6953b75d"
+    },
+    "campaign_caprice_2_snapshot": {
+      "path": "research/runs/20261013T-N08-campaign-replay-three/captures/snapshot_20261013_152640.sna",
+      "sha256": "5f70c0ab4932245bf945884119bcce6e4dc510b7a6bafe79f90fc22d6a95bb5b"
+    },
+    "campaign_caprice_2_session": {
+      "path": "research/runs/20261013T-N08-campaign-replay-three/sessions/20261013T191858Z-session-337b84d8/result.json",
+      "sha256": "f3a7fab10281616c60af5dbd845f123e3d357c8e16f4d56c63ab05370bf0c066"
+    },
+    "campaign_1984_report": {
+      "path": "research/runs/20261013T-N08-emulator-1984/campaign-report.json",
+      "sha256": "11293314c00ae30478ef345952a7b892a91845c17f16fd67256c5553a386561a"
+    },
+    "campaign_1984_snapshot": {
+      "path": "research/runs/20261013T-N08-emulator-1984/captures/auto.sna",
+      "sha256": "71ba4e09a9766ea860463205b374862864e1f602fa13efd65dcd4caf83335f60"
+    },
+    "campaign_1984_session": {
+      "path": "research/runs/20261013T-N08-emulator-1984/sessions/20261013T195929Z-session-5c61126b/result.json",
+      "sha256": "512d0b3f637021250246366dd62294529063be3ce11456f7e2d644481e5242be"
+    },
+    "stability_session": {
+      "path": "research/runs/20261013T-N08-stability-35min/sessions/20261013T192847Z-session-1fbf357b/result.json",
+      "sha256": "c3be04e83b1d83d5a8657578d0bebf398d660893acc682f1245ef1b32562f7f7"
+    },
+    "stability_snapshot_1": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153032.sna",
+      "sha256": "3d509d7e2424e4f23ef5fe957d7d6e403565cf596659217dac20b628492ef604"
+    },
+    "stability_snapshot_2": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153138.sna",
+      "sha256": "4111682f55ef788b80ded05cdcad6d31f961a41068ff0e06d0a941dd302de177"
+    },
+    "stability_snapshot_3": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153749.sna",
+      "sha256": "fbfdb1a74f6070c1ef4e7a1170a1526527365e6d3e643fc10e3833b3fae6df61"
+    },
+    "stability_snapshot_4": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154008.sna",
+      "sha256": "bbbbdb7f7d8dbe5a202e9a0c724f1814b42a1c7a576908b4f726c107f3bc6754"
+    },
+    "stability_snapshot_5": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154441.sna",
+      "sha256": "fa6f82becc0cc7f52960480418719678d072c138055dbfb4c035afc01424fd77"
+    },
+    "stability_snapshot_6": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154556.sna",
+      "sha256": "1eff549b1f392223cc5c720f5c26c5458d0eee58f3cecc4f69e96686b09dcc89"
+    },
+    "stability_snapshot_7": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154913.sna",
+      "sha256": "1f3e0266c19fa6d44b2d31d0d353cf870a7b3bc4df9dda68961412398afde26a"
+    },
+    "stability_snapshot_8": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_155325.sna",
+      "sha256": "603778559e5f01881c17a4484df2652313aae04329935974acdf6e0e437e73af"
+    },
+    "stability_snapshot_9": {
+      "path": "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_155909.sna",
+      "sha256": "bd94fca91cda275b39f08e4a26ec7d3702c7fa9bf9e2d3bbaa8e24066bc1a2f2"
+    },
+    "audio_report": {
+      "path": "research/runs/20261013T-N09-audio-current/release-audio-report.json",
+      "sha256": "87a2b66e572f57a55458d779ab0b9be9414e48d14f4bfdea37e6caafae0d8bad"
+    },
+    "music_wav": {
+      "path": "research/runs/20261013T-N09-audio-current/phase-current-candidate.wav",
+      "sha256": "152c38a9c80d09c8b309215e0342d566463e605a201248fdc0e8e393537d9e5d"
+    },
+    "music_analysis": {
+      "path": "research/runs/20261013T-N09-audio-current/phase-analysis.json",
+      "sha256": "cc5aa29adb8e0502006cf630bb403010dfebeb7c39a116fb7cb987c22a27f6d8"
+    },
+    "sfx_wav": {
+      "path": "research/runs/20261013T-N09-audio-confirmed/sfx-isolated-success.wav",
+      "sha256": "157886eda8ebca424f80f21a00320423500125fc4a31eb671e7dfcfd26c8ff87"
+    },
+    "sfx_analysis": {
+      "path": "research/runs/20261013T-N09-audio-confirmed/events-analysis.json",
+      "sha256": "e1891bc837271669436bc09b63813ce94a9658bdfdec4cf20f677e1e5b761bd2"
+    },
+    "sfx_session": {
+      "path": "research/runs/20261013T201952Z-session-f8212ae6/result.json",
+      "sha256": "d17df116bea04700d9e491197fc78491b6d609e30bbf52567b05b69ad5947ddb"
+    },
+    "modular_disk_report": {
+      "path": "research/runs/20261013T-N09-package/modular-disk-report.json",
+      "sha256": "ae38754c232d5b82090a25b61cee097bdcae3ac8599c5ac8925f873d3ea12b61"
+    },
+    "manual_1": {
+      "path": "research/runs/20261013T-N04-path/space-launch/20261013T055825Z-session-aae02865/session.log",
+      "sha256": "602fb95c179bdccf2b18ec81052d42dd2762215a5c281b99075c96a9cdd28ae6"
+    },
+    "manual_2": {
+      "path": "research/runs/20261013T-N06-playthrough/observation.json",
+      "sha256": "9e62d709952e30f0595fdf1d51d6e298cb4b49279b0cdea534016031d6e6156e"
+    },
+    "manual_package_1_session": {
+      "path": "research/runs/20261013T201603Z-session-4210cd84/session.log",
+      "sha256": "12163d571f2993c9afb652ad79e7f2e5997a84ec75f3563ab2de9e80aa54937c"
+    },
+    "manual_package_1_result": {
+      "path": "research/runs/20261013T201603Z-session-4210cd84/result.json",
+      "sha256": "18895a493a00eb4729ab77630a9dfb4479fdea30cd5645383b004c18cfbf23e3"
+    },
+    "manual_package_2_session": {
+      "path": "research/runs/20261013T201648Z-session-3dcb8267/session.log",
+      "sha256": "307c37ba3d10b874894637c4243b559112194d69a375b127b922b15ca098402f"
+    },
+    "manual_package_2_result": {
+      "path": "research/runs/20261013T201648Z-session-3dcb8267/result.json",
+      "sha256": "3fd4cbc534a574fe708e05b4f899e42eb7b29b01c7e505890ecaa159e38a8c2b"
+    },
+    "manual_package_3_session": {
+      "path": "research/runs/20261013T201727Z-session-7bb72753/session.log",
+      "sha256": "1595329ba08c4c19f15b2d59135739623702913abfca9e5d38ab772d6c2d5be0"
+    },
+    "manual_package_3_result": {
+      "path": "research/runs/20261013T201727Z-session-7bb72753/result.json",
+      "sha256": "e9b932de8f174a1accbe2754f1b63c5f41a1145e19b9da74cafc47e9e1bf4134"
+    },
+    "package_launch_1_log": {
+      "path": "research/runs/20261013T201603Z-session-4210cd84/session.log",
+      "sha256": "12163d571f2993c9afb652ad79e7f2e5997a84ec75f3563ab2de9e80aa54937c"
+    },
+    "package_launch_1_result": {
+      "path": "research/runs/20261013T201603Z-session-4210cd84/result.json",
+      "sha256": "18895a493a00eb4729ab77630a9dfb4479fdea30cd5645383b004c18cfbf23e3"
+    },
+    "package_launch_2_log": {
+      "path": "research/runs/20261013T201648Z-session-3dcb8267/session.log",
+      "sha256": "307c37ba3d10b874894637c4243b559112194d69a375b127b922b15ca098402f"
+    },
+    "package_launch_2_result": {
+      "path": "research/runs/20261013T201648Z-session-3dcb8267/result.json",
+      "sha256": "3fd4cbc534a574fe708e05b4f899e42eb7b29b01c7e505890ecaa159e38a8c2b"
+    },
+    "package_launch_3_log": {
+      "path": "research/runs/20261013T201727Z-session-7bb72753/session.log",
+      "sha256": "1595329ba08c4c19f15b2d59135739623702913abfca9e5d38ab772d6c2d5be0"
+    },
+    "package_launch_3_result": {
+      "path": "research/runs/20261013T201727Z-session-7bb72753/result.json",
+      "sha256": "e9b932de8f174a1accbe2754f1b63c5f41a1145e19b9da74cafc47e9e1bf4134"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "campaign_caprice_1",
+      "kind": "caprice",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_1_session",
+            "campaign_caprice_1_session"
+          ]
+        },
+        "all_24_arenas": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_1_snapshot"
+          ]
+        },
+        "terminal_snapshot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_1_snapshot"
+          ]
+        },
+        "new_game_or_win_screen": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_1_snapshot"
+          ]
+        },
+        "cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_1_session"
+          ]
+        }
+      },
+      "snapshot": "research/runs/20261013T-N08-campaign-replay-two/captures/snapshot_20261013_151812.sna",
+      "campaign_report": "research/runs/20261013T-N08-campaign-replay-two/complete-campaign-report.json",
+      "session_result": "research/runs/20261013T-N08-campaign-replay-two/sessions/20261013T191052Z-session-2314a412/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "campaign_caprice_2",
+      "kind": "caprice",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_2_session",
+            "campaign_caprice_2_session"
+          ]
+        },
+        "all_24_arenas": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_2_snapshot"
+          ]
+        },
+        "terminal_snapshot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_2_snapshot"
+          ]
+        },
+        "new_game_or_win_screen": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_2_snapshot"
+          ]
+        },
+        "cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_caprice_2_session"
+          ]
+        }
+      },
+      "snapshot": "research/runs/20261013T-N08-campaign-replay-three/captures/snapshot_20261013_152640.sna",
+      "campaign_report": "research/runs/20261013T-N08-campaign-replay-three/complete-campaign-report.json",
+      "session_result": "research/runs/20261013T-N08-campaign-replay-three/sessions/20261013T191858Z-session-337b84d8/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "campaign_1984",
+      "kind": "1984",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_1984_session",
+            "campaign_1984_session"
+          ]
+        },
+        "all_24_arenas": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_1984_snapshot"
+          ]
+        },
+        "terminal_snapshot": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_1984_snapshot"
+          ]
+        },
+        "new_game_or_win_screen": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_1984_snapshot"
+          ]
+        },
+        "cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "campaign_1984_session"
+          ]
+        }
+      },
+      "snapshot": "research/runs/20261013T-N08-emulator-1984/captures/auto.sna",
+      "campaign_report": "research/runs/20261013T-N08-emulator-1984/campaign-report.json",
+      "session_result": "research/runs/20261013T-N08-emulator-1984/sessions/20261013T195929Z-session-5c61126b/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "stability_30m",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "duration_30m": {
+          "status": "PASS",
+          "evidence": [
+            "stability_session"
+          ]
+        },
+        "pause_resume": {
+          "status": "PASS",
+          "evidence": [
+            "stability_session"
+          ]
+        },
+        "reload": {
+          "status": "PASS",
+          "evidence": [
+            "stability_session"
+          ]
+        },
+        "cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "stability_session"
+          ]
+        },
+        "candidate_image_checkpoints": {
+          "status": "PASS",
+          "evidence": [
+            "stability_snapshot_1",
+            "stability_snapshot_2",
+            "stability_snapshot_3",
+            "stability_snapshot_4",
+            "stability_snapshot_5",
+            "stability_snapshot_6",
+            "stability_snapshot_7",
+            "stability_snapshot_8",
+            "stability_snapshot_9"
+          ]
+        }
+      },
+      "session_result": "research/runs/20261013T-N08-stability-35min/sessions/20261013T192847Z-session-1fbf357b/result.json",
+      "snapshots": [
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153032.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153138.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_153749.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154008.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154441.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154556.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_154913.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_155325.sna",
+        "research/runs/20261013T-N08-stability-35min/captures/snapshot_20261013_155909.sna"
+      ],
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "audio_pcm",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "melody_changes": {
+          "status": "PASS",
+          "evidence": [
+            "music_wav",
+            "music_analysis"
+          ]
+        },
+        "bass_changes": {
+          "status": "PASS",
+          "evidence": [
+            "music_wav",
+            "music_analysis"
+          ]
+        },
+        "tempo_stable": {
+          "status": "PASS",
+          "evidence": [
+            "music_wav",
+            "music_analysis"
+          ]
+        },
+        "candidate_identity": {
+          "status": "PASS",
+          "evidence": [
+            "music_wav",
+            "music_analysis"
+          ]
+        },
+        "sfx_coexists": {
+          "status": "PASS",
+          "evidence": [
+            "sfx_wav",
+            "sfx_analysis",
+            "sfx_session"
+          ]
+        },
+        "pause_silence_resume": {
+          "status": "PASS",
+          "evidence": [
+            "sfx_wav",
+            "sfx_analysis",
+            "sfx_session",
+            "audio_report"
+          ]
+        }
+      },
+      "analysis": "research/runs/20261013T-N09-audio-current/release-audio-report.json",
+      "session_result": "research/runs/20261013T201952Z-session-f8212ae6/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "modular_disk_load",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "boot_program": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "chapter_1_load": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "chapter_2_load": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "chapter_3_load": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "chapter_4_load": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "unload_or_reuse": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        },
+        "disk_integrity": {
+          "status": "PASS",
+          "evidence": [
+            "modular_disk_report"
+          ]
+        }
+      },
+      "disk_report": "research/runs/20261013T-N09-package/modular-disk-report.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "manual_controls",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "movement": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        },
+        "jump": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        },
+        "return_action": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        },
+        "pause_resume": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        },
+        "death_retry": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        },
+        "new_game": {
+          "status": "PASS",
+          "evidence": [
+            "manual_1",
+            "manual_2",
+            "manual_package_1_session",
+            "manual_package_1_result",
+            "manual_package_2_session",
+            "manual_package_2_result",
+            "manual_package_3_session",
+            "manual_package_3_result"
+          ]
+        }
+      },
+      "active_process_count_after": 0,
+      "emulator_processes_after": []
+    },
+    {
+      "case_id": "package_cold_launch_1",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        },
+        "start_game": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        },
+        "move_jump_action": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        },
+        "pause_resume": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        },
+        "exit_and_cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        },
+        "disk_hash_unchanged": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_1_log",
+            "package_launch_1_result"
+          ]
+        }
+      },
+      "session_result": "research/runs/20261013T201603Z-session-4210cd84/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": [],
+      "session_json": "research/runs/20261013T201603Z-session-4210cd84/session.json"
+    },
+    {
+      "case_id": "package_cold_launch_2",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        },
+        "start_game": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        },
+        "move_jump_action": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        },
+        "pause_resume": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        },
+        "exit_and_cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        },
+        "disk_hash_unchanged": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_2_log",
+            "package_launch_2_result"
+          ]
+        }
+      },
+      "session_result": "research/runs/20261013T201648Z-session-3dcb8267/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": [],
+      "session_json": "research/runs/20261013T201648Z-session-3dcb8267/session.json"
+    },
+    {
+      "case_id": "package_cold_launch_3",
+      "status": "PASS",
+      "candidate_dsk_sha256": "034efbab917c1ec318cf25312aa7842d4ff74a4c306a3f48f6890f4995dc1f8c",
+      "checks": {
+        "cold_boot": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        },
+        "start_game": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        },
+        "move_jump_action": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        },
+        "pause_resume": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        },
+        "exit_and_cleanup": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        },
+        "disk_hash_unchanged": {
+          "status": "PASS",
+          "evidence": [
+            "package_launch_3_log",
+            "package_launch_3_result"
+          ]
+        }
+      },
+      "session_result": "research/runs/20261013T201727Z-session-7bb72753/result.json",
+      "active_process_count_after": 0,
+      "emulator_processes_after": [],
+      "session_json": "research/runs/20261013T201727Z-session-7bb72753/session.json"
+    }
+  ],
+  "run_counts": {
+    "campaigns_pass": 3,
+    "stability_pass": 1,
+    "package_cold_launch_pass": 3,
+    "audio_timeout_attempts_excluded": 1
+  },
+  "limitations": [
+    "No physical CPC tested.",
+    "Campaign completion uses deterministic replay; latest package launch tests use physical key input.",
+    "The prototype implements 24 arenas, not all proposed narrative scenes.",
+    "Audio is objectively analyzed PCM; subjective listening is not certified."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ticks": 7308,
+  "sha256": "403db8fe33638a75df7324a30c6f0f3fcd0ef92db7ff07abf1293b78600dfcaf",
+  "rle_bytes": 1630,
+  "rle_sha256": "7ff796feb16e6f35cc7f698c3c77d305733392062b997cb8ade118de9a2d27b7",
+  "expected_terminal": {
+    "stage": 23,
+    "mode": 4,
+    "score": 36375
+  }
+}

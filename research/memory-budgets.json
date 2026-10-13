@@ -1,0 +1,510 @@
+{
+  "kind": "proposed_reservations_not_linker_measurements",
+  "date": "2026-10-10",
+  "architectures": {
+    "A": {
+      "banks": [
+        {
+          "bank": 0,
+          "cpu_base": 0,
+          "regions": [
+            {
+              "name": "vectors",
+              "offset": 0,
+              "bytes": 256
+            },
+            {
+              "name": "resident_code",
+              "offset": 256,
+              "bytes": 8960
+            },
+            {
+              "name": "music_sfx_data",
+              "offset": 9216,
+              "bytes": 3072
+            },
+            {
+              "name": "state",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "sector_staging",
+              "offset": 14336,
+              "bytes": 1024
+            },
+            {
+              "name": "stack_guard",
+              "offset": 15360,
+              "bytes": 256
+            },
+            {
+              "name": "stack",
+              "offset": 15616,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "bank": 1,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "clean_background",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 2,
+          "cpu_base": 32768,
+          "regions": [
+            {
+              "name": "resident_logic",
+              "offset": 0,
+              "bytes": 8192
+            },
+            {
+              "name": "scratch_foreground",
+              "offset": 8192,
+              "bytes": 4096
+            },
+            {
+              "name": "save_under",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "work_guards",
+              "offset": 14336,
+              "bytes": 1024
+            },
+            {
+              "name": "margin",
+              "offset": 15360,
+              "bytes": 1024
+            }
+          ]
+        },
+        {
+          "bank": 3,
+          "cpu_base": 49152,
+          "regions": [
+            {
+              "name": "visible_screen",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 4,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "player_resources",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 5,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "room_tiles",
+              "offset": 0,
+              "bytes": 12288
+            },
+            {
+              "name": "collision_index",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 6,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "npc_animation",
+              "offset": 0,
+              "bytes": 12288
+            },
+            {
+              "name": "effects",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 7,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "packed_cache",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "index_margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        }
+      ],
+      "time_ms": {
+        "render": 8.5,
+        "scroll": 0,
+        "simulation": 2,
+        "audio_isr": 1.5,
+        "bank": 0.5,
+        "hud": 1,
+        "other": 2.5
+      },
+      "period_ms_nominal": 20,
+      "margin_ms": 4
+    },
+    "B": {
+      "banks": [
+        {
+          "bank": 0,
+          "cpu_base": 0,
+          "regions": [
+            {
+              "name": "vectors",
+              "offset": 0,
+              "bytes": 256
+            },
+            {
+              "name": "resident_code",
+              "offset": 256,
+              "bytes": 8960
+            },
+            {
+              "name": "music_sfx_data",
+              "offset": 9216,
+              "bytes": 3072
+            },
+            {
+              "name": "state",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "sector_staging",
+              "offset": 14336,
+              "bytes": 1024
+            },
+            {
+              "name": "stack_guard",
+              "offset": 15360,
+              "bytes": 256
+            },
+            {
+              "name": "stack",
+              "offset": 15616,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "bank": 1,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "clean_background",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 2,
+          "cpu_base": 32768,
+          "regions": [
+            {
+              "name": "screen_a",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 3,
+          "cpu_base": 49152,
+          "regions": [
+            {
+              "name": "screen_b",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 4,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "player_resources",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 5,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "room",
+              "offset": 0,
+              "bytes": 12288
+            },
+            {
+              "name": "collision_index",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 6,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "npc_effects",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 7,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "packed_cache",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "index_margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        }
+      ],
+      "time_ms": {
+        "render": 22,
+        "scroll": 0,
+        "simulation": 4,
+        "audio_isr": 3,
+        "bank": 1,
+        "hud": 1,
+        "other": 1
+      },
+      "period_ms_nominal": 40,
+      "margin_ms": 8
+    },
+    "C": {
+      "banks": [
+        {
+          "bank": 0,
+          "cpu_base": 0,
+          "regions": [
+            {
+              "name": "vectors",
+              "offset": 0,
+              "bytes": 256
+            },
+            {
+              "name": "resident_code",
+              "offset": 256,
+              "bytes": 8960
+            },
+            {
+              "name": "music_sfx_data",
+              "offset": 9216,
+              "bytes": 3072
+            },
+            {
+              "name": "state",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "sector_staging",
+              "offset": 14336,
+              "bytes": 1024
+            },
+            {
+              "name": "stack_guard",
+              "offset": 15360,
+              "bytes": 256
+            },
+            {
+              "name": "stack",
+              "offset": 15616,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "bank": 1,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "hud_page",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 2,
+          "cpu_base": 32768,
+          "regions": [
+            {
+              "name": "scroll_first",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 3,
+          "cpu_base": 49152,
+          "regions": [
+            {
+              "name": "scroll_second",
+              "offset": 0,
+              "bytes": 16384
+            }
+          ]
+        },
+        {
+          "bank": 4,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "player_resources",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 5,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "tiles",
+              "offset": 0,
+              "bytes": 8192
+            },
+            {
+              "name": "zone_map",
+              "offset": 8192,
+              "bytes": 6144
+            },
+            {
+              "name": "collisions",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 6,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "npc_effects",
+              "offset": 0,
+              "bytes": 14336
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        },
+        {
+          "bank": 7,
+          "cpu_base": 16384,
+          "regions": [
+            {
+              "name": "zone_cache",
+              "offset": 0,
+              "bytes": 12288
+            },
+            {
+              "name": "edge_strips",
+              "offset": 12288,
+              "bytes": 2048
+            },
+            {
+              "name": "margin",
+              "offset": 14336,
+              "bytes": 2048
+            }
+          ]
+        }
+      ],
+      "time_ms": {
+        "render": 17,
+        "scroll": 6,
+        "simulation": 3,
+        "audio_isr": 3,
+        "bank": 1,
+        "hud": 1,
+        "other": 1
+      },
+      "period_ms_nominal": 40,
+      "margin_ms": 8
+    }
+  }
+}

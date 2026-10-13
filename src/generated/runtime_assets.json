@@ -1,0 +1,170 @@
+{
+  "format": "mode0-v1",
+  "background_compression": "ZX0 standard forward",
+  "resources": [
+    {
+      "id": 1,
+      "source": "assets/source/canonical/01-copias.background.scr",
+      "source_sha256": "ffb6d236438a3570a761701c1b2a214b02375ee31816194d5f6e1877051c601f",
+      "runtime_sha256": "bb941bbda0f264e19f8df30a419b2d840e64b5cb3f2402db21f432fbdb6a6961",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 16384,
+      "packed_bytes": 893,
+      "tile_bytes": 4736,
+      "map_bytes": 500
+    },
+    {
+      "id": 2,
+      "source": "assets/source/canonical/02-produccion.background.scr",
+      "source_sha256": "b54eca711180acb7dc6958c988fe80693e6e0627718d29eacbefad8461bc886f",
+      "runtime_sha256": "f2b5f1503b7ceebe12b2291e6f41dd3e1fa3fac2ecf6c6142867d48a85c7e8c1",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 16384,
+      "packed_bytes": 1077,
+      "tile_bytes": 5056,
+      "map_bytes": 500
+    },
+    {
+      "id": 3,
+      "source": "assets/source/canonical/03-calle.background.scr",
+      "source_sha256": "11d5e25627879734b590edaefc94c4538f5333cdfab24060c7bb71cbbe3bd3d7",
+      "runtime_sha256": "5dbe124bbdcb9d957a0c84fd59f2806d3a77ee3c80e13463a5fd31f7f5dd3a62",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 16384,
+      "packed_bytes": 996,
+      "tile_bytes": 6432,
+      "map_bytes": 500
+    },
+    {
+      "id": 4,
+      "source": "assets/source/canonical/04-purple.background.scr",
+      "source_sha256": "0d34c4c686538785f36e33beaa8ffcf19b717189290293f865ae0de06d8bc52a",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 16384,
+      "packed_bytes": 978,
+      "tile_bytes": 4736,
+      "map_bytes": 500
+    },
+    {
+      "id": "pitu_r_0",
+      "source": "assets/source/canonical/g_pitu.masked.bin",
+      "source_sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "pitu_r_1",
+      "source": "assets/source/canonical/g_pitu.masked.bin",
+      "source_sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    },
+    {
+      "id": "pitu_l_0",
+      "source": "assets/source/canonical/g_pitu.masked.bin",
+      "source_sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "pitu_l_1",
+      "source": "assets/source/canonical/g_pitu.masked.bin",
+      "source_sha256": "e53b17afd318de70fad0422705f578514d59de902fb17ef0f25391b4d10898b8",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    },
+    {
+      "id": "pitu_walk_r_0",
+      "source": "assets/source/canonical/g_pitu_walk.masked.bin",
+      "source_sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "pitu_walk_r_1",
+      "source": "assets/source/canonical/g_pitu_walk.masked.bin",
+      "source_sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    },
+    {
+      "id": "pitu_walk_l_0",
+      "source": "assets/source/canonical/g_pitu_walk.masked.bin",
+      "source_sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "pitu_walk_l_1",
+      "source": "assets/source/canonical/g_pitu_walk.masked.bin",
+      "source_sha256": "11385ef9ab926872f70b8109af56c34ff03a578357aa82793d699b2f83346179",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    },
+    {
+      "id": "alberto_r_0",
+      "source": "assets/source/canonical/g_alberto.masked.bin",
+      "source_sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "alberto_r_1",
+      "source": "assets/source/canonical/g_alberto.masked.bin",
+      "source_sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    },
+    {
+      "id": "alberto_l_0",
+      "source": "assets/source/canonical/g_alberto.masked.bin",
+      "source_sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 512,
+      "width_bytes": 8,
+      "height": 32
+    },
+    {
+      "id": "alberto_l_1",
+      "source": "assets/source/canonical/g_alberto.masked.bin",
+      "source_sha256": "2d13cf507d9005c55f0b49851f3caa862ace7353f1c1189758ac0c8cdd6add3e",
+      "runtime_sha256": "0d36122726abd6c13bbc0c1d92b1d521d000ecaa03acf12f4ad058a9f1e76553",
+      "transform": "remove study-only machines; draw live targets at runtime",
+      "bytes": 576,
+      "width_bytes": 9,
+      "height": 32
+    }
+  ]
+}

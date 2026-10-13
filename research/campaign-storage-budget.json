@@ -1,0 +1,34 @@
+{
+  "status": "proposed_quotas_not_measured_assets",
+  "date": "2026-10-11",
+  "geometry": {
+    "tracks_per_side": 40,
+    "sectors_per_track": 9,
+    "sector_bytes": 512,
+    "directory_bytes": 2048
+  },
+  "common_memory_candidate": "A in research/memory-budgets.json; RAM2 logic subdivision proposed 4 KiB fixed + 4 KiB overlay",
+  "independent_block_input_max_bytes": 4096,
+  "independent_block_output_max_bytes": 4096,
+  "sides": {
+    "A": {
+      "common_boot_engine_pitu": 40960,
+      "chapter_1_all_packages": 45056,
+      "chapter_2_all_packages": 49152,
+      "intro": 8192,
+      "side_change_interlude": 6144,
+      "internal_index_checksums": 4096,
+      "headers_rounding_placement": 4096,
+      "unassigned_reserve": 24576
+    },
+    "B": {
+      "common_boot_engine_pitu": 40960,
+      "chapter_3_all_packages": 49152,
+      "chapter_4_all_packages": 53248,
+      "ending_credits": 10240,
+      "internal_index_checksums": 4096,
+      "headers_rounding_placement": 4096,
+      "unassigned_reserve": 20480
+    }
+  }
+}

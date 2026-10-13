@@ -1,0 +1,17 @@
+{
+  "id": "arena_01",
+  "visual_id": "01-copias",
+  "geometry_id": "opening_arena_v1",
+  "spawn": {
+    "x": 24,
+    "y": 152
+  },
+  "alberto": false,
+  "machines": [
+    {
+      "x": 110,
+      "ground_y": 184,
+      "direction": 1
+    }
+  ]
+}

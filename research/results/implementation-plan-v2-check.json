@@ -1,0 +1,20 @@
+{
+  "scope": "Documentation validation only; no game build or CPC execution",
+  "plan_version": "2",
+  "task_count": 52,
+  "optimization_tasks": 17,
+  "optimization_test_cases": 20,
+  "all_tasks_pending": true,
+  "dependency_graph_acyclic": true,
+  "titles_and_dependencies_match": true,
+  "local_links_checked": 58,
+  "negative_cases_rejected": [
+    "duplicate",
+    "missing_dependency",
+    "cycle",
+    "done_without_evidence"
+  ],
+  "first_enabled_task": "O00",
+  "human_gate_and_hardware_dependencies_checked": true,
+  "hardware_verified": false
+}

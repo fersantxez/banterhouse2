@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "machine": "Amstrad CPC 6128 classic, 128 KiB, isolated bank fixture",
+  "code": { "start": "0x0100", "end_exclusive": "0x3000", "purpose": "fixed RAM0 code while the 0x4000 window is paged" },
+  "globals": { "start": "0x3000", "end_exclusive": "0x3c00", "purpose": "fixed RAM0 globals and bank manager state" },
+  "stack": { "start": "0xbcf0", "top_exclusive": "0xbff0", "reserved_bytes": 768 },
+  "stack_guard": { "start": "0xbcf0", "end_exclusive": "0xbdf0", "reserved_bytes": 256 },
+  "clean_background": { "start": "0x8000", "end_exclusive": "0xbcf0", "reserved_bytes": 15600 },
+  "visible_screen": { "start": "0xc000", "end_exclusive": "0x10000", "reserved_bytes": 16384 },
+  "bootstrap": { "start": "0x0100", "end_exclusive": "0x0100", "purpose": "AMSDOS loads and enters the linked binary; counted in code area" }
+}

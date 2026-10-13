@@ -1,0 +1,26 @@
+{
+  "fixture_id": "legacy-render-shared-domain-v1",
+  "source_snapshot": "research/runs/20261011T200531Z-O01-legacy/snapshot/banterhouse",
+  "historical_dsk": "not-loaded-or-run",
+  "input_hashes": {
+    "dsk": "dbeeeef2481c7fef8c973f7cfabb1a108ac268f65571235a96053b32a3d05513",
+    "cdt": "b9d8885cf8bd45e3a9cb9eeba63ece9d1e3eaa3ee92deec10f2015364929da77"
+  },
+  "scene": {
+    "mode": 0,
+    "background": "assets/cpc-studies/01-copias.background.scr",
+    "palette": "assets/cpc-studies/01-copias.hwpal",
+    "actors": ["Pitu: canonical idle 16x32", "Alberto: canonical idle 16x32"],
+    "commands_by_tick": [
+      {"tick": 0, "op": "present_static_background_and_hud"},
+      {"tick": 1, "op": "draw_pitu", "x": 24, "y": 152, "pose": "idle_right"},
+      {"tick": 2, "op": "draw_alberto", "x": 112, "y": 152, "pose": "idle_left"},
+      {"tick": 3, "op": "move_pitu", "x": 25, "y": 152},
+      {"tick": 4, "op": "move_alberto", "x": 111, "y": 152},
+      {"tick": 5, "op": "score_and_message_change"},
+      {"tick": 6, "op": "remove_alberto"}
+    ],
+    "limits": ["Same static 160x200 M0 target; old game loop/render path not yet adapted.", "No performance result is claimed."]
+  },
+  "provenance": "Read-only source snapshot. Source build was not run; historical binary hashes are recorded independently."
+}

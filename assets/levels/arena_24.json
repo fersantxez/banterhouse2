@@ -1,0 +1,27 @@
+{
+  "id": "arena_24",
+  "visual_id": "04-purple",
+  "geometry_id": "opening_arena_v1",
+  "spawn": {
+    "x": 24,
+    "y": 152
+  },
+  "alberto": true,
+  "machines": [
+    {
+      "x": 135,
+      "ground_y": 184,
+      "direction": 0
+    },
+    {
+      "x": 120,
+      "ground_y": 112,
+      "direction": 1
+    },
+    {
+      "x": 23,
+      "ground_y": 64,
+      "direction": 0
+    }
+  ]
+}

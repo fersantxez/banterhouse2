@@ -1,0 +1,127 @@
+{
+  "consulted": "2026-10-10",
+  "repositories": [
+    {
+      "repo": "lronaldo/cpctelera",
+      "url": "https://github.com/lronaldo/cpctelera",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "lgpl-3.0",
+        "name": "GNU Lesser General Public License v3.0",
+        "spdx_id": "LGPL-3.0",
+        "url": "https://api.github.com/licenses/lgpl-3.0",
+        "node_id": "MDc6TGljZW5zZTEy"
+      },
+      "commit": "b3f48a1b49dc9d99b73c75f98cefaf9c1e60dc31",
+      "commit_date": "2026-05-06T11:55:09Z",
+      "pushed_at": "2026-05-06T11:56:42Z"
+    },
+    {
+      "repo": "EdouardBERGE/rasm",
+      "url": "https://github.com/EdouardBERGE/rasm",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "commit": "d00607819314173e2981869f0d7c0238edfa63f0",
+      "commit_date": "2026-10-06T07:37:20Z",
+      "pushed_at": "2026-10-06T11:34:23Z"
+    },
+    {
+      "repo": "z88dk/z88dk",
+      "url": "https://github.com/z88dk/z88dk",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "commit": "9ab7f852957d9e9a0829e646401367ddaf8614eb",
+      "commit_date": "2026-10-10T15:51:47Z",
+      "pushed_at": "2026-10-10T21:37:56Z"
+    },
+    {
+      "repo": "jjaranda13/8BP",
+      "url": "https://github.com/jjaranda13/8BP",
+      "default_branch": "master",
+      "archived": false,
+      "license": null,
+      "commit": "7c8948734ffd9fbad431aa3590f34d3955b05212",
+      "commit_date": "2026-09-07T18:00:08Z",
+      "pushed_at": "2026-09-07T18:00:14Z"
+    },
+    {
+      "repo": "leuat/TRSE",
+      "url": "https://github.com/leuat/TRSE",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "commit": "8e8f246695403523dd8d90d97a2bffa833d7f975",
+      "commit_date": "2026-10-09T21:34:15Z",
+      "pushed_at": "2026-10-09T21:34:21Z"
+    },
+    {
+      "repo": "jeromelesaux/martine",
+      "url": "https://github.com/jeromelesaux/martine",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "gpl-2.0",
+        "name": "GNU General Public License v2.0",
+        "spdx_id": "GPL-2.0",
+        "url": "https://api.github.com/licenses/gpl-2.0",
+        "node_id": "MDc6TGljZW5zZTg="
+      },
+      "commit": "7fb4e5ff1533688d48f6a9300b88cbf1776fb435",
+      "commit_date": "2026-05-11T13:04:26Z",
+      "pushed_at": "2026-07-04T05:21:51Z"
+    },
+    {
+      "repo": "einar-saukas/ZX0",
+      "url": "https://github.com/einar-saukas/ZX0",
+      "default_branch": "main",
+      "archived": false,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "commit": "ecde3a2ae05061fe06469ed46df81a33b7de7d86",
+      "commit_date": "2021-12-17T20:42:33Z",
+      "pushed_at": "2023-09-24T19:01:41Z"
+    },
+    {
+      "repo": "emmanuel-marty/lzsa",
+      "url": "https://github.com/emmanuel-marty/lzsa",
+      "default_branch": "master",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "commit": "15ee2dfe118eeb8f7683ca44f64821c3a61ca1e5",
+      "commit_date": "2023-02-27T17:23:00Z",
+      "pushed_at": "2023-12-24T17:38:48Z"
+    }
+  ]
+}

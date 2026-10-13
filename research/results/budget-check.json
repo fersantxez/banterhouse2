@@ -1,0 +1,23 @@
+{
+  "A": {
+    "physical_bytes_reserved": 131072,
+    "bank_count": 8,
+    "nominal_work_ms_proposed": 16.0,
+    "nominal_margin_ms_proposed": 4,
+    "result": "PASS_arithmetic_only"
+  },
+  "B": {
+    "physical_bytes_reserved": 131072,
+    "bank_count": 8,
+    "nominal_work_ms_proposed": 32,
+    "nominal_margin_ms_proposed": 8,
+    "result": "PASS_arithmetic_only"
+  },
+  "C": {
+    "physical_bytes_reserved": 131072,
+    "bank_count": 8,
+    "nominal_work_ms_proposed": 32,
+    "nominal_margin_ms_proposed": 8,
+    "result": "PASS_arithmetic_only"
+  }
+}
