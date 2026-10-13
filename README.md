@@ -1,5 +1,7 @@
 # Banterhouse 2 · ¡Devuelto!
 
+[Web de Banterhouse 2](https://banterhouse-2-devuelto.freshkid64.chatgpt.site) · [Banterhouse 1: repositorio](https://github.com/fersantxez/banterhouse) · [Banterhouse 1: jugar en la web](https://banterhouse-128k.donatoexposito.chatgpt.site/#jugar)
+
 Banterhouse 2 es un arcade para el **Amstrad CPC 6128 de 128 KiB**. Pitu y Alberto vuelven a la agencia de [Banterhouse](https://github.com/fersantxez/banterhouse), aunque esta vez se juega de otra manera: hay que saltar entre plataformas y devolver los papeles que disparan las máquinas hasta conseguir apagarlas.
 
 La idea viene de las ganas de hacer un juego como los que recordamos del CPC: rápido, con controles sencillos y un sonido para cada salto y cada acierto. Chuckie Egg fue una de las primeras referencias. Los personajes vienen de *Creatas y Ejecutas*; el color y los guiños a Prince, del pop de los ochenta.
