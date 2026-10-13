@@ -24,3 +24,4 @@ Guardamos los planes y los resultados de las pruebas para poder consultar por qu
 - [Planes y tareas](implementation/README.md).
 - [Informe del disco publicado](DELIVERY_REPORT.md), del 13 de octubre de 2026.
 - [Revisión del repositorio](development/PREPARATION_REPORT.md).
+- [Nota para continuar el trabajo](HANDOFF.md), tras la publicación y revisión de documentación.
